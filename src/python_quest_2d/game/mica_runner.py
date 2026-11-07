@@ -167,4 +167,5 @@ class MicaRunner:
         profile.clear()
         profile.update(updated)
         self.status = "committed"
-        self.message = f"Mica brought {self._target} online."
+        device = next(d for d in self.world.map["mica_devices"] if d["id"] == self._target)
+        self.message = device.get("success", f"Mica brought {self._target} online.")

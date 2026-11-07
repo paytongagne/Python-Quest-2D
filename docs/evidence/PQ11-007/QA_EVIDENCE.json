@@ -1,0 +1,25 @@
+{
+  "ticket_id": "PQ11-007",
+  "source_sha256": "2b3eff3336bdc62c73618fd6171ceec0d71dea7a88f5b1057ac2552484453dbd",
+  "source_tree": "92047757e0bf7b810e44940691d378ae101715be",
+  "source_hash_basis": "SHA-256 of the tested staged Git index entries before updating ticket evidence",
+  "checkpoint_path": "checkpoint/pq11-007",
+  "test_runs": [
+    {
+      "command": "python -m unittest discover -s tests -p test_*.py -v",
+      "host": "Windows-11-10.0.26200-SP0 / Python 3.13.9 / SDL dummy",
+      "exit_code": 0,
+      "passed": 39,
+      "failed": 0,
+      "log_path": "docs/evidence/PQ11-007/TEST_LOG.txt"
+    }
+  ],
+  "mission_ids_validated": [],
+  "applicable_stage10_cases": [
+    "PQ10-TRV-001",
+    "PQ10-TRV-002",
+    "PQ10-TRV-003",
+    "PQ10-TRV-004"
+  ],
+  "results_note": "Orion scripted playthrough proves discovery, gate collision and opening, same saved revision on altered terrain, saved relay state and exact return checkpoint. Keyboard and resized mouse respect locked routes. Star map and journal reject travel during Mica execution. Greenline sector regression fixed and full suite rerun. Native Windows smoke rendered Orion deployment at 1280x720, 1600x900 and 1920x1080 and checked the gate and trace."
+}

@@ -287,6 +287,8 @@ class Game:
             self.world.mica_visual = self.mica_job.visual()
             if status != "running":
                 self.notice = self.mica_job.message
+                if status == "committed":
+                    self.tone("pass")
         w = self.world
         target = max(0, min(w.pos.x - 384, w.map["width"] * 32 - 768))
         w.camera.x += (target - w.camera.x) * (1 - math.exp(-10 * dt))

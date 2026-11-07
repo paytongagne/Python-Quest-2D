@@ -345,24 +345,42 @@ def props(w):
 
 def draw_mica_docks(surface, world):
     from .art import label
-    from .mica_observation import workshop_enabled
+    from .mica_observation import device_locked, device_state, workshop_enabled
 
-    if not workshop_enabled(world.p):
+    enabled = workshop_enabled(world.p)
+    if not enabled and world.zone != "orion_moon":
         return
-    runtime = world.p.get("runtime_v1", {})
-    if not isinstance(runtime, dict) or not isinstance(runtime.get("device_state", {}), dict):
-        return
+    if enabled:
+        for x, y in world.map.get("mica_barriers", []):
+            x, y = x * 32, y * 32
+            box(surface, "#334653", (x + 1, y + 1, 30, 30))
+            box(surface, "#657681", (x + 4, y + 4, 24, 24))
+            for offset in (7, 15, 23):
+                box(surface, "#293d47", (x + offset, y + 6, 3, 20))
+        for gate in world.map.get("mica_gates", []):
+            x, y = (32 * n for n in gate["cell"])
+            online = device_state(world, gate["relay"]) == "online"
+            box(surface, "#203941", (x, y, 32, 32))
+            box(surface, "#87ddb4" if online else "#e1a76c", (x + 2, y + 2, 28, 4))
+            if not online:
+                for offset in (5, 12, 19, 26):
+                    box(surface, "#778e9b", (x + offset, y + 6, 3, 24))
     for device in world.map.get("mica_devices", []):
         if "dock" not in device:
             continue
         x, y = (32 * n + 16 for n in device["dock"])
-        pg.draw.ellipse(surface, "#66b7ac", (x - 16, y - 10, 32, 20), 2)
-        label(surface, "MICA DOCK", x - 31, y + 11, 12, "#a2dbcf", True)
-        x, y = (32 * n + 16 for n in device["cell"])
-        online = runtime.get("device_state", {}).get(f'{world.zone}.{device["id"]}') == "online"
-        color = "#88e3bc" if online else "#f1c582"
-        stamp(surface, "beacon", x, y, color)
-        pg.draw.circle(surface, color, (x, y - 25), 3)
+        locked = device_locked(world, device)
+        color = "#ddad7e" if locked else "#a2dbcf"
+        pg.draw.ellipse(surface, color, (x - 16, y - 10, 32, 20), 2)
+        caption = "DOCK LOCKED" if locked else "B  MICA DOCK"
+        label(surface, caption, x - 43, y + 11, 12, color, True)
+        if enabled:
+            x, y = (32 * n + 16 for n in device["cell"])
+            online = device_state(world, device["id"]) == "online"
+            color = "#88e3bc" if online else "#a18070" if locked else "#f1c582"
+            stamp(surface, "beacon", x, y, color)
+            pg.draw.circle(surface, color, (x, y - 25), 3)
+
 
 def draw(w, bg, lessons, tick, openings=None):
     s = bg.copy()

@@ -70,6 +70,8 @@ class Expeditions:
             + target["name"]
             + ". T opens the star map."
         )
+        if zone == "orion_moon":
+            g.notice += " ION: Check the marked Mica dock north of the landing pad."
         g.presentation.arrive()
         g.persist()
         return True
@@ -221,9 +223,12 @@ class Expeditions:
                 g.scene = "world"
                 self.playing = False
             return True
-        if g.p.get("expedition_job") and g.scene in ("journal", "greenline_travel"):
+        mica = getattr(g, "mica_job", None)
+        if (
+            g.p.get("expedition_job") or (mica is not None and mica.status == "running")
+        ) and g.scene in ("journal", "greenline_travel"):
             if pg.K_1 <= k <= pg.K_8:
-                g.notice = "Mica is still delivering the relay."
+                g.notice = "Finish or recall Mica before traveling."
                 return True
         return False
 

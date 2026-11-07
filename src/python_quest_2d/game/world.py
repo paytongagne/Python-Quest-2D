@@ -4,6 +4,7 @@ import pygame as pg
 
 from ..core.challenges import MAPS
 from .nursery import TRAM
+from .mica_observation import field_obstacles, workshop_enabled
 
 
 class World:
@@ -54,6 +55,8 @@ class World:
             for g in self.map["gates"]
             if g["requires_challenge"] not in self.p["completed"]
         ]
+        if self.map.get("mica_barriers") and workshop_enabled(self.p):
+            obstacles += [pg.Rect(x * 32, y * 32, 32, 32) for x, y in field_obstacles(self)]
         obstacles += [pg.Rect(t["x"] - 15, t["y"] - 10, 30, 20) for t in self.map["interactables"]]
         for axis in (0, 1):
             old = self.pos[axis]

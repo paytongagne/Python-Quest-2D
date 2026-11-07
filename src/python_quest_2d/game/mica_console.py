@@ -8,7 +8,14 @@ from ..core.contracts import ContractError
 from ..core.grade import grade_program
 from ..ui.terminal import Terminal
 from .art import GOLD, INK, MINT, MUTED, PANEL, WHITE, label, rect, wrapped
-from .mica_observation import MicaState, prepare, verify, workshop_enabled
+from .mica_observation import (
+    MicaState,
+    device_locked,
+    device_state,
+    prepare,
+    verify,
+    workshop_enabled,
+)
 from .mica_runner import saved_mica
 
 STARTER = """# Name: Relay routine
@@ -86,16 +93,19 @@ class MicaConsole:
     def edit(self, key):
         self.parent = key
         source = self.data["revisions"][key]["source"] if key else STARTER
+        device = nearby_device(self.game.world)
+        note = device.get("brief") if device else None
         challenge = dict(
             id="mica-library",
             title="Edit Mica program",
             kind="function",
             starter_code=source,
-            story="Save a new revision with Ctrl+S or the Save button. Edit the first # Name: line to name your program.",
+            story=(note + " " if note else "")
+            + "Save a new revision with Ctrl+S or the Save button. Edit the first # Name: line to name your program.",
             lesson="plan(observation) returns actions. Read the robot cell, target and walls from observation to reuse your code.",
             objective="Return moves, scans, waits or a final interact with the target. Mica must stand beside the target to activate it.",
             sample='{"type": "move", "direction": "east"}',
-            hint="The starter routine handles unobstructed east/west routes. Check the robot cell and target position before choosing a direction.",
+            hint="The starter routine handles unobstructed east/west routes. For a detour, search cardinal neighbors inside visible width and height. Skip walls and stop on a tile next to the relay.",
         )
         g = self.game
         g.term = Terminal(challenge, {"drafts": {}})
@@ -131,15 +141,17 @@ class MicaConsole:
             self.message = "Equip a saved revision with Enter first."
             return
         if not device:
-            self.message = "Stand by a Mica dock in the Orientation Hangar or Workshop."
+            self.message = "Stand by a marked Mica dock in the Hangar, Workshop or Orion."
             return
-        state = g.p["runtime_v1"]["device_state"].get(f"{g.world.zone}.{device['id']}")
+        if device_locked(g.world, device):
+            self.message = "Restore the Orion outpost relay to power this dock."
+            return
+        state = device_state(g.world, device["id"])
         if state == "online" and not rehearsal:
             self.message = "This relay is online. Try the other dock or rehearse another revision."
             return
         initial = MicaState(tuple(device["dock"]), device["energy"])
-        # Rehearsals use the original dock state to compare revisions on the same fixture.
-        mica = initial if rehearsal else saved_mica(g.world, initial)
+        mica = saved_mica(g.world, initial)
         try:
             pending = prepare(g.world, mica, device["id"], revision["source"])
         except ValueError as exc:
@@ -161,8 +173,7 @@ class MicaConsole:
             self.message = "Mica's equipment or dock changed. Verify the program again."
             return
         try:
-            if not rehearsal:
-                mica = saved_mica(g.world, mica)
+            mica = saved_mica(g.world, mica)
             result = verify(g.world, mica, pending, report, source)
             if not rehearsal and not result["proposed_intents"]:
                 self.message = (
@@ -269,7 +280,7 @@ class MicaConsole:
         if not workshop_enabled(g.p):
             wrapped(
                 canvas,
-                "Equip Mica with reusable Python programs. Use the practice docks in the Orientation Hangar and the Workshop to test and deploy your code.",
+                "Equip Mica with reusable Python programs. Use the marked docks in the Orientation Hangar, Workshop and Orion to test and deploy your code.",
                 36,
                 115,
                 840,
@@ -316,9 +327,12 @@ class MicaConsole:
         else:
             label(canvas, "Press N to create your first program.", 49, 172, 17, WHITE)
         device = nearby_device(g.world)
-        text = f"DOCK  {device['name']}" if device else "DOCK  Orientation Hangar or Workshop"
+        text = f"DOCK  {device['name']}" if device else "DOCK  Hangar / Workshop / Orion"
         label(canvas, text, 35, 478, 16, MINT, True)
-        wrapped(canvas, self.message, 35, 515, 1000, 17, WHITE)
+        brief = device.get("brief") if device else None
+        if brief:
+            wrapped(canvas, brief, 35, 502, 1000, 15, MUTED)
+        wrapped(canvas, self.message, 35, 548 if brief else 515, 1000, 17, WHITE)
         label(
             canvas,
             "Up/Down Select   Enter Equip   N New   E Edit   Delete Remove",
@@ -404,5 +418,21 @@ class MicaConsole:
         )
         detail = " ".join(str(v) for k, v in step["action"].items() if k != "type")
         wrapped(canvas, detail, x + 15, 306, 455, 17, WHITE)
-        label(canvas, f"{step['from_cell']}  to  {step['to_cell']}", x + 15, 411, 19, WHITE, True)
-        label(canvas, f"Energy remaining  {step['energy_remaining']}", x + 15, 463, 17, MINT, True)
+        cells = [steps[0]["from_cell"], *(entry["to_cell"] for entry in steps)]
+        west = min(cell[0] for cell in cells)
+        north = min(cell[1] for cell in cells)
+        scale = min(
+            24,
+            408 / max(1, max(cell[0] for cell in cells) - west),
+            64 / max(1, max(cell[1] for cell in cells) - north),
+        )
+        points = [
+            (round(x + 26 + (cx - west) * scale), round(383 + (cy - north) * scale))
+            for cx, cy in cells
+        ]
+        pg.draw.lines(canvas, "#527078", False, points, 2)
+        for point in points:
+            pg.draw.circle(canvas, MUTED, point, 3)
+        pg.draw.circle(canvas, GOLD, points[i + 1], 6)
+        label(canvas, f"{step['from_cell']}  to  {step['to_cell']}", x + 15, 459, 17, WHITE, True)
+        label(canvas, f"Energy remaining  {step['energy_remaining']}", x + 15, 500, 17, MINT, True)

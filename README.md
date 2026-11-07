@@ -13,6 +13,8 @@ Move with WASD or arrows, interact with E, run code with Ctrl+Enter, and open th
 
 Press **B** to open Mica's library and **Enter** to enable the workshop. Near the marked dock in the Orientation Hangar or Workshop, press **N** to open a starter program, **Ctrl+S** to save a revision, and **Enter** to equip it. **V** rehearses and records a trace. **D** verifies and deploys, and **Backspace** recalls a running rover. **R** in the library opens saved traces. Pin a run with **C** and select another with the up or down arrow to compare their steps and energy.
 
+On Orion, visit the marked dock north of the landing pad. Bringing the outpost relay online opens the weather gate and powers the transfer dock. Equip the same revision at the second dock. A route search using the observed walls, target and robot cell can adapt to both layouts.
+
 ```sh
 python -m unittest discover -s tests -v
 python tools/check_content.py

@@ -191,5 +191,8 @@
       "x": 1120,
       "y": 1376
     }
-  ]
+  ],
+  "mica_devices": [{"id": "orion-outpost", "name": "Orion outpost relay", "cell": [7, 7], "dock": [3, 7], "energy": 28, "capabilities": ["activate"], "brief": "Bring the outpost relay online. The west dock is aligned with the beacon, and activation opens the weather gate.", "success": "Outpost online. The weather gate is open. Follow the marked route to the transfer dock."}, {"id": "orion-transfer", "name": "Orion transfer relay", "cell": [13, 2], "dock": [12, 4], "energy": 28, "capabilities": ["activate"], "requires_device": "orion-outpost", "brief": "Reuse your program from the outpost. Mica starts where it last stopped. Find a path around the storm barriers to a cell beside this relay.", "success": "Transfer relay online. Both Orion links are restored. Compare the two routes in the Mica library."}],
+  "mica_barriers": [[8,3],[8,4],[8,5],[8,6],[10,5],[10,6],[10,7]],
+  "mica_gates": [{"cell":[8,7],"relay":"orion-outpost"}]
 }

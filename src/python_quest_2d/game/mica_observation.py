@@ -29,6 +29,30 @@ def workshop_enabled(profile):
     return profile.get("settings", {}).get("mica_workshop") is True or protocol.enabled()
 
 
+def device_state(world, identifier):
+    runtime = world.p.get("runtime_v1", {})
+    if not isinstance(runtime, dict) or not isinstance(runtime.get("device_state", {}), dict):
+        return "offline"
+    return runtime.get("device_state", {}).get(f"{world.zone}.{identifier}", "offline")
+
+
+def device_locked(world, device):
+    prerequisite = device.get("requires_device")
+    return not set(device.get("requires", [])) <= set(world.p["completed"]) or (
+        prerequisite is not None and device_state(world, prerequisite) != "online"
+    )
+
+
+def field_obstacles(world):
+    cells = {tuple(cell) for cell in world.map.get("mica_barriers", [])}
+    cells.update(
+        tuple(gate["cell"])
+        for gate in world.map.get("mica_gates", [])
+        if device_state(world, gate["relay"]) != "online"
+    )
+    return cells
+
+
 def observe(world, mica, target, seed=0):
     if not workshop_enabled(world.p):
         raise ContractError("UNSUPPORTED_CONTRACT", "Mica program verification is disabled")
@@ -43,12 +67,12 @@ def observe(world, mica, target, seed=0):
         if gate["requires_challenge"] not in world.p["completed"]
     )
     walls.update((t["x"] // 32, t["y"] // 32) for t in world.map["interactables"])
-    states = world.p.get("runtime_v1", {}).get("device_state", {})
+    walls.update(field_obstacles(world))
     devices = []
     for device in sorted(world.map.get("mica_devices", []), key=lambda d: d["id"]):
         identifier = device["id"]
-        locked = not set(device.get("requires", [])) <= set(world.p["completed"])
-        state = "locked" if locked else states.get(f"{world.zone}.{identifier}", "offline")
+        locked = device_locked(world, device)
+        state = "locked" if locked else device_state(world, identifier)
         capabilities = (
             [] if locked or identifier != target else sorted(set(device.get("capabilities", [])))
         )
