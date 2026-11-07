@@ -1,0 +1,1 @@
+After final worker error and destination-staleness improvements: python tests/test_mica_observation.py, 3 tests passed (Windows, bundled Python 3.13.9).

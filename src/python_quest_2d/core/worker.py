@@ -174,15 +174,48 @@ def evaluate(ch, code):
     }
 
 
+def evaluate_plan(request):
+    from protocol import ContractError, safe_json, validate_action_plan
+
+    obs = request["observation"]
+    try:
+        with contextlib.redirect_stdout(Output()) as out, contextlib.redirect_stderr(out):
+            namespace = {}
+            exec(compile(request["source"], "terminal.py", "exec"), namespace)
+            actions = namespace["plan"](copy.deepcopy(obs))
+            plan = {"schema": 1, "snapshot_id": obs["snapshot_id"], "actions": actions}
+            safe_json(plan)
+            validate_action_plan(obs, plan)
+        return dict(
+            status="finished",
+            passed=True,
+            passed_count=1,
+            total_count=1,
+            effect=plan,
+            rows=["Plan produced; verify against the current world before use."],
+        )
+    except ContractError as exc:
+        step = f"Step {exc.step + 1}: " if exc.step is not None else ""
+        return dict(status="runtime_error", passed=False, rows=[f"{step}{exc.code}: {exc}"])
+    except SyntaxError as exc:
+        return dict(status="syntax_error", passed=False, line=exc.lineno, rows=[exc.msg])
+    except BaseException as exc:
+        return dict(
+            status="runtime_error", passed=False, rows=[f"{type(exc).__name__}: {str(exc)[:380]}"]
+        )
+
+
 if __name__ == "__main__":
     payload = json.load(sys.stdin)
     if "protocol_version" in payload:
         from protocol import validate_request, normalize_legacy_result
 
         req = validate_request(payload)
-        if req["kind"] != "legacy_mission":
-            raise ValueError("Program deployment is not enabled in this adapter")
-        report = evaluate(req["challenge"], req["source"])
+        report = (
+            evaluate(req["challenge"], req["source"])
+            if req["kind"] == "legacy_mission"
+            else evaluate_plan(req)
+        )
         report = normalize_legacy_result(
             mission_id=req["mission_id"], request_id=req["request_id"], report=report
         )

@@ -85,3 +85,20 @@ def grade(ch: dict, code: str, timeout_s: float = 3) -> dict:
             passed=False,
             rows=["Could not finish this run: " + str(exc)[:480]],
         )
+
+
+def grade_program(request):
+    """Evaluate a plan in the worker. Its result is a candidate, not permission to deploy."""
+    if not protocol.enabled():
+        raise protocol.ContractError(
+            "UNSUPPORTED_CONTRACT", "Mica program verification is disabled"
+        )
+    req = protocol.validate_request(request)
+    if req["kind"] != "program_plan":
+        raise protocol.ContractError("SCHEMA_MISMATCH", "Expected a program request")
+    try:
+        return protocol.decode_result(_worker(req, 3), req)
+    except subprocess.TimeoutExpired:
+        return dict(status="timeout", passed=False, rows=["Mica program exceeded its time budget."])
+    except (ValueError, OSError, TypeError, RecursionError) as exc:
+        return dict(status="worker_crash", passed=False, rows=[str(exc)[:480]])

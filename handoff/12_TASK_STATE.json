@@ -11,7 +11,8 @@
   "completed_tickets": [
     "PQ11-001",
     "PQ11-002",
-    "PQ11-003"
+    "PQ11-003",
+    "PQ11-004"
   ],
   "in_progress": null,
   "blocked": {},
@@ -19,7 +20,7 @@
     "PQ11-001": "DONE",
     "PQ11-002": "DONE",
     "PQ11-003": "DONE",
-    "PQ11-004": "PLANNED",
+    "PQ11-004": "DONE",
     "PQ11-005": "PLANNED",
     "PQ11-006": "PLANNED",
     "PQ11-007": "PLANNED",
@@ -58,9 +59,10 @@
   "evidence": {
     "PQ11-001": "docs/evidence/PQ11-001/QA_EVIDENCE.json",
     "PQ11-002": "docs/evidence/PQ11-002/QA_EVIDENCE.json",
-    "PQ11-003": "docs/evidence/PQ11-003/QA_EVIDENCE.json"
+    "PQ11-003": "docs/evidence/PQ11-003/QA_EVIDENCE.json",
+    "PQ11-004": "docs\\evidence\\PQ11-004\\QA_EVIDENCE.json"
   },
-  "source_checkpoint": "checkpoint/pq11-003",
+  "source_checkpoint": "checkpoint/pq11-004",
   "last_updated_utc": "2026-11-07T02:51:00.012366+00:00",
-  "note": "Actual executed test evidence; no added mission IDs yet."
+  "note": "PQ11-004 tested and checkpointed; next PQ11-005. No new mission IDs."
 }

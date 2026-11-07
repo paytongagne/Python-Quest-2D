@@ -158,9 +158,15 @@ def validate_action_plan(observation: dict, plan: dict) -> dict:
     """
     safe_json(observation)
     safe_json(plan)
-    if type(observation) is not dict or observation.get("schema") != 1 or type(plan) is not dict:
+    if (
+        type(observation) is not dict
+        or not _strict_integer(observation.get("schema"), 1, 1)
+        or type(plan) is not dict
+    ):
         raise ContractError("SCHEMA_MISMATCH", "Require observation-v1 and action-plan-v1 objects")
-    if set(plan) - {"schema", "snapshot_id", "actions", "program_id"} or plan.get("schema") != 1:
+    if set(plan) - {"schema", "snapshot_id", "actions", "program_id"} or not _strict_integer(
+        plan.get("schema"), 1, 1
+    ):
         raise ContractError("SCHEMA_MISMATCH", "Unrecognized action plan envelope")
     if type(plan.get("snapshot_id")) is not str or plan["snapshot_id"] != observation.get(
         "snapshot_id"
@@ -204,11 +210,18 @@ def validate_action_plan(observation: dict, plan: dict) -> dict:
         target = parse_cell(device.get("cell"))
         if target[0] >= width or target[1] >= height or device["id"] in devices:
             raise ContractError("INVALID_INPUT", "Invalid or duplicate device")
-        devices[device["id"]] = target
+        capabilities = device.get("capabilities", [])
+        if type(capabilities) is not list or any(type(c) is not str for c in capabilities):
+            raise ContractError("INVALID_INPUT", "Invalid device capabilities")
+        devices[device["id"]] = (target, capabilities)
     intents, trace = [], []
     spent = 0
     for i, action in enumerate(actions):
-        if type(action) is not dict or action.get("type") not in _ALLOWED_ACTION_FIELDS:
+        if (
+            type(action) is not dict
+            or type(action.get("type")) is not str
+            or action["type"] not in _ALLOWED_ACTION_FIELDS
+        ):
             raise ContractError("INVALID_ACTION", "Unknown action type", step=i)
         kind = action["type"]
         if set(action) != _ALLOWED_ACTION_FIELDS[kind]:
@@ -216,7 +229,7 @@ def validate_action_plan(observation: dict, plan: dict) -> dict:
         before = pos
         cost = 0
         if kind in ("move", "scan"):
-            if action.get("direction") not in _DIRECTIONS:
+            if type(action.get("direction")) is not str or action["direction"] not in _DIRECTIONS:
                 raise ContractError("INVALID_ACTION", "Invalid cardinal direction", step=i)
             if kind not in abilities:
                 raise ContractError("MISSING_CAPABILITY", kind + " unavailable", step=i)
@@ -241,7 +254,9 @@ def validate_action_plan(observation: dict, plan: dict) -> dict:
             name = action.get("target")
             if type(name) is not str or name not in devices:
                 raise ContractError("INVALID_ACTION", "Target not in visible devices", step=i)
-            at = devices[name]
+            at, capabilities = devices[name]
+            if "activate" not in capabilities:
+                raise ContractError("MISSING_CAPABILITY", f"{name} cannot be activated", step=i)
             if abs(at[0] - pos[0]) + abs(at[1] - pos[1]) != 1:
                 raise ContractError("DEVICE_NOT_ADJACENT", f"{name} not adjacent", step=i)
             cost = rules.get("interact_energy", 1)

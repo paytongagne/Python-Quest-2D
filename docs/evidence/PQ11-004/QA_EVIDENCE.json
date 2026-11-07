@@ -1,0 +1,31 @@
+{
+  "ticket_id": "PQ11-004",
+  "source_sha256": "ea8672d9471185dffaad8c6366834e4a9c96affaab1fabdb2f1c895a8f586006",
+  "checkpoint_path": "checkpoint/pq11-004",
+  "test_runs": [
+    {
+      "command": "runtime/python.exe -m unittest discover -s tests -p test_*.py -v",
+      "host": "Windows-11-10.0.26200-SP0 / Python 3.13.9 / SDL dummy",
+      "exit_code": 0,
+      "passed": 32,
+      "failed": 0,
+      "log_path": "docs/evidence/PQ11-004/TEST_LOG.txt"
+    },
+    {
+      "command": "python tests/test_mica_observation.py",
+      "host": "Windows, Python 3.13.9",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "log_path": "docs/evidence/PQ11-004/FOCUSED_TEST_LOG.txt"
+    }
+  ],
+  "mission_ids_validated": [],
+  "applicable_stage10_cases": [
+    "PQ10-PRG-001",
+    "PQ10-PRG-002",
+    "PQ10-PRG-003",
+    "PQ10-PRG-004"
+  ],
+  "results_note": "Real plan() worker execution and independent validation against current world, device permissions and code. No deployment or XP mutation; opt-in. Full suite passed before final two error-path improvements; focused suite passed afterward."
+}

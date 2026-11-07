@@ -1,6 +1,7 @@
 """Build an offline Windows x64 archive from tracked source and pinned runtime inputs."""
 import argparse
 import hashlib
+import io
 from pathlib import Path
 import re
 import subprocess
@@ -19,7 +20,7 @@ def main():
     parser.add_argument("--tag", required=True)
     parser.add_argument("--runtime-zip", type=Path)
     args = parser.parse_args()
-    if sys.platform != "win32" or sys.version_info[:2] != (3, 13) or not re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+", args.tag):
+    if sys.platform != "win32" or sys.maxsize <= 2**32 or sys.version_info[:2] != (3, 13) or not re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+", args.tag):
         parser.error("Use Windows x64 Python 3.13 and a stable vX.Y.Z tag")
     output = ROOT / "dist" / f"Python-Quest-2D-{args.tag}-Windows-x64.zip"
     output.parent.mkdir(exist_ok=True)
@@ -34,10 +35,13 @@ def main():
         with ZipFile(embedded) as archive:
             archive.extractall(runtime)
         subprocess.run([sys.executable, "-m", "pip", "install", "--only-binary=:all:", "--no-compile", "--platform", "win_amd64", "--target", str(runtime), "-r", str(ROOT / "requirements.txt")], check=True)
-        paths = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode().split("\0")
-        with ZipFile(output, "w", ZIP_DEFLATED) as archive:
-            for path in filter(None, paths):
-                archive.write(ROOT / path, "Python Quest 2D/" + path)
+        source = subprocess.check_output(
+            ["git", "archive", "--format=zip", "--prefix=Python Quest 2D/", "HEAD"], cwd=ROOT
+        )
+        with ZipFile(output, "w", ZIP_DEFLATED) as archive, ZipFile(io.BytesIO(source)) as tracked:
+            for member in tracked.infolist():
+                if not member.is_dir():
+                    archive.writestr(member.filename, tracked.read(member))
             for path in sorted(runtime.rglob("*")):
                 rel = path.relative_to(runtime)
                 if path.is_file() and "__pycache__" not in rel.parts and not any(part in {"tests", "examples", "docs"} for part in rel.parts):
