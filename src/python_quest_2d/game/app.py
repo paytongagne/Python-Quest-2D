@@ -46,6 +46,7 @@ class Game:
         self.canvas = pg.Surface(SIZE)
         self.p = load()
         self.world = World(self.p)
+        self.mica_job = None
         self.expeditions = Expeditions(self)
         self.refresh()
         self.pool = ThreadPoolExecutor(max_workers=1)
@@ -124,6 +125,9 @@ class Game:
         )
 
     def interact(self):
+        if self.mica_job is not None and self.mica_job.status == "running":
+            self.notice = "Mica is carrying out a verified plan."
+            return
         if self.p.get("deployment") or self.p.get("expedition_job"):
             self.notice = "Mica is on the rail. Watch for the docking signal."
             return
@@ -257,7 +261,23 @@ class Game:
             else:
                 self.tone("fail")
 
+    def deploy_mica(self, mica, pending, report, source):
+        from .mica_runner import MicaRunner
+        from ..core.contracts import ContractError
+
+        if self.expeditions.busy():
+            raise ContractError("INVALID_INPUT", "Finish the current program or delivery first")
+        self.mica_job = MicaRunner(self.world, mica, pending, report, source)
+        return self.mica_job
+
     def update_field(self, dt):
+        if self.mica_job is not None and self.mica_job.status != "running":
+            self.world.mica_visual = None
+        if self.mica_job is not None and self.mica_job.status == "running":
+            status = self.mica_job.advance(dt)
+            self.world.mica_visual = self.mica_job.visual()
+            if status != "running":
+                self.notice = self.mica_job.message
         w = self.world
         target = max(0, min(w.pos.x - 384, w.map["width"] * 32 - 768))
         w.camera.x += (target - w.camera.x) * (1 - math.exp(-10 * dt))

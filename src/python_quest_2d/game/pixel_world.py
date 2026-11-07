@@ -382,6 +382,9 @@ def draw(w, bg, lessons, tick, openings=None):
             actors.append((site["y"], "npc", site["x"], accent, int(tick // 650) % 4))
         elif not w.p["world_flags"].get("relic_" + w.zone):
             actors.append((site["y"], "beacon", site["x"], "#efc274", int(tick // 200) % 4))
+    if w.mica_visual is not None:
+        x, y = w.mica_visual
+        actors.append((y, "rover", x, "#88e3bc", 0))
     actors.append((w.pos.y, "player", w.pos.x, accent, 0))
     for y, kind, x, color, phase in sorted(actors, key=lambda a: a[0]):
         if kind == "player":

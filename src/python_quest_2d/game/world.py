@@ -13,6 +13,7 @@ class World:
 
     def enter(self, zone, resume=False):
         self.zone = zone
+        self.mica_visual = None
         self.map = MAPS[zone]
         self.walls = [
             pg.Rect(x * 32, y * 32, 32, 32)

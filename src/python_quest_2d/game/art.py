@@ -174,5 +174,8 @@ def draw_world(world, bg, accent, tick, opening):
 
         stamp(s, "rack", 320, 80, "#efba78", int(tick // 200) % 4)
         label(s, "WORKSHOP", 277, 94, 14, GOLD, True)
+    if world.mica_visual is not None:
+        from .pixel_world import stamp
+        stamp(s, "rover", *world.mica_visual, "#88e3bc")
     pilot(s, *world.pos, world)
     return s.subsurface((int(world.camera.x), 0, 768, 576))

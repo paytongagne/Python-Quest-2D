@@ -1,0 +1,23 @@
+{
+  "ticket_id": "PQ11-005",
+  "source_sha256": "64e37048c2b6aba0242baa88c3bd4c638495db59c396c7904230297d43d63c54",
+  "checkpoint_path": "checkpoint/pq11-005",
+  "test_runs": [
+    {
+      "command": "runtime/python.exe -m unittest discover -s tests -p test_*.py -v",
+      "host": "Windows-11-10.0.26200-SP0 / Python 3.13.9 / SDL dummy",
+      "exit_code": 0,
+      "passed": 36,
+      "failed": 0,
+      "log_path": "docs/evidence/PQ11-005/TEST_LOG.txt"
+    }
+  ],
+  "mission_ids_validated": [],
+  "applicable_stage10_cases": [
+    "PQ10-PRG-001",
+    "PQ10-PRG-002",
+    "PQ10-PRG-003",
+    "PQ10-PRG-004"
+  ],
+  "results_note": "Real worker-generated plan, fixed 5 Hz actions through the game loop, interpolated rover, atomic device/energy/trace save, duplicate/cancel/restart and rollback tests. UI and new missions remain separate tickets."
+}

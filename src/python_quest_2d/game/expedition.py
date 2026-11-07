@@ -27,7 +27,13 @@ class Expeditions:
         self.playing = False
 
     def busy(self):
-        return bool(self.g.p.get("deployment") or self.g.p.get("expedition_job") or self.g.future)
+        mica = getattr(self.g, "mica_job", None)
+        return bool(
+            self.g.p.get("deployment")
+            or self.g.p.get("expedition_job")
+            or self.g.future
+            or (mica is not None and mica.status == "running")
+        )
 
     def travel(self, index):
         g = self.g
@@ -37,8 +43,10 @@ class Expeditions:
             return False
         unlocked = target["requires"] is None or target["requires"] in g.p["completed"]
         if not unlocked and not self.preview:
-            requirement=LESSONS.get(target['requires'],{}).get('title',target['requires'].replace('_',' ').title())
-            g.notice = 'Route locked: complete '+requirement+'. D enables Expedition Preview.' 
+            requirement = LESSONS.get(target["requires"], {}).get(
+                "title", target["requires"].replace("_", " ").title()
+            )
+            g.notice = "Route locked: complete " + requirement + ". D enables Expedition Preview."
             return False
         g.world_screen()
         g.presentation.departure = g.canvas.subsurface((12, 77, 768, 576)).copy()
@@ -120,7 +128,9 @@ class Expeditions:
     def update(self, dt):
         g = self.g
         w = g.world
-        target = max(0, min(w.pos.y - (480 if w.zone == "workshop" else 288), w.map["height"] * 32 - 576))
+        target = max(
+            0, min(w.pos.y - (480 if w.zone == "workshop" else 288), w.map["height"] * 32 - 576)
+        )
         w.camera.y += (target - w.camera.y) * (1 - math.exp(-10 * dt))
         job = g.p.get("expedition_job")
         if job and w.zone == LESSONS[job["key"]]["zone"]:
