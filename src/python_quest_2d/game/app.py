@@ -46,7 +46,10 @@ class Game:
         self.canvas = pg.Surface(SIZE)
         self.p = load()
         self.world = World(self.p)
+        from .mica_console import MicaConsole
+
         self.mica_job = None
+        self.mica_console = MicaConsole(self)
         self.expeditions = Expeditions(self)
         self.refresh()
         self.pool = ThreadPoolExecutor(max_workers=1)
@@ -110,7 +113,7 @@ class Game:
     def persist(self):
         if self.p.get("deployment"):
             self.p["deployment"]["elapsed_steps"] = self.world.flight
-        if self.term:
+        if self.term and self.term.ch["id"] != "mica-library":
             self.p["drafts"][self.term.ch["id"]] = self.term.editor.text
         save(self.p)
         self.snapshot = self.state_signature()
@@ -200,6 +203,9 @@ class Game:
             self.notice = "Lift offline. Complete all four repairs on this deck."
 
     def submit(self):
+        if self.term.ch["id"] == "mica-library":
+            self.mica_console.save_editor()
+            return
         if self.future:
             return
         t = self.term
@@ -218,6 +224,9 @@ class Game:
         if self.future and self.future.done():
             result = self.future.result()
             self.future = None
+            if self.mica_console.pending is not None:
+                self.mica_console.collect(result)
+                return
             t = self.term
             t.rows = [result["status"].replace("_", " ").upper()] + result["rows"]
             t.scroll = 0
@@ -261,13 +270,13 @@ class Game:
             else:
                 self.tone("fail")
 
-    def deploy_mica(self, mica, pending, report, source):
+    def deploy_mica(self, mica, pending, report, source, *, revision=None):
         from .mica_runner import MicaRunner
         from ..core.contracts import ContractError
 
         if self.expeditions.busy():
             raise ContractError("INVALID_INPUT", "Finish the current program or delivery first")
-        self.mica_job = MicaRunner(self.world, mica, pending, report, source)
+        self.mica_job = MicaRunner(self.world, mica, pending, report, source, revision=revision)
         return self.mica_job
 
     def update_field(self, dt):
@@ -302,13 +311,15 @@ class Game:
     def hint(self):
         t = self.term
         t.help = min(2, t.help + 1)
+        if t.ch["id"] == "mica-library":
+            return
         if t.ch["id"] not in self.p["hinted"]:
             self.p["hinted"].append(t.ch["id"])
         self.persist()
 
     def reveal(self):
         t = self.term
-        if self.future:
+        if t.ch["id"] == "mica-library" or self.future:
             return
         if not t.confirm:
             t.confirm = True
@@ -327,6 +338,9 @@ class Game:
         self.persist()
 
     def leave_terminal(self):
+        if self.term.ch["id"] == "mica-library":
+            self.mica_console.close_editor()
+            return
         if self.future:
             self.term.rows = ["Run in progress. The worker stops after three seconds."]
             return
@@ -354,7 +368,7 @@ class Game:
             return
         if e.type == pg.KEYDOWN:
             self.presentation.arrival = None
-        if self.expeditions.event(e):
+        if self.mica_console.event(e) or self.expeditions.event(e):
             return
         if self.scene == "terminal":
             t = self.term
@@ -378,7 +392,10 @@ class Game:
                 elif e.key in (pg.K_PAGEUP, pg.K_PAGEDOWN):
                     t.scroll += 100 * (1 if e.key == pg.K_PAGEDOWN else -1)
                 elif e.key == pg.K_s and e.mod & pg.KMOD_CTRL:
-                    self.persist()
+                    if t.ch["id"] == "mica-library":
+                        self.mica_console.save_editor()
+                    else:
+                        self.persist()
                 elif not self.future:
                     t.editor.key(e)
             elif e.type == pg.MOUSEBUTTONDOWN and e.button == 1:
@@ -472,6 +489,7 @@ class Game:
 
     def world_screen(self):
         if self.expeditions.world_screen():
+            label(self.canvas, "B  Mica library", 928, 42, 15, MINT, True)
             return
         s = self.canvas
         s.fill(INK)
@@ -515,10 +533,11 @@ class Game:
         label(
             s, "[E] " + prompt[t["type"]] if t else "WASD / arrows   Move", 17, 660, 16, GOLD, True
         )
+        label(s, "B  Mica library", 928, 42, 15, MINT, True)
         label(s, "T  Worlds   J  Journal   M  Survey", 715, 660, 16, MUTED, True)
 
     def draw(self):
-        if self.expeditions.draw_overlay(self.canvas):
+        if self.mica_console.draw(self.canvas) or self.expeditions.draw_overlay(self.canvas):
             pass
         elif self.scene == "terminal":
             self.term.draw(self.canvas, self.p, self.future is not None)

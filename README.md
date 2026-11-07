@@ -11,6 +11,8 @@ python play.py
 
 Move with WASD or arrows, interact with E, run code with Ctrl+Enter, and open the flight log with J. The Workshop is accessible from the Astra hangar or J then 8. T opens world travel; D enables Expedition Preview. O inspects nearby equipment diagnostics; R opens program replay. Existing schema-4 profiles remain compatible.
 
+Press **B** to open Mica's library and **Enter** to enable the workshop. Near the marked dock in the Orientation Hangar or Workshop, press **N** to open a starter program, **Ctrl+S** to save a revision, and **Enter** to equip it. **V** rehearses and records a trace. **D** verifies and deploys, and **Backspace** recalls a running rover. **R** in the library opens saved traces. Pin a run with **C** and select another with the up or down arrow to compare their steps and energy.
+
 ```sh
 python -m unittest discover -s tests -v
 python tools/check_content.py

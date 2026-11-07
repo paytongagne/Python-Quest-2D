@@ -342,6 +342,28 @@ def props(w):
     return result
 
 
+
+def draw_mica_docks(surface, world):
+    from .art import label
+    from .mica_observation import workshop_enabled
+
+    if not workshop_enabled(world.p):
+        return
+    runtime = world.p.get("runtime_v1", {})
+    if not isinstance(runtime, dict) or not isinstance(runtime.get("device_state", {}), dict):
+        return
+    for device in world.map.get("mica_devices", []):
+        if "dock" not in device:
+            continue
+        x, y = (32 * n + 16 for n in device["dock"])
+        pg.draw.ellipse(surface, "#66b7ac", (x - 16, y - 10, 32, 20), 2)
+        label(surface, "MICA DOCK", x - 31, y + 11, 12, "#a2dbcf", True)
+        x, y = (32 * n + 16 for n in device["cell"])
+        online = runtime.get("device_state", {}).get(f'{world.zone}.{device["id"]}') == "online"
+        color = "#88e3bc" if online else "#f1c582"
+        stamp(surface, "beacon", x, y, color)
+        pg.draw.circle(surface, color, (x, y - 25), 3)
+
 def draw(w, bg, lessons, tick, openings=None):
     s = bg.copy()
     accent = PALETTES[w.zone][-1]
@@ -354,6 +376,7 @@ def draw(w, bg, lessons, tick, openings=None):
         for i in range(4):
             box(s, "#77828b", (x + i * 8, y + 3, 6, int(26*fraction)))
         box(s, "#88e3bc" if done else "#eab978", (x + 2, y + 2, 28, 3))
+    draw_mica_docks(s, w)
     actors = props(w)
     for t in w.map["interactables"]:
         key = t["challenge_id"]

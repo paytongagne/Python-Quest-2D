@@ -28,11 +28,12 @@ def replay(profile, event_id):
 class MicaRunner:
     """Run bounded data only. Until completion, the profile is the last safe state."""
 
-    def __init__(self, world, mica, pending, report, source):
+    def __init__(self, world, mica, pending, report, source, *, revision=None):
         self.world = world
         self.mica = saved_mica(world, mica)
         self.pending = pending
         self.source = source
+        self.revision = revision
         self._report = safe_json(report)
         verified = verify(world, self.mica, pending, json.loads(self._report), source)
         self._verified = safe_json(verified)
@@ -150,6 +151,9 @@ class MicaRunner:
                 snapshot_digest=self.pending.snapshot_digest,
                 source_hash=self.pending.request()["source_hash"],
                 event=event,
+                revision=self.revision,
+                mode="deployment",
+                world_id=self._zone,
                 result=verified,
             )
             library = updated["program_library"]

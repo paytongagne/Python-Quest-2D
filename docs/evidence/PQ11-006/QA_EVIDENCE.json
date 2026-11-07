@@ -1,0 +1,25 @@
+{
+  "ticket_id": "PQ11-006",
+  "source_sha256": "867de816eab44fc077c45432f04b393fd52e1c590d783f7750f196786e46c251",
+  "source_tree": "f3f4e70191f0962c692654b459b827e985f87a48",
+  "source_hash_basis": "SHA-256 of the tested staged Git index entries before updating ticket evidence",
+  "checkpoint_path": "checkpoint/pq11-006",
+  "test_runs": [
+    {
+      "command": "python -m unittest discover -s tests -p test_*.py -v",
+      "host": "Windows-11-10.0.26200-SP0 / Python 3.13.9 / SDL dummy",
+      "exit_code": 0,
+      "passed": 38,
+      "failed": 0,
+      "log_path": "docs/evidence/PQ11-006/TEST_LOG.txt"
+    }
+  ],
+  "mission_ids_validated": [],
+  "applicable_stage10_cases": [
+    "PQ10-PRG-001",
+    "PQ10-PRG-002",
+    "PQ10-PRG-003",
+    "PQ10-PRG-004"
+  ],
+  "results_note": "Player-key playthrough saved and reopened revisions, compared same-snapshot rehearsals, and deployed one equipped program in the Hangar and Workshop. Existing protocol tests cover collision, bounds, energy, capability and staleness. Native Windows smoke verified editor, library, moving rover and trace at 1280x720."
+}

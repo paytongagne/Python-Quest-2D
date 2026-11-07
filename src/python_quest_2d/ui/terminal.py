@@ -82,7 +82,8 @@ class Terminal:
         s = screen
         label(s, "F3 / F4  Scroll briefing", 30, 643, 14, MUTED, True)
         label(s, "terminal.py", 404, 98, 17, MINT, True)
-        label(s, "F2  Reveal solution", 868, 100, 14, MUTED, True)
+        if self.ch["id"] != "mica-library":
+            label(s, "F2  Reveal solution", 868, 100, 14, MUTED, True)
         ed = self.editor
         row, col = ed.locate()
         ed.top = min(row, max(ed.top, row - 9))

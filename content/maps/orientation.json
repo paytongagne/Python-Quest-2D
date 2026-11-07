@@ -103,5 +103,6 @@
       "x": 320,
       "y": 80
     }
-  ]
+  ],
+  "mica_devices": [{"id": "hangar-relay", "name": "Hangar relay", "cell": [7, 3], "dock": [3, 3], "energy": 12, "capabilities": ["activate"]}]
 }

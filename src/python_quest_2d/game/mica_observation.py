@@ -25,8 +25,12 @@ class Verification:
         return json.loads(self.request_json)
 
 
+def workshop_enabled(profile):
+    return profile.get("settings", {}).get("mica_workshop") is True or protocol.enabled()
+
+
 def observe(world, mica, target, seed=0):
-    if not protocol.enabled():
+    if not workshop_enabled(world.p):
         raise ContractError("UNSUPPORTED_CONTRACT", "Mica program verification is disabled")
     if world.p.get("deployment") or world.p.get("expedition_job"):
         raise ContractError("INVALID_INPUT", "Mica is already on a legacy delivery")

@@ -87,9 +87,9 @@ def grade(ch: dict, code: str, timeout_s: float = 3) -> dict:
         )
 
 
-def grade_program(request):
+def grade_program(request, *, player_opt_in=False):
     """Evaluate a plan in the worker. Its result is a candidate, not permission to deploy."""
-    if not protocol.enabled():
+    if not (protocol.enabled() or player_opt_in is True):
         raise protocol.ContractError(
             "UNSUPPORTED_CONTRACT", "Mica program verification is disabled"
         )

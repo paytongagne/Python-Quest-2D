@@ -13,7 +13,8 @@
     "PQ11-002",
     "PQ11-003",
     "PQ11-004",
-    "PQ11-005"
+    "PQ11-005",
+    "PQ11-006"
   ],
   "in_progress": null,
   "blocked": {},
@@ -23,7 +24,7 @@
     "PQ11-003": "DONE",
     "PQ11-004": "DONE",
     "PQ11-005": "DONE",
-    "PQ11-006": "PLANNED",
+    "PQ11-006": "DONE",
     "PQ11-007": "PLANNED",
     "PQ11-008": "PLANNED",
     "PQ11-009": "PLANNED",
@@ -62,9 +63,10 @@
     "PQ11-002": "docs/evidence/PQ11-002/QA_EVIDENCE.json",
     "PQ11-003": "docs/evidence/PQ11-003/QA_EVIDENCE.json",
     "PQ11-004": "docs\\evidence\\PQ11-004\\QA_EVIDENCE.json",
-    "PQ11-005": "docs\\evidence\\PQ11-005\\QA_EVIDENCE.json"
+    "PQ11-005": "docs\\evidence\\PQ11-005\\QA_EVIDENCE.json",
+    "PQ11-006": "docs\\evidence\\PQ11-006\\QA_EVIDENCE.json"
   },
-  "source_checkpoint": "checkpoint/pq11-005",
-  "last_updated_utc": "2026-11-07T03:05:45.868099+00:00",
-  "note": "PQ11-005 tested and checkpointed; next PQ11-006. No new mission IDs."
+  "source_checkpoint": "checkpoint/pq11-006",
+  "last_updated_utc": "2026-11-07T03:44:04.778719+00:00",
+  "note": "PQ11-006 verified. Next PQ11-007. No new mission IDs."
 }
