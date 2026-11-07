@@ -12,8 +12,9 @@ jobs:
       SDL_VIDEODRIVER: dummy
       SDL_AUDIODRIVER: dummy
       PYTHONUTF8: '1'
-      PYTHONQUEST_SAVE: ${{ runner.temp }}/pq-release-profile.json
     steps:
+      - name: Use disposable progress
+        run: '"PYTHONQUEST_SAVE=$env:RUNNER_TEMP/python-quest-profile.json" >> $env:GITHUB_ENV'
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
