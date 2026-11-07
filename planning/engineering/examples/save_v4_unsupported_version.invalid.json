@@ -1,0 +1,21 @@
+{
+  "schema_version": 5,
+  "player": {
+    "zone": "orientation",
+    "x": 96,
+    "y": 96,
+    "xp": 0
+  },
+  "completed": [],
+  "hinted": [],
+  "drafts": {},
+  "attempts": {},
+  "world_flags": {},
+  "review": {},
+  "settings": {
+    "sound": true
+  },
+  "unknown_extension": {
+    "keep": true
+  }
+}

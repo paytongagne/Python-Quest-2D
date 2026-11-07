@@ -1,0 +1,60 @@
+{
+  "id": "hydro_09",
+  "zone": "hydro",
+  "sequence": 9,
+  "kind": "function",
+  "title": "Decode the cultures",
+  "story": "Culture tubes carry a species and volume separated by a colon. A cracked label must be quarantined.",
+  "lesson": "split(':') separates the two fields. Check their count before converting the volume with int.",
+  "objective": "Return [species, volume] for NAME:integer (trim fields, nonempty name, nonnegative volume). Return None for malformed labels.",
+  "sample": "' fern : 7 ' -> ['fern', 7]",
+  "function_name": "decode_tube",
+  "starter_code": "def decode_tube(label):\n    pass\n",
+  "hint": "Use try/except ValueError around int. Check the number of fields and volume >= 0.",
+  "world_effect": "relay_hydro_09",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        " fern : 7 "
+      ],
+      "expected": [
+        "fern",
+        7
+      ]
+    },
+    {
+      "args": [
+        ":3"
+      ],
+      "expected": null
+    },
+    {
+      "args": [
+        "fern:bad"
+      ],
+      "expected": null
+    },
+    {
+      "args": [
+        "moss:-1"
+      ],
+      "expected": null
+    },
+    {
+      "args": [
+        "a:b:3"
+      ],
+      "expected": null
+    },
+    {
+      "args": [
+        "moss:0"
+      ],
+      "expected": [
+        "moss",
+        0
+      ]
+    }
+  ]
+}

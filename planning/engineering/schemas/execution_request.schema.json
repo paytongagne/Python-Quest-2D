@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/execution_request.schema.json",
+  "title": "execution_request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "protocol_version",
+    "request_id",
+    "mission_id",
+    "source"
+  ],
+  "properties": {
+    "kind": {
+      "enum": [
+        "legacy_mission",
+        "program_plan"
+      ]
+    },
+    "protocol_version": {
+      "const": 1
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "mission_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "source": {
+      "type": "string",
+      "maxLength": 65536
+    },
+    "challenge": {
+      "type": "object"
+    },
+    "observation": {
+      "type": "object"
+    },
+    "program_contract": {
+      "const": "mica.plan.v1"
+    },
+    "fixture_set_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "kind": {
+          "const": "legacy_mission"
+        }
+      },
+      "required": [
+        "challenge"
+      ]
+    },
+    {
+      "properties": {
+        "kind": {
+          "const": "program_plan"
+        }
+      },
+      "required": [
+        "observation",
+        "program_contract",
+        "source_hash"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "hydro_03",
+  "kind": "function",
+  "zone": "hydro",
+  "sequence": 3,
+  "title": "Retrieve the logger",
+  "story": "The scheduler sealed the center aisle. Mica must bring a logger around the obstruction.",
+  "objective": "Return a valid route to goal using UP, DOWN, LEFT, RIGHT. '#' blocks movement. grid[y][x] is the cell at [x,y]. Trials use open top and bottom aisles joined by one gap.",
+  "lesson": "Plan three legs: move across the top to the gap in row 1, descend twice, then cross the bottom to the goal. Each test moves the gap.",
+  "sample": "grid = ['.....', '###.#', '.....']",
+  "function_name": "plan_route",
+  "starter_code": "def plan_route(grid, start, goal):\n    pass\n",
+  "hint": "Find the gap with grid[1].index('.'). Build each horizontal leg using its signed distance.",
+  "cases": [
+    {
+      "args": [
+        [
+          ".....",
+          "###.#",
+          "....."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          "....",
+          ".###",
+          "...."
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          ".....",
+          "##.##",
+          "....."
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    }
+  ],
+  "world_effect": "relay_hydro_03",
+  "simulation": "route"
+}

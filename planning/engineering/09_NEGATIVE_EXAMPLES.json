@@ -1,0 +1,50 @@
+[
+  {
+    "file": "action_plan_unknown_action.invalid.json",
+    "schema": "action_plan"
+  },
+  {
+    "file": "action_plan_extra_field.invalid.json",
+    "schema": "action_plan"
+  },
+  {
+    "file": "execution_request_missing_source.invalid.json",
+    "schema": "execution_request"
+  },
+  {
+    "file": "evaluation_result_unknown_status.invalid.json",
+    "schema": "evaluation_result"
+  },
+  {
+    "file": "observation_negative_energy.invalid.json",
+    "schema": "observation"
+  },
+  {
+    "file": "world_event_unknown_type.invalid.json",
+    "schema": "world_event"
+  },
+  {
+    "file": "render_snapshot_untrusted_code.invalid.json",
+    "schema": "render_snapshot"
+  },
+  {
+    "file": "program_library_missing_source.invalid.json",
+    "schema": "program_library"
+  },
+  {
+    "file": "save_v4_unsupported_version.invalid.json",
+    "schema": "save_v4"
+  },
+  {
+    "file": "travel_result_bad_reason.invalid.json",
+    "schema": "travel_result"
+  },
+  {
+    "file": "device_intent_untrusted_actor.invalid.json",
+    "schema": "device_intent"
+  },
+  {
+    "file": "mission_content_script_missing_expected.invalid.json",
+    "schema": "mission_content"
+  }
+]

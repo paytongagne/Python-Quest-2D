@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "snapshot_id": "snap-orion-01",
+  "world_id": "orion_moon",
+  "device_id": "relay_a",
+  "seed": 7,
+  "robot": {
+    "id": "mica",
+    "cell": [
+      1,
+      1
+    ],
+    "energy": -1,
+    "abilities": [
+      "move",
+      "scan",
+      "interact"
+    ]
+  },
+  "visible": {
+    "width": 6,
+    "height": 5,
+    "walls": [
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "devices": [
+      {
+        "id": "relay_a",
+        "cell": [
+          3,
+          1
+        ],
+        "state": "offline",
+        "capabilities": [
+          "activate"
+        ]
+      }
+    ]
+  },
+  "objective": {
+    "target_id": "relay_a",
+    "required_state": "online"
+  },
+  "rules": {
+    "max_actions": 64,
+    "step_energy": 1,
+    "scan_energy": 2,
+    "interact_energy": 1
+  }
+}

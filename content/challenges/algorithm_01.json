@@ -1,0 +1,55 @@
+{
+  "id": "algorithm_01",
+  "kind": "function",
+  "zone": "algorithm",
+  "sequence": 1,
+  "title": "Detect a Duplicate",
+  "story": "Your newest mission is to spot repeated data without checking every possible pair.",
+  "lesson": "A set stores unique values. If its size differs from the original list's size, duplicates are present.",
+  "objective": "Return True when the list contains any duplicate number; otherwise False.",
+  "sample": "contains_duplicate([1, 2, 1])  ->  True",
+  "starter_code": "def contains_duplicate(nums):\n    pass\n",
+  "hint": "Use set(nums) to create a unique collection, then compare lengths.",
+  "function_name": "contains_duplicate",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          -1,
+          0,
+          -1
+        ]
+      ],
+      "expected": true
+    }
+  ],
+  "difficulty": "intermediate",
+  "legacy_index": 16,
+  "world_effect": "gate_algorithm_01"
+}

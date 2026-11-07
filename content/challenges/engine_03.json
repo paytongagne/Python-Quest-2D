@@ -1,0 +1,67 @@
+{
+  "id": "engine_03",
+  "kind": "function",
+  "zone": "engine",
+  "sequence": 3,
+  "title": "Remove Duplicate IDs",
+  "story": "Some packet IDs arrive more than once. Keep each only the first time it appears.",
+  "lesson": "A set supports fast membership checking. Keep an output list to preserve the original order.",
+  "objective": "Return unique elements in original appearance order.",
+  "sample": "unique_in_order([4, 2, 4, 7, 2])  ->  [4, 2, 7]",
+  "starter_code": "def unique_in_order(values):\n    pass\n",
+  "hint": "Create a set called seen and an empty list. Append a value only if it is not in seen, then add it to seen.",
+  "function_name": "unique_in_order",
+  "cases": [
+    {
+      "args": [
+        [
+          4,
+          2,
+          4,
+          7,
+          2
+        ]
+      ],
+      "expected": [
+        4,
+        2,
+        7
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          5,
+          4,
+          3
+        ]
+      ],
+      "expected": [
+        5,
+        4,
+        3
+      ]
+    }
+  ],
+  "difficulty": "intermediate",
+  "legacy_index": 14,
+  "world_effect": "gate_engine_03"
+}

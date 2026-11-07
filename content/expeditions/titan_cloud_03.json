@@ -1,0 +1,66 @@
+{
+  "id": "titan_cloud_03",
+  "kind": "function",
+  "zone": "titan_cloud",
+  "sequence": 3,
+  "title": "Subscribe to the Right Topic",
+  "story": "The exchange must deliver a packet only to matching lanes.",
+  "lesson": "Split topic paths by '/'. '+' matches exactly one level; a final '#' matches zero or more levels.",
+  "objective": "Return the indices of subscription patterns matching topic. '#' appears only as the last level. '+' occupies a whole level.",
+  "sample": "patterns=['lab/+','lab/#'], topic='lab/temp' -> [0,1]",
+  "function_name": "subscribers",
+  "starter_code": "def subscribers(patterns, topic):\n    pass\n",
+  "hint": "Compare each level. A final # accepts the rest; otherwise all levels must match.",
+  "cases": [
+    {
+      "args": [
+        [
+          "lab/+",
+          "lab/#",
+          "other"
+        ],
+        "lab/temp"
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          "lab/#",
+          "lab/+"
+        ],
+        "lab"
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "args": [
+        [
+          "a/+/c",
+          "a/#",
+          "a/b"
+        ],
+        "a/b/c"
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "args": [
+        [],
+        "x"
+      ],
+      "expected": []
+    }
+  ],
+  "world_effect": "relay_titan_cloud_03",
+  "simulation": "expedition",
+  "output": "model"
+}

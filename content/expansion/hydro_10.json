@@ -1,0 +1,62 @@
+{
+  "id": "hydro_10",
+  "zone": "hydro",
+  "sequence": 10,
+  "kind": "function",
+  "title": "Reconcile the manifold",
+  "story": "Two manifolds report water usage for overlapping crop beds. Combine their meters without losing a bed.",
+  "lesson": "Start with a copy of one mapping. Add the second mapping's values to the matching totals.",
+  "objective": "Return a new dictionary with the sum per bed across both mappings.",
+  "sample": "{'A': 3} and {'A': 2,'B': 1} -> {'A': 5,'B': 1}",
+  "function_name": "merge_meters",
+  "starter_code": "def merge_meters(left, right):\n    pass\n",
+  "hint": "Loop through right.items(). Add each value to totals.get(bed, 0).",
+  "world_effect": "relay_hydro_10",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        {
+          "A": 3
+        },
+        {
+          "A": 2,
+          "B": 1
+        }
+      ],
+      "expected": {
+        "A": 5,
+        "B": 1
+      }
+    },
+    {
+      "args": [
+        {},
+        {}
+      ],
+      "expected": {}
+    },
+    {
+      "args": [
+        {
+          "C": 7
+        },
+        {}
+      ],
+      "expected": {
+        "C": 7
+      }
+    },
+    {
+      "args": [
+        {},
+        {
+          "D": 0
+        }
+      ],
+      "expected": {
+        "D": 0
+      }
+    }
+  ]
+}

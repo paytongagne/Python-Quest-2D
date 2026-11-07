@@ -1,0 +1,105 @@
+{
+  "id": "orion_moon_16",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 16,
+  "title": "Boss: Rescue the Moon Convoy",
+  "story": "Convoy phase three. Deliver the cargo rover through the reopened corridor after the support relays come online.",
+  "lesson": "The rescue keeps each prior repair as a checkpoint. A minimum-cost route conserves the convoy's shared shield reserve.",
+  "objective": "Return the least-cost cargo path including endpoints. Cell values are traversal costs; -1 blocks a cell. Start costs zero.",
+  "sample": "The escort follows the cleared path one step behind cargo.",
+  "function_name": "rescue_convoy",
+  "starter_code": "def rescue_convoy(grid, start, goal):\n    pass\n",
+  "hint": "Use the weighted route algorithm from the ridge. Compare alternative detours before committing.",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            8,
+            8,
+            1,
+            1
+          ],
+          [
+            1,
+            -1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            -1,
+            1
+          ],
+          [
+            5,
+            5,
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "cost": 8
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            5,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "cost": 4
+    },
+    {
+      "args": [
+        [
+          [
+            1
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "cost": 0
+    }
+  ],
+  "world_effect": "relay_orion_moon_16",
+  "simulation": "expedition",
+  "output": "path"
+}

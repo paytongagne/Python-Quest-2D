@@ -1,0 +1,10 @@
+{
+  "protocol_version": 1,
+  "intent_id": "intent-01",
+  "snapshot_id": "snap-orion-01",
+  "device_id": "relay_a",
+  "operation": "activate",
+  "parameters": {},
+  "issued_by": "learner_python",
+  "expected_revision": 0
+}

@@ -1,0 +1,47 @@
+{
+  "id": "launch_04",
+  "kind": "function",
+  "zone": "launch",
+  "sequence": 4,
+  "title": "Launch Authorization",
+  "story": "The engine will only fire if enough fuel is stored.",
+  "lesson": "Comparisons like >=, <=, ==, and != produce True or False. A comparison can be returned directly.",
+  "objective": "Make can_launch(fuel, required) return True when fuel is at least required, otherwise False.",
+  "sample": "can_launch(50, 50)  ->  True",
+  "starter_code": "def can_launch(fuel, required):\n    pass\n",
+  "hint": "'At least' means greater than OR equal. Think about which comparison operator includes equality.",
+  "function_name": "can_launch",
+  "cases": [
+    {
+      "args": [
+        50,
+        50
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        60,
+        50
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        49,
+        50
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        0,
+        1
+      ],
+      "expected": false
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 3,
+  "world_effect": "gate_launch_04"
+}

@@ -1,0 +1,69 @@
+{
+  "id": "hydro_11",
+  "zone": "hydro",
+  "sequence": 11,
+  "kind": "function",
+  "title": "Cross the carrier rail",
+  "story": "A contamination screen divides the reservoir. Mica must pass through its only opening to deliver a test vial.",
+  "lesson": "Inspect each row in the barrier column. Move vertically on the left, cross horizontally, then align with the dock on the right.",
+  "objective": "The barrier is column 2. Use its open row. Return a legal route from the left side to the right side.",
+  "sample": "'.' = traversable, '#' = wall; grid[y][x]",
+  "function_name": "plan_route",
+  "starter_code": "def plan_route(grid, start, goal):\n    pass\n",
+  "hint": "Find the y where grid[y][2] == '.'. Vertical legs may go either way.",
+  "world_effect": "relay_hydro_11",
+  "simulation": "route",
+  "cases": [
+    {
+      "args": [
+        [
+          "..#..",
+          ".....",
+          "..#.."
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          ".....",
+          "..#..",
+          "..#.."
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          "..#..",
+          "..#..",
+          "....."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          2
+        ]
+      ]
+    }
+  ]
+}

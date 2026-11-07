@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/runtime_extension.schema.json",
+  "title": "runtime_extension",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "device_state",
+    "active_job",
+    "last_applied_event_ids"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "device_state": {
+      "type": "object",
+      "maxProperties": 512
+    },
+    "active_job": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "job_id",
+            "world_id",
+            "snapshot_id",
+            "cursor",
+            "state"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "job_id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+            },
+            "world_id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+            },
+            "snapshot_id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+            },
+            "cursor": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "state": {
+              "enum": [
+                "paused",
+                "running",
+                "recovering"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "last_applied_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+      },
+      "uniqueItems": true,
+      "maxItems": 1024
+    }
+  }
+}

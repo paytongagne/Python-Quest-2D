@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "snapshot_id": "snap-orion-01",
+  "actions": [
+    {
+      "type": "delete_world",
+      "target": "relay_a"
+    }
+  ]
+}

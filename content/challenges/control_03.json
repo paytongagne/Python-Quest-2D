@@ -1,0 +1,60 @@
+{
+  "id": "control_03",
+  "kind": "function",
+  "zone": "control",
+  "sequence": 3,
+  "title": "Start the Countdown",
+  "story": "Your launch sequence needs a list of numbers counting down to zero.",
+  "lesson": "range(start, stop, step) produces a sequence. A negative step counts backward. list(...) converts it into a list.",
+  "objective": "Make countdown(start) return [start, ..., 0]. Include zero.",
+  "sample": "countdown(3)  ->  [3, 2, 1, 0]",
+  "starter_code": "def countdown(start):\n    pass\n",
+  "hint": "range excludes its stop value, so the stop must be one below zero when stepping by -1.",
+  "function_name": "countdown",
+  "cases": [
+    {
+      "args": [
+        3
+      ],
+      "expected": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "args": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "args": [
+        1
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "args": [
+        5
+      ],
+      "expected": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ]
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 6,
+  "world_effect": "gate_control_03"
+}

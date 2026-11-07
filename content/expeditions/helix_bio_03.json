@@ -1,0 +1,65 @@
+{
+  "id": "helix_bio_03",
+  "kind": "function",
+  "zone": "helix_bio",
+  "sequence": 3,
+  "title": "Find Baseline Wander",
+  "story": "The test rig added a linear trend. Estimate it from known calibration endpoints.",
+  "lesson": "A line between first and last samples has slope (last-first)/(n-1). This toy exercise assumes endpoints contain only baseline.",
+  "objective": "Return the linearly interpolated baseline across the input length. Empty -> []; one sample -> that sample.",
+  "sample": "[2,9,4] -> [2,3,4]",
+  "function_name": "baseline",
+  "starter_code": "def baseline(samples):\n    pass\n",
+  "hint": "Treat lengths zero and one separately, then interpolate between endpoints.",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          9,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": [
+        7
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          8,
+          9,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "world_effect": "relay_helix_bio_03",
+  "simulation": "expedition",
+  "output": "model"
+}

@@ -1,0 +1,68 @@
+{
+  "id": "titan_cloud_01",
+  "kind": "function",
+  "zone": "titan_cloud",
+  "sequence": 1,
+  "title": "Open the Cloud Link",
+  "story": "Packets arrive in fragments. Restore the offline ingress conveyor.",
+  "lesson": "A length prefix tells a decoder how many characters belong to the next message. Keep incomplete data for the next call.",
+  "objective": "Join the ASCII chunks. Decode decimal-length:payload frames. Return {'messages': [...], 'pending': remainder}. All prefixes are nonnegative decimal integers.",
+  "sample": "['3:a','bc0:2:x'] -> {'messages':['abc',''],'pending':'2:x'}",
+  "function_name": "decode_frames",
+  "starter_code": "def decode_frames(chunks):\n    pass\n",
+  "hint": "Find ':', parse the length, and stop without consuming data when the payload is incomplete.",
+  "cases": [
+    {
+      "args": [
+        [
+          "3:a",
+          "bc0:2:x"
+        ]
+      ],
+      "expected": {
+        "messages": [
+          "abc",
+          ""
+        ],
+        "pending": "2:x"
+      }
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": {
+        "messages": [],
+        "pending": ""
+      }
+    },
+    {
+      "args": [
+        [
+          "1:A1:B"
+        ]
+      ],
+      "expected": {
+        "messages": [
+          "A",
+          "B"
+        ],
+        "pending": ""
+      }
+    },
+    {
+      "args": [
+        [
+          "12"
+        ]
+      ],
+      "expected": {
+        "messages": [],
+        "pending": "12"
+      }
+    }
+  ],
+  "world_effect": "relay_titan_cloud_01",
+  "simulation": "expedition",
+  "output": "model"
+}

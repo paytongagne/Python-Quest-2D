@@ -1,0 +1,72 @@
+{
+  "id": "hydro_16",
+  "zone": "hydro",
+  "sequence": 16,
+  "kind": "function",
+  "title": "Restart the canopy",
+  "story": "Recovery phase two. The relay is installed. Replay the scheduler tape and emit safe commands to restore the canopy.",
+  "lesson": "A fault latches the system offline until RESET. A reset emits HOLD. Dry and wet readings control water only while online.",
+  "objective": "FAULT -> VENT and latch. RESET -> HOLD and clear latch. While latched emit HOLD for other events. Otherwise DRY -> PUMP; all others -> HOLD.",
+  "sample": "['FAULT','DRY','RESET','DRY'] -> ['VENT','HOLD','HOLD','PUMP']",
+  "function_name": "recover",
+  "starter_code": "def recover(events):\n    pass\n",
+  "hint": "Maintain a latched flag. Handle FAULT and RESET before evaluating DRY.",
+  "world_effect": "relay_hydro_16",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        [
+          "DRY",
+          "FAULT",
+          "DRY",
+          "RESET",
+          "DRY",
+          "WET"
+        ]
+      ],
+      "expected": [
+        "PUMP",
+        "VENT",
+        "HOLD",
+        "HOLD",
+        "PUMP",
+        "HOLD"
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          "FAULT",
+          "FAULT",
+          "WET"
+        ]
+      ],
+      "expected": [
+        "VENT",
+        "VENT",
+        "HOLD"
+      ]
+    },
+    {
+      "args": [
+        [
+          "RESET",
+          "UNKNOWN",
+          "DRY"
+        ]
+      ],
+      "expected": [
+        "HOLD",
+        "HOLD",
+        "PUMP"
+      ]
+    }
+  ]
+}

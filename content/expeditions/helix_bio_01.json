@@ -1,0 +1,98 @@
+{
+  "id": "helix_bio_01",
+  "kind": "function",
+  "zone": "helix_bio",
+  "sequence": 1,
+  "title": "Draw the Synthetic Heartbeat",
+  "story": "ION: This fictional lab uses a repeating toy pulse to test display software.",
+  "lesson": "A discrete periodic model repeats a small template. Modulo gives the position within the period. These values are synthetic test units.",
+  "objective": "Return n samples by repeating [0, 0.1, -0.2, 1.0, -0.3, 0.2, 0.1, 0]. n is a nonnegative integer.",
+  "sample": "n=3 -> [0, 0.1, -0.2]",
+  "function_name": "toy_pulse",
+  "starter_code": "def toy_pulse(n):\n    pass\n",
+  "hint": "The sample at i is template[i % len(template)].",
+  "cases": [
+    {
+      "args": [
+        40
+      ],
+      "expected": [
+        0,
+        0.1,
+        -0.2,
+        1.0,
+        -0.3,
+        0.2,
+        0.1,
+        0,
+        0,
+        0.1,
+        -0.2,
+        1.0,
+        -0.3,
+        0.2,
+        0.1,
+        0,
+        0,
+        0.1,
+        -0.2,
+        1.0,
+        -0.3,
+        0.2,
+        0.1,
+        0,
+        0,
+        0.1,
+        -0.2,
+        1.0,
+        -0.3,
+        0.2,
+        0.1,
+        0,
+        0,
+        0.1,
+        -0.2,
+        1.0,
+        -0.3,
+        0.2,
+        0.1,
+        0
+      ]
+    },
+    {
+      "args": [
+        0
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        3
+      ],
+      "expected": [
+        0,
+        0.1,
+        -0.2
+      ]
+    },
+    {
+      "args": [
+        9
+      ],
+      "expected": [
+        0,
+        0.1,
+        -0.2,
+        1.0,
+        -0.3,
+        0.2,
+        0.1,
+        0,
+        0
+      ]
+    }
+  ],
+  "world_effect": "relay_helix_bio_01",
+  "simulation": "expedition",
+  "output": "model"
+}

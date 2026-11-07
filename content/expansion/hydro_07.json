@@ -1,0 +1,66 @@
+{
+  "id": "hydro_07",
+  "zone": "hydro",
+  "sequence": 7,
+  "kind": "function",
+  "title": "Climb the return pipe",
+  "story": "Mica is below the rail switch. Lift the filter cartridge vertically, then traverse the top service rail.",
+  "lesson": "Break a plan into two lists of moves. Use abs for distance and choose a direction from the sign.",
+  "objective": "Return UP to reach row zero, then LEFT or RIGHT to the goal. Coordinates are [x,y].",
+  "sample": "start=[1,2], goal=[3,0] -> UP, UP, RIGHT, RIGHT",
+  "function_name": "plan_route",
+  "starter_code": "def plan_route(grid, start, goal):\n    pass\n",
+  "hint": "Start with ['UP'] * start[1]. Use goal[0] - start[0] for the horizontal leg.",
+  "world_effect": "relay_hydro_07",
+  "simulation": "route",
+  "cases": [
+    {
+      "args": [
+        [
+          "....",
+          "#.##",
+          "#.##"
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          ".....",
+          "###.#"
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          "..."
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ]
+}

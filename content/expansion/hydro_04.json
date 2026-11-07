@@ -1,0 +1,67 @@
+{
+  "id": "hydro_04",
+  "kind": "function",
+  "zone": "hydro",
+  "sequence": 4,
+  "title": "Break the pressure cycle",
+  "story": "Mica recovered the pressure log. The Scheduler keeps cycling the pump; install an interlock before the line bursts.",
+  "objective": "Return 'VENT' for pressure >= 80, else 'PUMP' for moisture < 30, else 'HOLD'. A missing reading must return 'HOLD'.",
+  "lesson": "Check for missing keys before using them. Put the emergency condition first so pressure always takes priority over irrigation.",
+  "sample": "interlock({'pressure': 82, 'moisture': 10}) -> 'VENT'",
+  "function_name": "interlock",
+  "starter_code": "def interlock(readings):\n    pass\n",
+  "hint": "Check both keys, then pressure, then moisture. Return HOLD if no action is needed.",
+  "cases": [
+    {
+      "args": [
+        {
+          "pressure": 88,
+          "moisture": 4
+        }
+      ],
+      "expected": "VENT"
+    },
+    {
+      "args": [
+        {
+          "pressure": 80,
+          "moisture": 30
+        }
+      ],
+      "expected": "VENT"
+    },
+    {
+      "args": [
+        {
+          "pressure": 79,
+          "moisture": 29
+        }
+      ],
+      "expected": "PUMP"
+    },
+    {
+      "args": [
+        {
+          "pressure": 10,
+          "moisture": 30
+        }
+      ],
+      "expected": "HOLD"
+    },
+    {
+      "args": [
+        {}
+      ],
+      "expected": "HOLD"
+    },
+    {
+      "args": [
+        {
+          "pressure": 84
+        }
+      ],
+      "expected": "HOLD"
+    }
+  ],
+  "world_effect": "relay_hydro_04"
+}

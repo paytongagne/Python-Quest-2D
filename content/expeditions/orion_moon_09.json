@@ -1,0 +1,74 @@
+{
+  "id": "orion_moon_09",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 9,
+  "title": "Avoid Precision Drift",
+  "story": "Ridge sensors disagree by tiny fractions. Set an explicit tolerance policy.",
+  "lesson": "Absolute tolerance compares the difference to a bound. Different vector lengths cannot be equal. Negative tolerances are invalid.",
+  "objective": "Return True only if lengths match, tolerance >=0 and every coordinate difference <= tolerance.",
+  "sample": "[1,2] vs [1.1,2], tolerance=.2 -> True",
+  "function_name": "near_vector",
+  "starter_code": "def near_vector(a, b, tolerance):\n    pass\n",
+  "hint": "Check shape first, then all(abs(x-y)<=tolerance).",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1.1,
+          2
+        ],
+        0.2
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        1
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [],
+        [],
+        -1
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [],
+        [],
+        0
+      ],
+      "expected": true
+    }
+  ],
+  "world_effect": "relay_orion_moon_09",
+  "simulation": "expedition",
+  "output": "model"
+}

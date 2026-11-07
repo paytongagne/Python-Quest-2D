@@ -1,0 +1,13 @@
+adapter_id,source_entry,source_path,contract,transformation,compatibility_rule
+A01,core.challenges.LESSONS,content/expeditions/*.json,mission_content,Keep existing map/lesson keys. Add optional pq_extension (design-only).,Read-only wrapper; new optional fields; no relabeling IDs.
+A02,core.grade.grade,core/grade.py,execution_request,Wrap legacy ch+code only at new API boundary; pass unmodified ch to v1.4 grade().,No worker rewrite for legacy paths.
+A03,core.worker.evaluate,core/worker.py,evaluation_result,Normalize legacy status/rows/line/effect; reject malformed/NaN/over-budget outputs on parent.,"Keep legacy status strings, do not assume worker isolating hostile code."
+A04,game.app.Game.collect,game/app.py,evaluation_result,"Feature-gated new plan branch, independent parent validator before effects.",Maintain hydro route/instrument and expeditions.accept fallback.
+A05,game.expedition.Expeditions.accept,game/expedition.py,action_plan,Legacy expedition.validate first; feature-gated ProgramRuntime on new mission contracts.,Do not mutate p[programs]/p[last_replay].
+A06,game.world.World.nearest,game/world.py,device_intent,Device registry maps interacted hardware to canonical IDs and allowed intents.,Existing dictionaries remain valid.
+A07,game.app.Game.update_field,game/app.py,world_event,Drive proposed reducer from fixed logical ticks; emit bounded events.,Do not change existing rover flight timers without migration test.
+A08,game.expedition.Expeditions.travel,game/expedition.py,travel_request,Wrap current destination lookups + busy/locked/preview checks; safe spawn fallback.,Preserve checkpoint/astra_return/visited_worlds.
+A09,game.app.Game.draw,game/app.py,render_snapshot,Construct read-only draw snapshot from validated game-owned state; UI never calls learner functions.,Do not replace current renderer in one sprint.
+A10,core.progress.load/save/award,core/progress.py,save_v4,Add optional program_library/runtime_v1 defaults; preserve unknown fields; safe profile backups.,Do not bump schema until implemented migration.
+A11,game.diagnostics.draw,game/diagnostics.py,world_event,Read bounded event trace and replay timeline; no raw object repr in frame loop.,Keep 768x576 view unobstructed.
+A12,game.instruments + game.planet_art,game/instruments.py,render_snapshot,"Use finite, nullable signal samples and toy mesh layers; label simulated status.",Synthetic fixtures only; do not import Qt.

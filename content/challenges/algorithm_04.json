@@ -1,0 +1,87 @@
+{
+  "id": "algorithm_04",
+  "kind": "function",
+  "zone": "algorithm",
+  "sequence": 4,
+  "title": "TWO SUM: FINAL BOSS",
+  "story": "You have reached the final algorithm gate. Return the TWO INDEXES that make the target, not the values.",
+  "lesson": "A dictionary maps a number to the index where you previously saw it. Each new number checks whether its complement is already in the dictionary. Time O(n), space O(n).",
+  "objective": "Return [earlier_index, current_index] for the unique pair summing to target. Return [] if no pair exists.",
+  "sample": "two_sum([2, 7, 11, 15], 9)  ->  [0, 1]",
+  "starter_code": "def two_sum(nums, target):\n    # Write an O(n) hash-map solution.\n    pass\n",
+  "hint": "Start seen = {}. For each i, n in enumerate(nums), check 'target - n in seen'. Return [seen[target - n], i] if found, then store seen[n] = i.",
+  "function_name": "two_sum",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          7,
+          11,
+          15
+        ],
+        9
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          3,
+          2,
+          4
+        ],
+        6
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          3,
+          3
+        ],
+        6
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          5,
+          8
+        ],
+        20
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          -3,
+          4,
+          3,
+          90
+        ],
+        0
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    }
+  ],
+  "difficulty": "interview",
+  "legacy_index": 19,
+  "world_effect": "gate_algorithm_04"
+}

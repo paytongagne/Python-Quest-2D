@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/render_snapshot.schema.json",
+  "title": "render_snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "frame_id",
+    "world_id",
+    "logical_tick",
+    "camera",
+    "entities",
+    "instruments",
+    "effects",
+    "ui"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": 1
+    },
+    "frame_id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "logical_tick": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "zoom"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "zoom": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 8
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "maxItems": 1024,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sprite",
+          "x",
+          "y",
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+          },
+          "sprite": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "state": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+          },
+          "layer": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    "instruments": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "status": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+          },
+          "values": {
+            "type": "array",
+            "maxItems": 2048,
+            "items": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "effects": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "x",
+          "y"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "duration_ticks": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "objective",
+        "notice"
+      ],
+      "properties": {
+        "objective": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "notice": {
+          "type": "string",
+          "maxLength": 320
+        },
+        "show_synthetic_banner": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

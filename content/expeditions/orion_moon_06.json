@@ -1,0 +1,71 @@
+{
+  "id": "orion_moon_06",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 6,
+  "title": "Schedule Relay Maintenance",
+  "story": "Repair drones need a stable dispatch order when two relays share a severity.",
+  "lesson": "Sort by negative severity for descending priority, then by arrival for ascending time. Python's stable sort preserves input order on ties.",
+  "objective": "Jobs have id, severity and arrival. Return IDs sorted by highest severity, earliest arrival, then original order.",
+  "sample": "severity 9 leaves before severity 2.",
+  "function_name": "service_order",
+  "starter_code": "def service_order(jobs):\n    pass\n",
+  "hint": "sorted(jobs, key=lambda j: (-j['severity'],j['arrival'])) preserves exact ties.",
+  "cases": [
+    {
+      "args": [
+        [
+          {
+            "id": "A",
+            "severity": 2,
+            "arrival": 1
+          },
+          {
+            "id": "B",
+            "severity": 9,
+            "arrival": 4
+          },
+          {
+            "id": "C",
+            "severity": 9,
+            "arrival": 2
+          }
+        ]
+      ],
+      "expected": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          {
+            "id": "A",
+            "severity": 1,
+            "arrival": 0
+          },
+          {
+            "id": "B",
+            "severity": 1,
+            "arrival": 0
+          }
+        ]
+      ],
+      "expected": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "world_effect": "relay_orion_moon_06",
+  "simulation": "expedition",
+  "output": "model"
+}

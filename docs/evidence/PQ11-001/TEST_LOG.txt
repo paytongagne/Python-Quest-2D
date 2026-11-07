@@ -1,0 +1,28 @@
+test_clipboard (test_controls.Controls.test_clipboard) ... ok
+test_edit_history_selection_and_pointer (test_controls.Controls.test_edit_history_selection_and_pointer) ... ok
+test_gate_and_wall_collision (test_controls.Controls.test_gate_and_wall_collision) ... ok
+test_reveal_requires_second_press (test_controls.Controls.test_reveal_requires_second_press) ... ok
+test_invalid_paths_and_worker_errors (test_expeditions.Expeditions.test_invalid_paths_and_worker_errors) ... ok
+test_schema3_backup (test_expeditions.Expeditions.test_schema3_backup) ... ok
+test_travel_all_worlds_and_programs (test_expeditions.Expeditions.test_travel_all_worlds_and_programs) ... ok
+test_campaign (test_flight.Flight.test_campaign) ... ok
+test_legacy_and_corruption (test_flight.Flight.test_legacy_and_corruption) ... ok
+test_worker_failures (test_flight.Flight.test_worker_failures) ... ok
+test_all_deck_extensions (test_greenline.Greenline.test_all_deck_extensions) ... ok
+test_old_save_migration (test_greenline.Greenline.test_old_save_migration) ... ok
+test_route_contract (test_greenline.Greenline.test_route_contract) ... ok
+test_sector_travel_and_paused_dispatch (test_greenline.Greenline.test_sector_travel_and_paused_dispatch) ... ok
+test_world_and_robot_campaign (test_greenline.Greenline.test_world_and_robot_campaign) ... ok
+test_all_76_worker_effects_and_replays (test_ticket_baseline.ProtectedBaseline.test_all_76_worker_effects_and_replays) ... ok
+test_entrance_diagnostics_and_sizes (test_visual_revision.VisualRevision.test_entrance_diagnostics_and_sizes) ... ok
+test_incorrect_advanced_contracts (test_visual_revision.VisualRevision.test_incorrect_advanced_contracts) ... ok
+test_second_wing_campaign_and_save (test_visual_revision.VisualRevision.test_second_wing_campaign_and_save) ... ok
+test_bays_save_and_presentations (test_workshop.Workshop.test_bays_save_and_presentations) ... ok
+test_class_contracts (test_workshop.Workshop.test_class_contracts) ... ok
+test_fitted_text_and_mouse_travel (test_workshop.Workshop.test_fitted_text_and_mouse_travel) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 40.754s
+
+OK
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.13.9)

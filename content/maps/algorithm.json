@@ -1,0 +1,102 @@
+{
+  "id": "algorithm",
+  "tile_size": 32,
+  "width": 32,
+  "height": 18,
+  "tiles": [
+    "########################        ",
+    "#...........#..........#        ",
+    "#......#....#..........#########",
+    "#...........#..........#.......#",
+    "#......................#.......#",
+    "#...........#..................#",
+    "#...........#....#.....#.......#",
+    "#...........#..........#.......#",
+    "#...........#..........#########",
+    "##################.#####        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "#......................#        ",
+    "#...........#..........#        ",
+    "######.######..........#        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "########################        "
+  ],
+  "spawn": {
+    "x": 96,
+    "y": 96
+  },
+  "interactables": [
+    {
+      "id": "terminal_algorithm_01",
+      "type": "terminal",
+      "x": 176,
+      "y": 144,
+      "challenge_id": "algorithm_01"
+    },
+    {
+      "id": "terminal_algorithm_02",
+      "type": "terminal",
+      "x": 592,
+      "y": 144,
+      "challenge_id": "algorithm_02"
+    },
+    {
+      "id": "terminal_algorithm_03",
+      "type": "terminal",
+      "x": 592,
+      "y": 400,
+      "challenge_id": "algorithm_03"
+    },
+    {
+      "id": "terminal_algorithm_04",
+      "type": "terminal",
+      "x": 208,
+      "y": 400,
+      "challenge_id": "algorithm_04"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate_algorithm_01",
+      "x": 384,
+      "y": 128,
+      "requires_challenge": "algorithm_01"
+    },
+    {
+      "id": "gate_algorithm_02",
+      "x": 576,
+      "y": 288,
+      "requires_challenge": "algorithm_02"
+    },
+    {
+      "id": "gate_algorithm_03",
+      "x": 384,
+      "y": 384,
+      "requires_challenge": "algorithm_03"
+    },
+    {
+      "id": "gate_algorithm_04",
+      "x": 192,
+      "y": 448,
+      "requires_challenge": "algorithm_04"
+    }
+  ],
+  "exit": {
+    "x": 208,
+    "y": 505,
+    "to_zone": null,
+    "requires_challenge": "algorithm_04"
+  },
+  "ambience": "algorithm",
+  "alcove": "Memory archive",
+  "note": "Archive: a safe controller checks pressure before moisture. MARA left the logger on the far rail.",
+  "sites": [
+    {
+      "type": "archive",
+      "x": 938,
+      "y": 180
+    }
+  ]
+}

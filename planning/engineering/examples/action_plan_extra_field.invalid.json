@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "snapshot_id": "snap-orion-01",
+  "actions": [
+    {
+      "type": "move",
+      "direction": "east",
+      "world_flags": true
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "orion_moon_08",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 8,
+  "title": "Convert Moon Coordinates",
+  "story": "A coordinate mismatch puts cargo beside its dock. Align rover-local and lunar-base frames.",
+  "lesson": "A translation adds the origin to local coordinates. The inverse subtracts it. Keep the input list intact.",
+  "objective": "For each 2D point return point+origin, or point-origin when inverse is True.",
+  "sample": "points=[[1,2]], origin=[4,5], inverse=False -> [[5,7]]",
+  "function_name": "change_frame",
+  "starter_code": "def change_frame(points, origin, inverse):\n    pass\n",
+  "hint": "Choose a sign of -1 for inverse and +1 otherwise.",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            -2,
+            0
+          ]
+        ],
+        [
+          4,
+          5
+        ],
+        false
+      ],
+      "expected": [
+        [
+          5,
+          7
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            5,
+            7
+          ]
+        ],
+        [
+          4,
+          5
+        ],
+        true
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "args": [
+        [],
+        [
+          2,
+          3
+        ],
+        false
+      ],
+      "expected": []
+    }
+  ],
+  "world_effect": "relay_orion_moon_08",
+  "simulation": "expedition",
+  "output": "model"
+}

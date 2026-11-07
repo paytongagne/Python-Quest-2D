@@ -1,0 +1,71 @@
+{
+  "id": "algorithm_03",
+  "kind": "function",
+  "zone": "algorithm",
+  "sequence": 3,
+  "title": "Find a Pair",
+  "story": "An access code opens if two DIFFERENT list positions add up to the target.",
+  "lesson": "For each number n, the needed partner is target - n. A set can track values you've already seen.",
+  "objective": "Return True if two elements at different indexes sum to target; otherwise False.",
+  "sample": "has_pair([2, 7, 11], 9)  ->  True",
+  "starter_code": "def has_pair(nums, target):\n    pass\n",
+  "hint": "Start with seen = set(). For each n, check if target - n is in seen. Then add n to seen.",
+  "function_name": "has_pair",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          7,
+          11
+        ],
+        9
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          3
+        ],
+        6
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          3,
+          3
+        ],
+        6
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          2,
+          4,
+          6
+        ],
+        5
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          -2,
+          5,
+          7
+        ],
+        3
+      ],
+      "expected": true
+    }
+  ],
+  "difficulty": "interview",
+  "legacy_index": 18,
+  "world_effect": "gate_algorithm_03"
+}

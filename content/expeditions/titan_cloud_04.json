@@ -1,0 +1,69 @@
+{
+  "id": "titan_cloud_04",
+  "kind": "function",
+  "zone": "titan_cloud",
+  "sequence": 4,
+  "title": "Know the Delivery Contract",
+  "story": "Checkpoint the exchange before a storm retransmits old packets.",
+  "lesson": "An idempotent consumer can filter repeated IDs even when delivery retries occur. Policy must be explicit.",
+  "objective": "Mode 'at_most_once' returns unique IDs in first-seen order. Mode 'at_least_once' preserves every arrival. Inputs use these two modes.",
+  "sample": "['A','A','B'], 'at_most_once' -> ['A','B']",
+  "function_name": "deliver",
+  "starter_code": "def deliver(ids, mode):\n    pass\n",
+  "hint": "Use a seen set only when duplicates must be removed.",
+  "cases": [
+    {
+      "args": [
+        [
+          "A",
+          "A",
+          "B"
+        ],
+        "at_most_once"
+      ],
+      "expected": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "args": [
+        [
+          "A",
+          "A"
+        ],
+        "at_least_once"
+      ],
+      "expected": [
+        "A",
+        "A"
+      ]
+    },
+    {
+      "args": [
+        [],
+        "at_most_once"
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          "B",
+          "A",
+          "B",
+          "C"
+        ],
+        "at_most_once"
+      ],
+      "expected": [
+        "B",
+        "A",
+        "C"
+      ]
+    }
+  ],
+  "world_effect": "relay_titan_cloud_04",
+  "simulation": "expedition",
+  "output": "model"
+}

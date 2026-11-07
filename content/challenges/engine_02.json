@@ -1,0 +1,43 @@
+{
+  "id": "engine_02",
+  "kind": "function",
+  "zone": "engine",
+  "sequence": 2,
+  "title": "Validate the Packet",
+  "story": "Some messages are corrupt. Only packets with the right start and a temperature field can enter the dashboard.",
+  "lesson": "'text.startswith(prefix)' checks the beginning of a string. 'part in text' checks for a substring.",
+  "objective": "Return True if packet starts with 'TEL,' AND includes 'TEMP=' anywhere; otherwise False.",
+  "sample": "valid_packet('TEL,SEQ=1,TEMP=24')  ->  True",
+  "starter_code": "def valid_packet(packet):\n    pass\n",
+  "hint": "Combine packet.startswith('TEL,') with a substring check using 'and'.",
+  "function_name": "valid_packet",
+  "cases": [
+    {
+      "args": [
+        "TEL,SEQ=1,TEMP=24"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "BAD,TEMP=24"
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        "TEL,SEQ=1"
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        "TEL,TEMP=0"
+      ],
+      "expected": true
+    }
+  ],
+  "difficulty": "intermediate",
+  "legacy_index": 13,
+  "world_effect": "gate_engine_02"
+}

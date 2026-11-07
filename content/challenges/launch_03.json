@@ -1,0 +1,43 @@
+{
+  "id": "launch_03",
+  "kind": "function",
+  "zone": "launch",
+  "sequence": 3,
+  "title": "Thermal Conversion",
+  "story": "Your sensor reports Celsius, but the control room needs Fahrenheit.",
+  "lesson": "Arithmetic works inside return statements. For Fahrenheit: multiply Celsius by 9/5, then add 32.",
+  "objective": "Write to_fahrenheit(celsius) using the Celsius-to-Fahrenheit conversion.",
+  "sample": "to_fahrenheit(0)  ->  32.0",
+  "starter_code": "def to_fahrenheit(celsius):\n    pass\n",
+  "hint": "The calculation is celsius * 9 / 5 + 32. Return the result.",
+  "function_name": "to_fahrenheit",
+  "cases": [
+    {
+      "args": [
+        0
+      ],
+      "expected": 32.0
+    },
+    {
+      "args": [
+        100
+      ],
+      "expected": 212.0
+    },
+    {
+      "args": [
+        -40
+      ],
+      "expected": -40.0
+    },
+    {
+      "args": [
+        25
+      ],
+      "expected": 77.0
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 2,
+  "world_effect": "gate_launch_03"
+}

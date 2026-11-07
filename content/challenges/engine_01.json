@@ -1,0 +1,43 @@
+{
+  "id": "engine_01",
+  "kind": "function",
+  "zone": "engine",
+  "sequence": 1,
+  "title": "Clean the Call Sign",
+  "story": "The communications terminal receives names padded with spaces and inconsistent capitalization.",
+  "lesson": "String methods can be chained: .strip() removes leading/trailing whitespace; .upper() capitalizes letters.",
+  "objective": "Return the input string with surrounding whitespace removed and all letters uppercase.",
+  "sample": "clean_callsign('  eagle  ')  ->  'EAGLE'",
+  "starter_code": "def clean_callsign(text):\n    pass\n",
+  "hint": "Try calling the two methods in sequence on text, then returning the result.",
+  "function_name": "clean_callsign",
+  "cases": [
+    {
+      "args": [
+        "  eagle  "
+      ],
+      "expected": "EAGLE"
+    },
+    {
+      "args": [
+        "Alpha"
+      ],
+      "expected": "ALPHA"
+    },
+    {
+      "args": [
+        "   "
+      ],
+      "expected": ""
+    },
+    {
+      "args": [
+        "\tblue  bird\n"
+      ],
+      "expected": "BLUE  BIRD"
+    }
+  ],
+  "difficulty": "intermediate",
+  "legacy_index": 12,
+  "world_effect": "gate_engine_01"
+}

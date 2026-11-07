@@ -1,0 +1,63 @@
+{
+  "id": "sensor_03",
+  "kind": "function",
+  "zone": "sensor",
+  "sequence": 3,
+  "title": "Status Counter",
+  "story": "The system logs statuses like NORMAL and DEGRADED. Count how often each one appears.",
+  "lesson": "Dictionaries associate keys with values. counts.get(key, 0) gives zero when a key does not yet exist.",
+  "objective": "Return a dictionary mapping each status string to the number of times it occurs.",
+  "sample": "count_statuses(['OK', 'BAD', 'OK'])  ->  {'OK': 2, 'BAD': 1}",
+  "starter_code": "def count_statuses(statuses):\n    counts = {}\n    pass\n",
+  "hint": "Loop through statuses. For each status, set counts[status] to counts.get(status, 0) + 1.",
+  "function_name": "count_statuses",
+  "cases": [
+    {
+      "args": [
+        [
+          "OK",
+          "BAD",
+          "OK"
+        ]
+      ],
+      "expected": {
+        "OK": 2,
+        "BAD": 1
+      }
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": {}
+    },
+    {
+      "args": [
+        [
+          "NORMAL"
+        ]
+      ],
+      "expected": {
+        "NORMAL": 1
+      }
+    },
+    {
+      "args": [
+        [
+          "A",
+          "A",
+          "B",
+          "B",
+          "A"
+        ]
+      ],
+      "expected": {
+        "A": 3,
+        "B": 2
+      }
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 10,
+  "world_effect": "gate_sensor_03"
+}

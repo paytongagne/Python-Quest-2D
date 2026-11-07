@@ -1,0 +1,63 @@
+{
+  "id": "hydro_13",
+  "zone": "hydro",
+  "sequence": 13,
+  "kind": "function",
+  "title": "Rebuild the event tape",
+  "story": "The canopy recorder repeats consecutive events. Recover the duration of each uninterrupted state.",
+  "lesson": "Run-length encoding groups adjacent equal values. Equal values separated by another state start new groups.",
+  "objective": "Return [event, count] pairs for consecutive runs.",
+  "sample": "['A','A','B','A'] -> [['A',2],['B',1],['A',1]]",
+  "function_name": "pack_events",
+  "starter_code": "def pack_events(events):\n    pass\n",
+  "hint": "If the last pair has the same label, increment its count. Otherwise append a new pair.",
+  "world_effect": "relay_hydro_13",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        [
+          "P",
+          "P",
+          "V",
+          "P"
+        ]
+      ],
+      "expected": [
+        [
+          "P",
+          2
+        ],
+        [
+          "V",
+          1
+        ],
+        [
+          "P",
+          1
+        ]
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          "H",
+          "H",
+          "H"
+        ]
+      ],
+      "expected": [
+        [
+          "H",
+          3
+        ]
+      ]
+    }
+  ]
+}

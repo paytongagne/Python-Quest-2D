@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/evaluation_result.schema.json",
+  "title": "evaluation_result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "request_id",
+    "mission_id",
+    "status",
+    "passed",
+    "rows",
+    "errors",
+    "effect"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": 1
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "mission_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "status": {
+      "enum": [
+        "finished",
+        "syntax_error",
+        "runtime_error",
+        "invalid_challenge",
+        "timeout",
+        "worker_crash",
+        "invalid_output",
+        "cancelled"
+      ]
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "passed_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "total_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "line": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 1024
+      },
+      "maxItems": 128
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "enum": [
+              "INVALID_INPUT",
+              "SCHEMA_MISMATCH",
+              "SYNTAX_ERROR",
+              "RUNTIME_ERROR",
+              "TEST_FAILED",
+              "TIMEOUT",
+              "WORKER_CRASH",
+              "INVALID_EFFECT",
+              "STALE_SNAPSHOT",
+              "INVALID_ACTION",
+              "COLLISION",
+              "ENERGY_EXHAUSTED",
+              "MISSING_CAPABILITY",
+              "DEVICE_NOT_ADJACENT",
+              "UNSUPPORTED_CONTRACT",
+              "SAVE_CONFLICT"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 480
+          },
+          "line": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "step": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "field": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 128
+          },
+          "case_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 128
+          }
+        }
+      },
+      "maxItems": 128
+    },
+    "effect": {},
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    }
+  }
+}

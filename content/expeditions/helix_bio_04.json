@@ -1,0 +1,113 @@
+{
+  "id": "helix_bio_04",
+  "kind": "function",
+  "zone": "helix_bio",
+  "sequence": 4,
+  "title": "Inject Noise for Testing",
+  "story": "Stress the display with a repeatable synthetic perturbation. No patient measurements are used.",
+  "lesson": "A specified index formula makes every test reproducible. Returning a new list keeps the original fixture usable.",
+  "objective": "At index i add (((seed+i*17)%101)/50 - 1)*amplitude. Round each result to 6 decimals. Preserve the input.",
+  "sample": "[0,0], seed=0, amplitude=1 -> [-1,-0.66]",
+  "function_name": "inject_noise",
+  "starter_code": "def inject_noise(samples, seed, amplitude):\n    pass\n",
+  "hint": "Enumerate the input and apply the formula to each sample.",
+  "cases": [
+    {
+      "args": [
+        [
+          0,
+          0.1,
+          -0.2,
+          1,
+          -0.3,
+          0.2,
+          0.1,
+          0,
+          0,
+          0.1,
+          -0.2,
+          1,
+          -0.3,
+          0.2,
+          0.1,
+          0,
+          0,
+          0.1,
+          -0.2,
+          1,
+          -0.3,
+          0.2,
+          0.1,
+          0
+        ],
+        7,
+        0.15
+      ],
+      "expected": [
+        -0.129,
+        0.022,
+        -0.227,
+        1.024,
+        -0.225,
+        0.326,
+        -0.026,
+        -0.075,
+        -0.024,
+        0.127,
+        -0.122,
+        1.129,
+        -0.423,
+        0.128,
+        0.079,
+        0.03,
+        0.081,
+        0.232,
+        -0.32,
+        0.931,
+        -0.318,
+        0.233,
+        0.184,
+        0.135
+      ]
+    },
+    {
+      "args": [
+        [],
+        1,
+        2
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          1,
+          2
+        ],
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          0
+        ],
+        0,
+        1
+      ],
+      "expected": [
+        -1,
+        -0.66
+      ]
+    }
+  ],
+  "world_effect": "relay_helix_bio_04",
+  "simulation": "expedition",
+  "output": "model"
+}

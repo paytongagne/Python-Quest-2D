@@ -1,0 +1,97 @@
+{
+  "id": "orion_moon_13",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 13,
+  "title": "Cache Crater Distances",
+  "story": "Convoy queries repeat. Reuse results without confusing two directions of a route.",
+  "lesson": "Memoization stores a result by its inputs. For this undirected graph, a pair can be canonicalized as a sorted tuple.",
+  "objective": "Return {'distances': list, 'searches': number of distinct unordered pairs}. Distances count edges or -1 if unreachable.",
+  "sample": "Queries [['A','B'],['B','A']] need one search.",
+  "function_name": "cached_distances",
+  "starter_code": "def cached_distances(graph, queries):\n    pass\n",
+  "hint": "Use BFS per new sorted pair. Store -1 too so impossible routes are cached.",
+  "cases": [
+    {
+      "args": [
+        {
+          "A": [
+            "B"
+          ],
+          "B": [
+            "A",
+            "C"
+          ],
+          "C": [
+            "B"
+          ],
+          "D": []
+        },
+        [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "A",
+            "A"
+          ]
+        ]
+      ],
+      "expected": {
+        "distances": [
+          2,
+          2,
+          -1,
+          0
+        ],
+        "searches": 3
+      }
+    },
+    {
+      "args": [
+        {},
+        []
+      ],
+      "expected": {
+        "distances": [],
+        "searches": 0
+      }
+    },
+    {
+      "args": [
+        {
+          "X": []
+        },
+        [
+          [
+            "X",
+            "X"
+          ],
+          [
+            "X",
+            "X"
+          ]
+        ]
+      ],
+      "expected": {
+        "distances": [
+          0,
+          0
+        ],
+        "searches": 1
+      }
+    }
+  ],
+  "world_effect": "relay_orion_moon_13",
+  "simulation": "expedition",
+  "output": "model"
+}

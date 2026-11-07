@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/save_v4.schema.json",
+  "title": "save_v4",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "player",
+    "completed",
+    "hinted",
+    "drafts",
+    "attempts",
+    "world_flags",
+    "review",
+    "settings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 4
+    },
+    "player": {
+      "type": "object",
+      "required": [
+        "zone",
+        "x",
+        "y",
+        "xp"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "zone": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "xp": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "completed": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+      },
+      "uniqueItems": true,
+      "maxItems": 512
+    },
+    "hinted": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+      },
+      "uniqueItems": true,
+      "maxItems": 512
+    },
+    "revealed": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+      },
+      "uniqueItems": true,
+      "maxItems": 512
+    },
+    "drafts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "maxLength": 65536
+      }
+    },
+    "attempts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "world_flags": {
+      "type": "object"
+    },
+    "review": {
+      "type": "object"
+    },
+    "settings": {
+      "type": "object"
+    },
+    "program_library": {
+      "$ref": "program_library.schema.json"
+    },
+    "runtime_v1": {
+      "$ref": "runtime_extension.schema.json"
+    },
+    "programs": {
+      "type": "object"
+    },
+    "last_replay": {
+      "type": "string"
+    },
+    "expedition_job": {
+      "type": "object"
+    },
+    "deployment": {
+      "type": "object"
+    },
+    "checkpoints": {
+      "type": "object"
+    },
+    "visited_worlds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "description": "Current v1.4 schema-4 plus additive stage-09 proposed keys; never erase unknown old fields."
+}

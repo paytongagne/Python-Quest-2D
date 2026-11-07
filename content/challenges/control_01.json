@@ -1,0 +1,49 @@
+{
+  "id": "control_01",
+  "kind": "function",
+  "zone": "control",
+  "sequence": 1,
+  "title": "Temperature Zones",
+  "story": "The flight computer must label the temperature before activating cooling.",
+  "lesson": "An if/elif/else chain checks conditions in order. Only the first matching branch runs.",
+  "objective": "Return 'COLD' below 0, 'HOT' above 35, and 'SAFE' otherwise.",
+  "sample": "classify_temp(36)  ->  'HOT'",
+  "starter_code": "def classify_temp(temp):\n    # Check the temperature range.\n    pass\n",
+  "hint": "Try an 'if temp < 0' branch, an 'elif temp > 35' branch, then 'else'. Each branch returns a string.",
+  "function_name": "classify_temp",
+  "cases": [
+    {
+      "args": [
+        -1
+      ],
+      "expected": "COLD"
+    },
+    {
+      "args": [
+        36
+      ],
+      "expected": "HOT"
+    },
+    {
+      "args": [
+        0
+      ],
+      "expected": "SAFE"
+    },
+    {
+      "args": [
+        35
+      ],
+      "expected": "SAFE"
+    },
+    {
+      "args": [
+        18
+      ],
+      "expected": "SAFE"
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 4,
+  "world_effect": "gate_control_01"
+}

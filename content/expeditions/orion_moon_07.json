@@ -1,0 +1,85 @@
+{
+  "id": "orion_moon_07",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 7,
+  "title": "Signal Lost",
+  "story": "A tunnel has collapsed. The dispatcher must report failure instead of inventing a route.",
+  "lesson": "A search exhausts its frontier when there is no connection. A distinct failure result keeps downstream code from moving a rover.",
+  "objective": "Return True if a cardinal route exists between start and goal, otherwise False. '#' blocks movement.",
+  "sample": "['.#.'] from [0,0] to [2,0] -> False",
+  "function_name": "can_reach",
+  "starter_code": "def can_reach(grid, start, goal):\n    pass\n",
+  "hint": "Use a stack or queue with a visited set. Exhaustion means False.",
+  "cases": [
+    {
+      "args": [
+        [
+          ".#."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          "..."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          "."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          "..#",
+          "##.",
+          "..."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": false
+    }
+  ],
+  "world_effect": "relay_orion_moon_07",
+  "simulation": "expedition",
+  "output": "model"
+}

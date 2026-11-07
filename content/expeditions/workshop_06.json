@@ -1,0 +1,69 @@
+{
+  "id": "workshop_06",
+  "zone": "workshop",
+  "sequence": 6,
+  "kind": "object",
+  "contract": "composition",
+  "title": "Swap the Power Core",
+  "story": "ION: The second assembly wing needs production-grade Python. Restore the machine, then inspect its diagnostics with O.",
+  "objective": "Define Battery(charge) and consume(amount). For valid consumption, subtract amount and return remaining charge; raise ValueError for negative amounts or amounts exceeding charge without changing charge. Define Rover(battery), retaining the exact Battery object, and drive(amount), delegating to battery.consume. Replacing rover.battery swaps cores. Inputs are nonnegative integer initial charges and integer amounts.",
+  "lesson": "Composition makes a rover contain a battery instead of inherit it. Delegate to the component; swapping it should not mutate the old component.",
+  "sample": "b=Battery(10); r=Rover(b); r.drive(3) -> 7; b.charge -> 7",
+  "starter_code": "class Battery:\n    def __init__(self, charge):\n        self.charge = charge\n\n    def consume(self, amount):\n        pass\n\nclass Rover:\n    def __init__(self, battery):\n        self.battery = battery\n\n    def drive(self, amount):\n        pass\n",
+  "hint": "Composition makes a rover contain a battery instead of inherit it. Delegate to the component; swapping it should not mutate the old component.",
+  "cases": [
+    {
+      "charges": [
+        80,
+        50
+      ],
+      "actions": [
+        30,
+        "swap",
+        20
+      ],
+      "expected": {
+        "charges": [
+          50,
+          30
+        ],
+        "results": [
+          50,
+          30
+        ]
+      }
+    },
+    {
+      "charges": [
+        5,
+        0
+      ],
+      "actions": [
+        6,
+        -1,
+        5,
+        0,
+        "swap",
+        1,
+        0
+      ],
+      "expected": {
+        "charges": [
+          0,
+          0
+        ],
+        "results": [
+          "rejected",
+          "rejected",
+          0,
+          0,
+          "rejected",
+          0
+        ]
+      }
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_6"
+}

@@ -1,0 +1,11 @@
+{
+  "archive": "/mnt/data/Python-Quest-2D-v1.4-Windows-x64.zip",
+  "scope": "STATIC_ONLY_NOT_NATIVE_WINDOWS_LAUNCH",
+  "passed": true,
+  "issues": [],
+  "warnings": [],
+  "members": 427,
+  "sha256": "7f845cec5b66ac5b6bc7fc9d07edc2b7e50adb45b9604b92caf46470a92da5e3",
+  "root": "Python Quest 2D",
+  "warnings_count": 0
+}

@@ -1,0 +1,14 @@
+{
+  "protocol_version": 1,
+  "event_id": "evt-01",
+  "sequence": 1,
+  "timestamp_tick": 11,
+  "world_id": "orion_moon",
+  "event_type": "device.state_changed",
+  "subject_id": "relay_a",
+  "payload": {
+    "from": "offline",
+    "to": "online"
+  },
+  "idempotency_key": "relay_a-restore-01"
+}

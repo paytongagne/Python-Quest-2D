@@ -1,0 +1,123 @@
+{
+  "id": "orion_moon_04",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 4,
+  "title": "Route Around High Radiation",
+  "story": "The ridge is open, but radiation makes the direct route costly. Deliver the shield module using the cheapest safe route.",
+  "lesson": "Dijkstra explores the lowest cumulative cost first using a heap. Update a cell only when its new cost improves the best known value.",
+  "objective": "Return a minimum-cost list of [x,y] cells including both endpoints. Entering a cell costs its nonnegative value. -1 is blocked. Start cost is zero.",
+  "sample": "[[1,9,1],[1,1,1]] from [0,0] to [2,0] costs 4 via the bottom row.",
+  "function_name": "least_cost",
+  "starter_code": "def least_cost(grid, start, goal):\n    pass\n",
+  "hint": "Heap entries hold total cost, cell and path. Skip outdated entries after popping.",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            8,
+            8,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            9,
+            9,
+            -1,
+            2,
+            1
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "cost": 6
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            9,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "cost": 4
+    },
+    {
+      "args": [
+        [
+          [
+            0
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "cost": 0
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            -1,
+            1
+          ],
+          [
+            2,
+            2,
+            1
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "cost": 6
+    }
+  ],
+  "world_effect": "relay_orion_moon_04",
+  "simulation": "expedition",
+  "output": "path"
+}

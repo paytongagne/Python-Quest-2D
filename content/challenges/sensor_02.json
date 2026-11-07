@@ -1,0 +1,52 @@
+{
+  "id": "sensor_02",
+  "kind": "function",
+  "zone": "sensor",
+  "sequence": 2,
+  "title": "Average the Readings",
+  "story": "Your sensor dashboard should show an average, even when no data has arrived yet.",
+  "lesson": "sum(numbers) totals a list, while len(numbers) gives its size. Handle an empty list before dividing.",
+  "objective": "Return the arithmetic average of readings, or 0 for an empty list.",
+  "sample": "average_reading([10, 20, 30])  ->  20.0",
+  "starter_code": "def average_reading(readings):\n    pass\n",
+  "hint": "First use 'if not readings:' to handle an empty list. Otherwise divide sum(readings) by len(readings).",
+  "function_name": "average_reading",
+  "cases": [
+    {
+      "args": [
+        [
+          10,
+          20,
+          30
+        ]
+      ],
+      "expected": 20.0
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 5.0
+    },
+    {
+      "args": [
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 3.0
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 9,
+  "world_effect": "gate_sensor_02"
+}

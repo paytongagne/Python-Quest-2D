@@ -1,0 +1,47 @@
+{
+  "id": "control_02",
+  "kind": "function",
+  "zone": "control",
+  "sequence": 2,
+  "title": "Raise the Shields",
+  "story": "Hostile objects approach. Shields should activate only when energy is sufficient AND danger is present.",
+  "lesson": "Use 'and' when both conditions must be true. Logical operators combine Boolean expressions.",
+  "objective": "shields_up(energy, danger) should return True only when energy >= 20 and danger is True.",
+  "sample": "shields_up(30, True)  ->  True",
+  "starter_code": "def shields_up(energy, danger):\n    pass\n",
+  "hint": "Build two expressions, then connect them with 'and'. One expression checks the number; the other is the Boolean parameter.",
+  "function_name": "shields_up",
+  "cases": [
+    {
+      "args": [
+        30,
+        true
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        19,
+        true
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        20,
+        false
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        20,
+        true
+      ],
+      "expected": true
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 5,
+  "world_effect": "gate_control_02"
+}

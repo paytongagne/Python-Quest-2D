@@ -1,0 +1,122 @@
+{
+  "stage": 9,
+  "protocol_revision": "pq-architecture-v1",
+  "status": "DESIGN_ONLY",
+  "source_baseline": "Python Quest 2D v1.4 (76 shipped missions; profile schema 4)",
+  "schemas": {
+    "action_plan.schema": {
+      "path": "engineering/schemas/action_plan.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "device_intent.schema": {
+      "path": "engineering/schemas/device_intent.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "evaluation_result.schema": {
+      "path": "engineering/schemas/evaluation_result.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "execution_request.schema": {
+      "path": "engineering/schemas/execution_request.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "mission_content.schema": {
+      "path": "engineering/schemas/mission_content.schema.json",
+      "version": 1,
+      "wire_status": "LEGACY_COMPATIBLE_SUPERSET"
+    },
+    "observation.schema": {
+      "path": "engineering/schemas/observation.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "program_library.schema": {
+      "path": "engineering/schemas/program_library.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "render_snapshot.schema": {
+      "path": "engineering/schemas/render_snapshot.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "runtime_extension.schema": {
+      "path": "engineering/schemas/runtime_extension.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "save_v4.schema": {
+      "path": "engineering/schemas/save_v4.schema.json",
+      "version": 1,
+      "wire_status": "LEGACY_COMPATIBLE_SUPERSET"
+    },
+    "travel_request.schema": {
+      "path": "engineering/schemas/travel_request.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "travel_result.schema": {
+      "path": "engineering/schemas/travel_result.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    },
+    "world_event.schema": {
+      "path": "engineering/schemas/world_event.schema.json",
+      "version": 1,
+      "wire_status": "PROPOSED"
+    }
+  },
+  "max_limits": {
+    "source_bytes": 65536,
+    "worker_timeout_seconds": 3,
+    "worker_stdout_chars": 8192,
+    "worker_json_response_bytes_proposed": 262144,
+    "max_plan_actions": 64,
+    "max_render_entities": 1024,
+    "max_render_instruments": 32,
+    "max_active_traces": 32,
+    "max_program_revisions": 128,
+    "worker_result_rows_proposed": 128
+  },
+  "game_source_seams": {
+    "legacy_entry": "src/python_quest_2d/core/grade.py:grade(ch, code, timeout_s=3)",
+    "legacy_worker": "src/python_quest_2d/core/worker.py:evaluate(ch, code)",
+    "legacy_result": "src/python_quest_2d/game/app.py:collect()",
+    "expedition_result": "src/python_quest_2d/game/expedition.py:accept()",
+    "legacy_save": "src/python_quest_2d/core/progress.py:load/save/award",
+    "legacy_content": "src/python_quest_2d/core/challenges.py:LESSONS",
+    "legacy_travel": "src/python_quest_2d/game/expedition.py:travel(index)",
+    "legacy_render": "src/python_quest_2d/game/app.py:draw()"
+  },
+  "protected_legacy_fields": [
+    "completed",
+    "hinted",
+    "revealed",
+    "drafts",
+    "attempts",
+    "world_flags",
+    "review",
+    "settings",
+    "player",
+    "programs",
+    "last_replay",
+    "expedition_job",
+    "deployment",
+    "checkpoints",
+    "visited_worlds"
+  ],
+  "new_optional_save_fields": [
+    "program_library",
+    "runtime_v1"
+  ],
+  "references": [
+    "docs/02_SOURCE_AUDIT.md",
+    "docs/03_PROGRAMMABLE_WORLD.md",
+    "docs/07_CURRICULUM_AND_ASSESSMENT.md",
+    "docs/08_BIOMEDICAL_ENDGAME.md"
+  ]
+}

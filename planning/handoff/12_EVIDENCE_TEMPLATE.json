@@ -1,0 +1,20 @@
+{
+  "ticket_id": "PQ11-001",
+  "source_sha256": "REPLACE_WITH_64_HEX_DIGEST",
+  "checkpoint_path": "checkpoints/0001_PQ11-001/source.zip",
+  "test_runs": [
+    {
+      "command": "python -m pytest -q tests",
+      "host": "NATIVE_WINDOWS_OR_HEADLESS_LINUX",
+      "exit_code": 0,
+      "passed": 0,
+      "failed": 0,
+      "log_path": "checkpoints/0001_PQ11-001/TEST_LOG.txt"
+    }
+  ],
+  "mission_ids_validated": [],
+  "applicable_stage10_cases": [
+    "PQ10-LEG-001"
+  ],
+  "results_note": "Replace placeholders with real evidence. This is not proof of passing tests."
+}

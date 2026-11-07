@@ -1,0 +1,47 @@
+{
+  "id": "launch_01",
+  "kind": "function",
+  "zone": "launch",
+  "sequence": 1,
+  "title": "Restore the Power",
+  "story": "The training ship has lost power. Write the small function that recharges its energy bank.",
+  "lesson": "A function uses parameters as inputs. 'return' sends a value back to the caller. The + operator adds numbers.",
+  "objective": "Complete add_energy(current, pickup) to return their sum.",
+  "sample": "add_energy(40, 15)  ->  55",
+  "starter_code": "def add_energy(current, pickup):\n    # Return the combined energy.\n    pass\n",
+  "hint": "Replace 'pass' with a return statement. You can add the two parameter names directly.",
+  "function_name": "add_energy",
+  "cases": [
+    {
+      "args": [
+        40,
+        15
+      ],
+      "expected": 55
+    },
+    {
+      "args": [
+        0,
+        10
+      ],
+      "expected": 10
+    },
+    {
+      "args": [
+        72,
+        0
+      ],
+      "expected": 72
+    },
+    {
+      "args": [
+        -5,
+        8
+      ],
+      "expected": 3
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 0,
+  "world_effect": "gate_launch_01"
+}

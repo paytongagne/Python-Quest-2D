@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/device_intent.schema.json",
+  "title": "device_intent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "intent_id",
+    "snapshot_id",
+    "device_id",
+    "operation",
+    "parameters",
+    "issued_by",
+    "expected_revision"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": 1
+    },
+    "intent_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "device_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "operation": {
+      "enum": [
+        "activate",
+        "configure",
+        "repair",
+        "sample",
+        "publish",
+        "reset"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "maxProperties": 64
+    },
+    "issued_by": {
+      "enum": [
+        "game_reducer",
+        "validated_plan"
+      ]
+    },
+    "expected_revision": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

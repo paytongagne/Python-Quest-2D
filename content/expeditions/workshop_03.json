@@ -1,0 +1,152 @@
+{
+  "id": "workshop_03",
+  "kind": "object",
+  "zone": "workshop",
+  "sequence": 3,
+  "title": "Protect the Battery",
+  "story": "ION: The workshop assembly line is stalled. Repair this object model to restore the next machine.",
+  "lesson": "A property lets assignment run validation. Check type before range, and validate before changing the stored value. 0 <= value <= 100 rejects NaN as well.",
+  "objective": "Define Battery(percent), exposing a battery_percent property with a setter. Accept finite int/float values from 0 through 100. Reject bool, strings and None with TypeError. Reject out-of-range values, NaN and infinity with ValueError. Rejected assignments must leave the previous charge intact. The constructor uses the same validation.",
+  "sample": "b=Battery(20); b.battery_percent=85; b.battery_percent -> 85",
+  "starter_code": "class Battery:\n    def __init__(self, percent):\n        self.battery_percent = percent\n\n    @property\n    def battery_percent(self):\n        return self._percent\n\n    @battery_percent.setter\n    def battery_percent(self, value):\n        pass\n",
+  "hint": "A property lets assignment run validation. Check type before range, and validate before changing the stored value. 0 <= value <= 100 rejects NaN as well.",
+  "class_name": "Battery",
+  "attributes": [
+    "battery_percent"
+  ],
+  "cases": [
+    {
+      "construct": [
+        [
+          20
+        ],
+        [
+          40
+        ]
+      ],
+      "steps": [
+        {
+          "op": "set",
+          "object": 0,
+          "name": "battery_percent",
+          "value": 85
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "battery_percent": 85
+          },
+          {
+            "battery_percent": 40
+          }
+        ],
+        "returns": []
+      }
+    },
+    {
+      "construct": [
+        [
+          0
+        ],
+        [
+          100
+        ]
+      ],
+      "steps": [
+        {
+          "op": "set",
+          "object": 0,
+          "name": "battery_percent",
+          "value": -1,
+          "raises": "ValueError"
+        },
+        {
+          "op": "set",
+          "object": 1,
+          "name": "battery_percent",
+          "value": 101,
+          "raises": "ValueError"
+        },
+        {
+          "op": "set",
+          "object": 0,
+          "name": "battery_percent",
+          "value": true,
+          "raises": "TypeError"
+        },
+        {
+          "op": "set",
+          "object": 1,
+          "name": "battery_percent",
+          "value": "50",
+          "raises": "TypeError"
+        },
+        {
+          "op": "set",
+          "object": 0,
+          "name": "battery_percent",
+          "value": null,
+          "raises": "TypeError"
+        },
+        {
+          "op": "new",
+          "args": [
+            -5
+          ],
+          "raises": "ValueError"
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "battery_percent": 0
+          },
+          {
+            "battery_percent": 100
+          }
+        ],
+        "returns": []
+      }
+    },
+    {
+      "construct": [
+        [
+          42.5
+        ]
+      ],
+      "steps": [
+        {
+          "op": "set",
+          "object": 0,
+          "name": "battery_percent",
+          "value": {
+            "special_float": "nan"
+          },
+          "raises": "ValueError"
+        },
+        {
+          "op": "set",
+          "object": 0,
+          "name": "battery_percent",
+          "value": {
+            "special_float": "inf"
+          },
+          "raises": "ValueError"
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "battery_percent": 42.5
+          }
+        ],
+        "returns": []
+      }
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_3",
+  "property": "battery_percent"
+}

@@ -1,0 +1,1293 @@
+{
+  "channels": {
+    "SYN_A": [
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 0,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 0.0,
+        "unit": "toy_u",
+        "value": -0.024
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 1,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 4.0,
+        "unit": "toy_u",
+        "value": 0.079
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 2,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 8.0,
+        "unit": "toy_u",
+        "value": -0.218
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 3,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 12.0,
+        "unit": "toy_u",
+        "value": 0.985
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 4,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 16.0,
+        "unit": "toy_u",
+        "value": -0.312
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 5,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 20.0,
+        "unit": "toy_u",
+        "value": 0.191
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 6,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 24.0,
+        "unit": "toy_u",
+        "value": 0.094
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 7,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 28.0,
+        "unit": "toy_u",
+        "value": -0.003
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 8,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 32.0,
+        "unit": "toy_u",
+        "value": 0.0
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 9,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 36.0,
+        "unit": "toy_u",
+        "value": 0.103
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 10,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 40.0,
+        "unit": "toy_u",
+        "value": -0.194
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 11,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 44.0,
+        "unit": "toy_u",
+        "value": 1.009
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 12,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 48.0,
+        "unit": "toy_u",
+        "value": -0.288
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 13,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 52.0,
+        "unit": "toy_u",
+        "value": 0.215
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 14,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 56.0,
+        "unit": "toy_u",
+        "value": 0.118
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 15,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 60.0,
+        "unit": "toy_u",
+        "value": 0.021
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 16,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 64.0,
+        "unit": "toy_u",
+        "value": -0.024
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 17,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 68.0,
+        "unit": "toy_u",
+        "value": 0.079
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 18,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 72.0,
+        "unit": "toy_u",
+        "value": -0.218
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 19,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 76.0,
+        "unit": "toy_u",
+        "value": 0.985
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 20,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 80.0,
+        "unit": "toy_u",
+        "value": -0.312
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 21,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 84.0,
+        "unit": "toy_u",
+        "value": 0.191
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 22,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 88.0,
+        "unit": "toy_u",
+        "value": 0.094
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 23,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 92.0,
+        "unit": "toy_u",
+        "value": -0.003
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 24,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 96.0,
+        "unit": "toy_u",
+        "value": 0.0
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 25,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 100.0,
+        "unit": "toy_u",
+        "value": 0.103
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 26,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 104.0,
+        "unit": "toy_u",
+        "value": -0.194
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 27,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 108.0,
+        "unit": "toy_u",
+        "value": 1.009
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 28,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 112.0,
+        "unit": "toy_u",
+        "value": -0.288
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 29,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 116.0,
+        "unit": "toy_u",
+        "value": 0.215
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 30,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 120.0,
+        "unit": "toy_u",
+        "value": 0.118
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 31,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 124.0,
+        "unit": "toy_u",
+        "value": 0.021
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 32,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 128.0,
+        "unit": "toy_u",
+        "value": -0.024
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 33,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 132.0,
+        "unit": "toy_u",
+        "value": 0.079
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 34,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 136.0,
+        "unit": "toy_u",
+        "value": -0.218
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 35,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 140.0,
+        "unit": "toy_u",
+        "value": 0.985
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 36,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 144.0,
+        "unit": "toy_u",
+        "value": -0.312
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 37,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 148.0,
+        "unit": "toy_u",
+        "value": 0.191
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 38,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 152.0,
+        "unit": "toy_u",
+        "value": 0.094
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 39,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 156.0,
+        "unit": "toy_u",
+        "value": -0.003
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 40,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 160.0,
+        "unit": "toy_u",
+        "value": 0.0
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 41,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 164.0,
+        "unit": "toy_u",
+        "value": 0.103
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 42,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 168.0,
+        "unit": "toy_u",
+        "value": -0.194
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 43,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 172.0,
+        "unit": "toy_u",
+        "value": 1.009
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 44,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 176.0,
+        "unit": "toy_u",
+        "value": -0.288
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 45,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 180.0,
+        "unit": "toy_u",
+        "value": 0.215
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 46,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 184.0,
+        "unit": "toy_u",
+        "value": 0.118
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 47,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 188.0,
+        "unit": "toy_u",
+        "value": 0.021
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 48,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 192.0,
+        "unit": "toy_u",
+        "value": -0.024
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 49,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 196.0,
+        "unit": "toy_u",
+        "value": 0.079
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 50,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 200.0,
+        "unit": "toy_u",
+        "value": -0.218
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 51,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 204.0,
+        "unit": "toy_u",
+        "value": 0.985
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 52,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 208.0,
+        "unit": "toy_u",
+        "value": -0.312
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 53,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 212.0,
+        "unit": "toy_u",
+        "value": 0.191
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 54,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 216.0,
+        "unit": "toy_u",
+        "value": 0.094
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 55,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 220.0,
+        "unit": "toy_u",
+        "value": -0.003
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 56,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 224.0,
+        "unit": "toy_u",
+        "value": 0.0
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 57,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 228.0,
+        "unit": "toy_u",
+        "value": 0.103
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 58,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 232.0,
+        "unit": "toy_u",
+        "value": -0.194
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 59,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 236.0,
+        "unit": "toy_u",
+        "value": 1.009
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 60,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 240.0,
+        "unit": "toy_u",
+        "value": -0.288
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 61,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 244.0,
+        "unit": "toy_u",
+        "value": 0.215
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 62,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 248.0,
+        "unit": "toy_u",
+        "value": 0.118
+      },
+      {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 63,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 252.0,
+        "unit": "toy_u",
+        "value": 0.021
+      }
+    ],
+    "SYN_B": [
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 0,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 0.0,
+        "unit": "toy_u",
+        "value": 0.036
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 1,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 4.0,
+        "unit": "toy_u",
+        "value": -0.021
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 2,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 8.0,
+        "unit": "toy_u",
+        "value": -0.018
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 3,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 12.0,
+        "unit": "toy_u",
+        "value": 0.045
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 4,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 16.0,
+        "unit": "toy_u",
+        "value": -0.132
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 5,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 20.0,
+        "unit": "toy_u",
+        "value": 0.591
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 6,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 24.0,
+        "unit": "toy_u",
+        "value": -0.186
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 7,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 28.0,
+        "unit": "toy_u",
+        "value": 0.117
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 8,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 32.0,
+        "unit": "toy_u",
+        "value": 0.06
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 9,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 36.0,
+        "unit": "toy_u",
+        "value": 0.003
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 10,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 40.0,
+        "unit": "toy_u",
+        "value": 0.006
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 11,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 44.0,
+        "unit": "toy_u",
+        "value": 0.069
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 12,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 48.0,
+        "unit": "toy_u",
+        "value": -0.108
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 13,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 52.0,
+        "unit": "toy_u",
+        "value": 0.615
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 14,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 56.0,
+        "unit": "toy_u",
+        "value": -0.162
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 15,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 60.0,
+        "unit": "toy_u",
+        "value": 0.141
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 16,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 64.0,
+        "unit": "toy_u",
+        "value": 0.036
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 17,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 68.0,
+        "unit": "toy_u",
+        "value": -0.021
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 18,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 72.0,
+        "unit": "toy_u",
+        "value": -0.018
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 19,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 76.0,
+        "unit": "toy_u",
+        "value": 0.045
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 20,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 80.0,
+        "unit": "toy_u",
+        "value": -0.132
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 21,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 84.0,
+        "unit": "toy_u",
+        "value": 0.591
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 22,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 88.0,
+        "unit": "toy_u",
+        "value": -0.186
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 23,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 92.0,
+        "unit": "toy_u",
+        "value": 0.117
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 24,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 96.0,
+        "unit": "toy_u",
+        "value": 0.06
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 25,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 100.0,
+        "unit": "toy_u",
+        "value": 0.003
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 26,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 104.0,
+        "unit": "toy_u",
+        "value": 0.006
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 27,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 108.0,
+        "unit": "toy_u",
+        "value": 0.069
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 28,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 112.0,
+        "unit": "toy_u",
+        "value": -0.108
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 29,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 116.0,
+        "unit": "toy_u",
+        "value": 0.615
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 30,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 120.0,
+        "unit": "toy_u",
+        "value": -0.162
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 31,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 124.0,
+        "unit": "toy_u",
+        "value": 0.141
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 32,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 128.0,
+        "unit": "toy_u",
+        "value": 0.036
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 33,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 132.0,
+        "unit": "toy_u",
+        "value": -0.021
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 34,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 136.0,
+        "unit": "toy_u",
+        "value": -0.018
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 35,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 140.0,
+        "unit": "toy_u",
+        "value": 0.045
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 36,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 144.0,
+        "unit": "toy_u",
+        "value": -0.132
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 37,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 148.0,
+        "unit": "toy_u",
+        "value": 0.591
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 38,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 152.0,
+        "unit": "toy_u",
+        "value": -0.186
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 39,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 156.0,
+        "unit": "toy_u",
+        "value": 0.117
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 40,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 160.0,
+        "unit": "toy_u",
+        "value": 0.06
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 41,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 164.0,
+        "unit": "toy_u",
+        "value": 0.003
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 42,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 168.0,
+        "unit": "toy_u",
+        "value": 0.006
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 43,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 172.0,
+        "unit": "toy_u",
+        "value": 0.069
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 44,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 176.0,
+        "unit": "toy_u",
+        "value": -0.108
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 45,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 180.0,
+        "unit": "toy_u",
+        "value": 0.615
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 46,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 184.0,
+        "unit": "toy_u",
+        "value": -0.162
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 47,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 188.0,
+        "unit": "toy_u",
+        "value": 0.141
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 48,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 192.0,
+        "unit": "toy_u",
+        "value": 0.036
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 49,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 196.0,
+        "unit": "toy_u",
+        "value": -0.021
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 50,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 200.0,
+        "unit": "toy_u",
+        "value": -0.018
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 51,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 204.0,
+        "unit": "toy_u",
+        "value": 0.045
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 52,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 208.0,
+        "unit": "toy_u",
+        "value": -0.132
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 53,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 212.0,
+        "unit": "toy_u",
+        "value": 0.591
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 54,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 216.0,
+        "unit": "toy_u",
+        "value": -0.186
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 55,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 220.0,
+        "unit": "toy_u",
+        "value": 0.117
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 56,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 224.0,
+        "unit": "toy_u",
+        "value": 0.06
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 57,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 228.0,
+        "unit": "toy_u",
+        "value": 0.003
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 58,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 232.0,
+        "unit": "toy_u",
+        "value": 0.006
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 59,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 236.0,
+        "unit": "toy_u",
+        "value": 0.069
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 60,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 240.0,
+        "unit": "toy_u",
+        "value": -0.108
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 61,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 244.0,
+        "unit": "toy_u",
+        "value": 0.615
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 62,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 248.0,
+        "unit": "toy_u",
+        "value": -0.162
+      },
+      {
+        "channel": "SYN_B",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 63,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 252.0,
+        "unit": "toy_u",
+        "value": 0.141
+      }
+    ]
+  },
+  "description": "Fictional two-channel test trace; 250 toy samples per second",
+  "fixture": "HELIX_CLEAN_V1",
+  "generator_version": 1,
+  "sampling_hz": 250,
+  "source": "SYNTHETIC_ONLY"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "workshop_07",
+  "zone": "workshop",
+  "sequence": 7,
+  "kind": "object",
+  "contract": "sensor",
+  "title": "Catch a Bad Sensor",
+  "story": "ION: The second assembly wing needs production-grade Python. Restore the machine, then inspect its diagnostics with O.",
+  "objective": "Define SensorFault as a subclass of ValueError, and Sensor(low, high). read(value) returns value when low <= value <= high. Otherwise raise exactly SensorFault. Inputs are finite numbers and low <= high. Valid readings after a fault must still work.",
+  "lesson": "A domain-specific exception lets callers distinguish a sensor fault from unrelated errors. Validate both inclusive limits.",
+  "sample": "Sensor(0,10).read(10) -> 10; reading 11 raises SensorFault",
+  "starter_code": "class SensorFault(ValueError):\n    pass\n\nclass Sensor:\n    def __init__(self, low, high):\n        self.low, self.high = low, high\n\n    def read(self, value):\n        pass\n",
+  "hint": "A domain-specific exception lets callers distinguish a sensor fault from unrelated errors. Validate both inclusive limits.",
+  "cases": [
+    {
+      "limits": [
+        0,
+        100
+      ],
+      "readings": [
+        42,
+        -1,
+        100,
+        101,
+        0
+      ],
+      "expected": [
+        42,
+        "fault",
+        100,
+        "fault",
+        0
+      ]
+    },
+    {
+      "limits": [
+        -5,
+        -2
+      ],
+      "readings": [
+        -5,
+        -2,
+        -3,
+        -6,
+        0
+      ],
+      "expected": [
+        -5,
+        -2,
+        -3,
+        "fault",
+        "fault"
+      ]
+    },
+    {
+      "limits": [
+        2,
+        2
+      ],
+      "readings": [
+        2,
+        1,
+        3
+      ],
+      "expected": [
+        2,
+        "fault",
+        "fault"
+      ]
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_7"
+}

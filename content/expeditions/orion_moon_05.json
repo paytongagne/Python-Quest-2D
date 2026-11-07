@@ -1,0 +1,70 @@
+{
+  "id": "orion_moon_05",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 5,
+  "title": "Predict a Smart Route",
+  "story": "Mica's radio link can carry only a few search updates. Guide it toward the ice beacon.",
+  "lesson": "A* prioritizes cost so far plus an admissible estimate. Manhattan distance never overestimates on a four-way unit-cost grid.",
+  "objective": "Return a shortest path of [x,y] cells including endpoints. Use a heap with Manhattan distance to practice A*. '#' blocks a cell.",
+  "sample": "Estimate from [1,2] to [4,4] is 5.",
+  "function_name": "smart_route",
+  "starter_code": "def smart_route(grid, start, goal):\n    pass\n",
+  "hint": "Heap entries can contain f, g, cell and path. Update the best g before pushing.",
+  "cases": [
+    {
+      "args": [
+        [
+          "...#..",
+          ".#....",
+          "...#..",
+          "......"
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "cost": 7
+    },
+    {
+      "args": [
+        [
+          "..."
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "cost": 2
+    },
+    {
+      "args": [
+        [
+          "."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "cost": 0
+    }
+  ],
+  "world_effect": "relay_orion_moon_05",
+  "simulation": "expedition",
+  "output": "path"
+}

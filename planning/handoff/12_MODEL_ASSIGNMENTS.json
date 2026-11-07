@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "note": "Recommendations only; actual options/rates and limits are account/UI dependent. No hardcoded relative token economics.",
+  "assignments": [
+    {
+      "task": "routine coding / mission batches",
+      "model": "GPT-6.1 Sol or comparable available model",
+      "reasoning": "medium",
+      "default": true
+    },
+    {
+      "task": "high risk concurrency/save/worker boundary",
+      "model": "GPT-6 Astra",
+      "reasoning": "medium",
+      "default": false
+    },
+    {
+      "task": "unresolved complex integration failure",
+      "model": "GPT-6 Astra",
+      "reasoning": "high",
+      "default": false
+    },
+    {
+      "task": "planning / docs / CSV",
+      "model": "ordinary ChatGPT or available lighter model",
+      "reasoning": "low or medium",
+      "default": false
+    }
+  ],
+  "policy": {
+    "no_tool_model_switching_claims": true,
+    "no_automatic_credit_spending": true,
+    "checkpoint_before_limit": true,
+    "measure_rework_as_well_as_allowance": true
+  }
+}

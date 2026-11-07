@@ -1,0 +1,111 @@
+{
+  "id": "orion_moon_01",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 1,
+  "title": "Mark the Lunar Relay Grid",
+  "story": "ION: Lunar dust cut the relay network. Rebuild the graph before we move the convoy.",
+  "lesson": "An adjacency dictionary maps each node to its neighbors. An undirected edge is stored in both directions. Sets remove duplicates.",
+  "objective": "Return every named node mapped to its sorted neighbors. Ignore edges containing unknown nodes and self-edges. Preserve isolated nodes.",
+  "sample": "nodes=['A','B'], edges=[['A','B']] -> {'A':['B'],'B':['A']}",
+  "function_name": "relay_graph",
+  "starter_code": "def relay_graph(nodes, edges):\n    pass\n",
+  "hint": "Initialize a set for each node, add both ends of valid edges, then sort each set.",
+  "cases": [
+    {
+      "args": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ]
+        ]
+      ],
+      "expected": {
+        "A": [
+          "B",
+          "D"
+        ],
+        "B": [
+          "A",
+          "C"
+        ],
+        "C": [
+          "B"
+        ],
+        "D": [
+          "A"
+        ]
+      }
+    },
+    {
+      "args": [
+        [
+          "X",
+          "Y"
+        ],
+        [
+          [
+            "X",
+            "X"
+          ],
+          [
+            "X",
+            "Z"
+          ],
+          [
+            "Y",
+            "X"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ]
+      ],
+      "expected": {
+        "X": [
+          "Y"
+        ],
+        "Y": [
+          "X"
+        ]
+      }
+    },
+    {
+      "args": [
+        [],
+        []
+      ],
+      "expected": {}
+    },
+    {
+      "args": [
+        [
+          "A"
+        ],
+        []
+      ],
+      "expected": {
+        "A": []
+      }
+    }
+  ],
+  "world_effect": "relay_orion_moon_01",
+  "simulation": "expedition",
+  "output": "model"
+}

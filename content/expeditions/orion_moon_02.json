@@ -1,0 +1,88 @@
+{
+  "id": "orion_moon_02",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 2,
+  "title": "Find Mica a Safe Route",
+  "story": "Mica carries the relay battery. The crater rim blocks a direct crossing.",
+  "lesson": "BFS uses a queue. Mark neighbors as seen when queued, and retain the path to each cell. Equal-cost steps make the first goal path shortest.",
+  "objective": "Return a shortest list of [x,y] cells including start and goal. '#' is blocked. All fixtures have a reachable goal.",
+  "sample": "[[0,0],[1,0],[1,1]] is two moves. grid[y][x] addresses the terrain.",
+  "function_name": "shortest_route",
+  "starter_code": "def shortest_route(grid, start, goal):\n    pass\n",
+  "hint": "Queue (cell,path). Append each unseen open neighbor with path + [neighbor].",
+  "cases": [
+    {
+      "args": [
+        [
+          ".....",
+          ".###.",
+          "...#.",
+          "....."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "cost": 7
+    },
+    {
+      "args": [
+        [
+          "..",
+          ".."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "cost": 2
+    },
+    {
+      "args": [
+        [
+          "."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "cost": 0
+    },
+    {
+      "args": [
+        [
+          ".#.",
+          "..."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "cost": 4
+    }
+  ],
+  "world_effect": "relay_orion_moon_02",
+  "simulation": "expedition",
+  "output": "path"
+}

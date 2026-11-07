@@ -1,0 +1,65 @@
+{
+  "scope": "PROPOSED TARGETS; not baseline measurements or promises; measure on native Windows and record hardware",
+  "profiles": {
+    "minimum_target": "Windows 10/11 x64; 1280x720; system with pygame-ce bundled; hardware to be recorded, not assumed",
+    "reference_target": "Windows 11 x64; 1920x1080; desktop integrated GPU; record CPU/RAM/GPU specs"
+  },
+  "budgets": [
+    {
+      "id": "PERF-FRAME-01",
+      "metric": "world/update/draw frame work",
+      "target": "p95 <=16.7ms, p99 <=33.3ms at 1280x720 with VSync excluded",
+      "method": "perf_counter_ns 120s for each world, after 20s warmup; collect 7200 frames or duration",
+      "failure": "profile hotspots, particle cap, tile caching"
+    },
+    {
+      "id": "PERF-FRAME-02",
+      "metric": "world/update/draw frame work",
+      "target": "p95 <=25ms at 1920x1080, p99 <=40ms (reference hardware)",
+      "method": "same, actual native hardware",
+      "failure": "reduce overdraw, reduce full-screen alpha"
+    },
+    {
+      "id": "PERF-MEM-01",
+      "metric": "resident set size",
+      "target": "warm steady state <=512MiB and slope <=1MiB/min over 20min exploration",
+      "method": "psutil if present, otherwise Windows performance counters",
+      "failure": "cache bounds, reference cycles, texture life"
+    },
+    {
+      "id": "PERF-IO-01",
+      "metric": "atomic profile save",
+      "target": "p95 <=150ms on local SSD for representative <=1MiB profile",
+      "method": "100 saves with temporary profiles; record cold cache",
+      "failure": "bound event/replay buffers, avoid repeated save"
+    },
+    {
+      "id": "PERF-START-01",
+      "metric": "cold launcher until first interactive frame",
+      "target": "<=8s reference machine; record slow hardware separately",
+      "method": "Windows monotonic automated or video timestamp; 5 cold launches",
+      "failure": "defer nonessential assets"
+    },
+    {
+      "id": "PERF-WORK-01",
+      "metric": "legacy learner evaluation",
+      "target": "<=3s execution timeout plus bounded process startup/cleanup; timeout must be surfaced",
+      "method": "real grader timing and status; upper bound not claimed as UI latency",
+      "failure": "future asynchronous submission while preserving process boundary"
+    },
+    {
+      "id": "PERF-REPLAY-01",
+      "metric": "simulation determinism",
+      "target": "identical committed action sequence and final hash at 30, 60, 120 fps for same fixture",
+      "method": "fixed tick trace hash comparator",
+      "failure": "remove animation delta from reducer"
+    },
+    {
+      "id": "PERF-APP-01",
+      "metric": "visual density",
+      "target": "No readable UI clipped at 1280x720, 1600x900, 1920x1080",
+      "method": "actual frame screenshot capture at 2+ map positions per world, plus automated bounding assertions",
+      "failure": "dedicated panels, scroll, anchors"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "sensor",
+  "tile_size": 32,
+  "width": 32,
+  "height": 18,
+  "tiles": [
+    "########################        ",
+    "#...........#..........#        ",
+    "#........#..#..........#########",
+    "#...........#..........#.......#",
+    "#......................#.......#",
+    "#...........#..................#",
+    "#...........#......#...#.......#",
+    "#...........#..........#.......#",
+    "#...........#..........#########",
+    "##################.#####        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "#......................#        ",
+    "#...........#..........#        ",
+    "######.######..........#        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "########################        "
+  ],
+  "spawn": {
+    "x": 96,
+    "y": 96
+  },
+  "interactables": [
+    {
+      "id": "terminal_sensor_01",
+      "type": "terminal",
+      "x": 176,
+      "y": 144,
+      "challenge_id": "sensor_01"
+    },
+    {
+      "id": "terminal_sensor_02",
+      "type": "terminal",
+      "x": 592,
+      "y": 144,
+      "challenge_id": "sensor_02"
+    },
+    {
+      "id": "terminal_sensor_03",
+      "type": "terminal",
+      "x": 592,
+      "y": 400,
+      "challenge_id": "sensor_03"
+    },
+    {
+      "id": "terminal_sensor_04",
+      "type": "terminal",
+      "x": 208,
+      "y": 400,
+      "challenge_id": "sensor_04"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate_sensor_01",
+      "x": 384,
+      "y": 128,
+      "requires_challenge": "sensor_01"
+    },
+    {
+      "id": "gate_sensor_02",
+      "x": 576,
+      "y": 288,
+      "requires_challenge": "sensor_02"
+    },
+    {
+      "id": "gate_sensor_03",
+      "x": 384,
+      "y": 384,
+      "requires_challenge": "sensor_03"
+    },
+    {
+      "id": "gate_sensor_04",
+      "x": 192,
+      "y": 448,
+      "requires_challenge": "sensor_04"
+    }
+  ],
+  "exit": {
+    "x": 208,
+    "y": 505,
+    "to_zone": "engine",
+    "requires_challenge": "sensor_04"
+  },
+  "ambience": "sensor",
+  "alcove": "Spectral lab",
+  "note": "Spectral trace: the wet and dry trays are sharing one control address.",
+  "sites": [
+    {
+      "type": "archive",
+      "x": 938,
+      "y": 180
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant Player
+    participant Game
+    participant Worker
+    participant Validator
+    participant Runtime
+    participant Profile
+    Player->>Game: Submit source for Mica plan
+    Game->>Game: Freeze observation, hash snapshot
+    Game->>Worker: v1 execution request + observation copy
+    Worker-->>Game: Plain-data evaluation + action plan
+    Game->>Validator: Revalidate on current snapshot and game-owned rules
+    alt Invalid or changed world
+        Validator-->>Player: Reject + precise first failing step
+    else Approved
+        Validator-->>Runtime: Authorized bounded plan
+        loop Fixed logical tick
+            Runtime->>Runtime: Apply one allowed action to game-owned state
+            Runtime-->>Player: Render interpolation + trace
+        end
+        Runtime->>Profile: Commit safe milestone, idempotent event and XP
+        Profile-->>Player: Recovery-safe completion
+    end

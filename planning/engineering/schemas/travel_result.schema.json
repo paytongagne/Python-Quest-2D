@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/travel_result.schema.json",
+  "title": "travel_result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "request_id",
+    "status",
+    "reason",
+    "spawn",
+    "requires_mission",
+    "preview"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": 1
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "status": {
+      "enum": [
+        "allowed",
+        "rejected"
+      ]
+    },
+    "reason": {
+      "enum": [
+        "ok",
+        "busy",
+        "locked",
+        "unknown_world",
+        "unsafe_spawn",
+        "invalid_request"
+      ]
+    },
+    "spawn": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "requires_mission": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "preview": {
+      "type": "boolean"
+    }
+  }
+}

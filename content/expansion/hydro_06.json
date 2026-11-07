@@ -1,0 +1,51 @@
+{
+  "id": "hydro_06",
+  "zone": "hydro",
+  "sequence": 6,
+  "kind": "function",
+  "title": "Catch the sediment",
+  "story": "The clarifier needs a histogram of grain sizes to choose its filter mesh.",
+  "lesson": "Count observations in a dictionary. Use get(key, 0) when you have not seen a label before.",
+  "objective": "Return counts for every label in the input. Return {} for an empty batch.",
+  "sample": "['fine','fine','coarse'] -> {'fine': 2, 'coarse': 1}",
+  "function_name": "grain_counts",
+  "starter_code": "def grain_counts(labels):\n    pass\n",
+  "hint": "Initialize an empty dict; increment counts[label] from its current value.",
+  "world_effect": "relay_hydro_06",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        [
+          "fine",
+          "silt",
+          "fine",
+          "coarse"
+        ]
+      ],
+      "expected": {
+        "fine": 2,
+        "silt": 1,
+        "coarse": 1
+      }
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": {}
+    },
+    {
+      "args": [
+        [
+          "silt",
+          "silt",
+          "silt"
+        ]
+      ],
+      "expected": {
+        "silt": 3
+      }
+    }
+  ]
+}

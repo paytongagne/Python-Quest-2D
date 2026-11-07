@@ -1,0 +1,73 @@
+{
+  "id": "orion_moon_03",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 3,
+  "title": "Survey the Ice Tunnels",
+  "story": "The ice has split the tunnel network into pockets. Survey every pocket before restoring radio coverage.",
+  "lesson": "DFS visits one connected region with a stack. After draining it, find the next unvisited open cell. Count the size of each region.",
+  "objective": "Return sizes of all cardinally connected '.' regions, sorted largest first. '#' cells are blocked.",
+  "sample": "['.#.','.#.'] -> [2,2]",
+  "function_name": "survey_regions",
+  "starter_code": "def survey_regions(grid):\n    pass\n",
+  "hint": "Maintain visited across all searches. Start a new stack at every unseen '.'.",
+  "cases": [
+    {
+      "args": [
+        [
+          "..#..",
+          ".##..",
+          "..###",
+          "#####",
+          "...#."
+        ]
+      ],
+      "expected": [
+        5,
+        4,
+        3,
+        1
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          "###"
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          "...",
+          "..."
+        ]
+      ],
+      "expected": [
+        6
+      ]
+    },
+    {
+      "args": [
+        [
+          ".#.",
+          ".#."
+        ]
+      ],
+      "expected": [
+        2,
+        2
+      ]
+    }
+  ],
+  "world_effect": "relay_orion_moon_03",
+  "simulation": "expedition",
+  "output": "model"
+}

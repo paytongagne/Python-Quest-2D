@@ -1,0 +1,106 @@
+{
+  "id": "workshop_02",
+  "kind": "object",
+  "zone": "workshop",
+  "sequence": 2,
+  "title": "Calibrate the Probe",
+  "story": "ION: The workshop assembly line is stalled. Repair this object model to restore the next machine.",
+  "lesson": "Instance methods receive self. Mutate self.reading, then return it; repeated calibration is cumulative.",
+  "objective": "Define Probe(reading). calibrate(offset) adds offset to this instance reading and returns the new reading. Other probes must not change.",
+  "sample": "p=Probe(10); p.calibrate(-2) -> 8; p.reading -> 8",
+  "starter_code": "class Probe:\n    def __init__(self, reading):\n        self.reading = reading\n\n    def calibrate(self, offset):\n        pass\n",
+  "hint": "Instance methods receive self. Mutate self.reading, then return it; repeated calibration is cumulative.",
+  "class_name": "Probe",
+  "attributes": [
+    "reading"
+  ],
+  "cases": [
+    {
+      "construct": [
+        [
+          20
+        ],
+        [
+          70
+        ]
+      ],
+      "steps": [
+        {
+          "op": "call",
+          "object": 0,
+          "name": "calibrate",
+          "args": [
+            25
+          ]
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "reading": 45
+          },
+          {
+            "reading": 70
+          }
+        ],
+        "returns": [
+          45
+        ]
+      }
+    },
+    {
+      "construct": [
+        [
+          10
+        ],
+        [
+          -3
+        ]
+      ],
+      "steps": [
+        {
+          "op": "call",
+          "object": 0,
+          "name": "calibrate",
+          "args": [
+            -5
+          ]
+        },
+        {
+          "op": "call",
+          "object": 0,
+          "name": "calibrate",
+          "args": [
+            3
+          ]
+        },
+        {
+          "op": "call",
+          "object": 1,
+          "name": "calibrate",
+          "args": [
+            0
+          ]
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "reading": 8
+          },
+          {
+            "reading": -3
+          }
+        ],
+        "returns": [
+          5,
+          8,
+          -3
+        ]
+      }
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_2"
+}

@@ -1,0 +1,66 @@
+{
+  "id": "hydro_08",
+  "zone": "hydro",
+  "sequence": 8,
+  "kind": "function",
+  "title": "Balance the membranes",
+  "story": "Dirty water is backing up. Allocate a finite rinse supply across filters in order.",
+  "lesson": "At each filter, take the smaller of its request and your remaining supply. Update the supply after each allocation.",
+  "objective": "Return an allocation for each nonnegative request. Never allocate more than available.",
+  "sample": "[3,5,2], supply=6 -> [3,3,0]",
+  "function_name": "allocate",
+  "starter_code": "def allocate(requests, supply):\n    pass\n",
+  "hint": "Use min(request, supply) and subtract the allocation before the next iteration.",
+  "world_effect": "relay_hydro_08",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          5,
+          2
+        ],
+        6
+      ],
+      "expected": [
+        3,
+        3,
+        0
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          4
+        ],
+        0
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "args": [
+        [],
+        8
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          2,
+          3
+        ],
+        9
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    }
+  ]
+}

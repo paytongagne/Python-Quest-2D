@@ -1,0 +1,102 @@
+{
+  "id": "control",
+  "tile_size": 32,
+  "width": 32,
+  "height": 18,
+  "tiles": [
+    "########################        ",
+    "#...........#..........#        ",
+    "#.......#...#..........#########",
+    "#...........#..........#.......#",
+    "#......................#.......#",
+    "#...........#..................#",
+    "#...........#.....#....#.......#",
+    "#...........#..........#.......#",
+    "#...........#..........#########",
+    "##################.#####        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "#......................#        ",
+    "#...........#..........#        ",
+    "######.######..........#        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "########################        "
+  ],
+  "spawn": {
+    "x": 96,
+    "y": 96
+  },
+  "interactables": [
+    {
+      "id": "terminal_control_01",
+      "type": "terminal",
+      "x": 176,
+      "y": 144,
+      "challenge_id": "control_01"
+    },
+    {
+      "id": "terminal_control_02",
+      "type": "terminal",
+      "x": 592,
+      "y": 144,
+      "challenge_id": "control_02"
+    },
+    {
+      "id": "terminal_control_03",
+      "type": "terminal",
+      "x": 592,
+      "y": 400,
+      "challenge_id": "control_03"
+    },
+    {
+      "id": "terminal_control_04",
+      "type": "terminal",
+      "x": 208,
+      "y": 400,
+      "challenge_id": "control_04"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate_control_01",
+      "x": 384,
+      "y": 128,
+      "requires_challenge": "control_01"
+    },
+    {
+      "id": "gate_control_02",
+      "x": 576,
+      "y": 288,
+      "requires_challenge": "control_02"
+    },
+    {
+      "id": "gate_control_03",
+      "x": 384,
+      "y": 384,
+      "requires_challenge": "control_03"
+    },
+    {
+      "id": "gate_control_04",
+      "x": 192,
+      "y": 448,
+      "requires_challenge": "control_04"
+    }
+  ],
+  "exit": {
+    "x": 208,
+    "y": 505,
+    "to_zone": "sensor",
+    "requires_challenge": "control_04"
+  },
+  "ambience": "control",
+  "alcove": "Navigation alcove",
+  "note": "Navigation: every false alarm repeats exactly eight seconds after a pump request.",
+  "sites": [
+    {
+      "type": "archive",
+      "x": 938,
+      "y": 180
+    }
+  ]
+}

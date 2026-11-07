@@ -1,0 +1,37 @@
+{
+  "status": "PROPOSED_POLICY",
+  "rules": [
+    "Before any system or chapter batch preserve source checkpoint and disposable profile, not player live save",
+    "Rollback only to last tested checkpoint with source/fixtures and hashes; never overwrite unknown save fields",
+    "For new features disable feature flag on failure and allow original 76 to remain playable",
+    "Never mark entire campaign released without G0/G1/G2/G3/G4/G6 native evidence"
+  ],
+  "checkpoints": {
+    "0": "Baseline SHA256; 76 IDs and XP; disposable schema2/3/4 fixtures; original ZIP",
+    "1": "Flag-off legacy regressions and verified Mica plan replay with no parent-side Python execution",
+    "2": "Three viewport captures per world; UI overlap log; reachable travel, entry and exits",
+    "3": "Four authoring templates; worker/parent boundary; no duplicate XP; synthetic fixture repeatability",
+    "4": "Workshop 09-16 source archive + restoration save + object tests",
+    "5": "Titan 05-16 source archive + deterministic packet replay",
+    "6": "Helix 05-16 source archive + signal fixture replay with unit labels",
+    "7": "Algorithm Tower 01-16 source archive + graph optimality tests",
+    "8": "Aurora 05-16 source archive + null/unmeasured mesh tests",
+    "9": "Mission Control 01-16 + campaign end + native Windows release gates"
+  },
+  "delivery": [
+    "source archive",
+    "SHA256",
+    "passing targeted tests",
+    "relevant Stage10 gate evidence",
+    "known failing tests",
+    "new mission count verified"
+  ],
+  "stop_ship": [
+    "source missing or partial",
+    "legacy save corruption",
+    "untrusted result mutates world",
+    "XP duplication",
+    "Windows startup failure",
+    "critical UI occlusion or softlock"
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "astra",
+    "zone": "orientation",
+    "name": "Astra Research Facility",
+    "color": "#73dbcc",
+    "requires": null,
+    "tag": "HOME / 40 missions"
+  },
+  {
+    "id": "orion",
+    "zone": "orion_moon",
+    "name": "Orion Relay Moon",
+    "color": "#bdadff",
+    "requires": "mission_control_16",
+    "tag": "CRATER EXPEDITION"
+  },
+  {
+    "id": "titan",
+    "zone": "titan_cloud",
+    "name": "Titan Cloudworks",
+    "color": "#ffc68a",
+    "requires": "orion_moon_16",
+    "tag": "INGRESS EXPEDITION"
+  },
+  {
+    "id": "helix",
+    "zone": "helix_bio",
+    "name": "Helix Biomedical Campus",
+    "color": "#85e5cf",
+    "requires": "titan_cloud_16",
+    "tag": "ACQUISITION EXPEDITION"
+  },
+  {
+    "id": "aurora",
+    "zone": "aurora_ep",
+    "name": "Aurora Mapping Observatory",
+    "color": "#ef9acb",
+    "requires": "helix_bio_16",
+    "tag": "NAVIGATION EXPEDITION"
+  }
+]

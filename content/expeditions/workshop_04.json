@@ -1,0 +1,162 @@
+{
+  "id": "workshop_04",
+  "kind": "object",
+  "zone": "workshop",
+  "sequence": 4,
+  "title": "Refill the Reservoir",
+  "story": "ION: The workshop assembly line is stalled. Repair this object model to restore the next machine.",
+  "lesson": "Stateful objects hold values between method calls. Calculate the allowed transfer once, then update both sides so water is conserved.",
+  "objective": "Define Reservoir(capacity, water, supply). Inputs are nonnegative finite numbers with water <= capacity. refill(amount) moves min(amount, capacity-water, supply) units from supply to water and returns the moved amount. Repeated calls retain state. Reject negative amount with ValueError without changing state. You may assume amount is a finite number.",
+  "sample": "r=Reservoir(100,20,50); r.refill(40) -> 40; r.water -> 60; r.supply -> 10",
+  "starter_code": "class Reservoir:\n    def __init__(self, capacity, water, supply):\n        self.capacity = capacity\n        self.water = water\n        self.supply = supply\n\n    def refill(self, amount):\n        pass\n",
+  "hint": "Stateful objects hold values between method calls. Calculate the allowed transfer once, then update both sides so water is conserved.",
+  "class_name": "Reservoir",
+  "attributes": [
+    "capacity",
+    "water",
+    "supply"
+  ],
+  "cases": [
+    {
+      "construct": [
+        [
+          100,
+          20,
+          65
+        ]
+      ],
+      "steps": [
+        {
+          "op": "call",
+          "object": 0,
+          "name": "refill",
+          "args": [
+            40
+          ]
+        },
+        {
+          "op": "call",
+          "object": 0,
+          "name": "refill",
+          "args": [
+            60
+          ]
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "capacity": 100,
+            "water": 85,
+            "supply": 0
+          }
+        ],
+        "returns": [
+          40,
+          25
+        ]
+      }
+    },
+    {
+      "construct": [
+        [
+          10,
+          8,
+          50
+        ],
+        [
+          10,
+          0,
+          3
+        ]
+      ],
+      "steps": [
+        {
+          "op": "call",
+          "object": 0,
+          "name": "refill",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "call",
+          "object": 0,
+          "name": "refill",
+          "args": [
+            10
+          ]
+        },
+        {
+          "op": "call",
+          "object": 0,
+          "name": "refill",
+          "args": [
+            1
+          ]
+        },
+        {
+          "op": "call",
+          "object": 1,
+          "name": "refill",
+          "args": [
+            20
+          ]
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "capacity": 10,
+            "water": 10,
+            "supply": 48
+          },
+          {
+            "capacity": 10,
+            "water": 3,
+            "supply": 0
+          }
+        ],
+        "returns": [
+          0,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "construct": [
+        [
+          10,
+          4,
+          5
+        ]
+      ],
+      "steps": [
+        {
+          "op": "call",
+          "object": 0,
+          "name": "refill",
+          "args": [
+            -1
+          ],
+          "raises": "ValueError"
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "capacity": 10,
+            "water": 4,
+            "supply": 5
+          }
+        ],
+        "returns": []
+      }
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_4"
+}

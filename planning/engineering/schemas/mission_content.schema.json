@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/mission_content.schema.json",
+  "title": "mission_content",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "id",
+    "zone",
+    "sequence",
+    "kind",
+    "title",
+    "story",
+    "lesson",
+    "objective",
+    "sample",
+    "starter_code",
+    "hint",
+    "world_effect"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "zone": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "kind": {
+      "enum": [
+        "script",
+        "function",
+        "object"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 180
+    },
+    "story": {
+      "type": "string",
+      "maxLength": 65536
+    },
+    "lesson": {
+      "type": "string",
+      "maxLength": 65536
+    },
+    "objective": {
+      "type": "string",
+      "maxLength": 65536
+    },
+    "sample": {
+      "type": "string",
+      "maxLength": 65536
+    },
+    "starter_code": {
+      "type": "string",
+      "maxLength": 65536
+    },
+    "hint": {
+      "type": "string",
+      "maxLength": 65536
+    },
+    "world_effect": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "maxItems": 128
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "maxItems": 128
+    },
+    "expected_stdout": {
+      "type": "string"
+    },
+    "expected_variables": {
+      "type": "object"
+    },
+    "function_name": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,63}$"
+    },
+    "class_name": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,63}$"
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contract": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "simulation": {
+      "enum": [
+        "route",
+        "expedition",
+        "instrument"
+      ]
+    },
+    "output": {
+      "enum": [
+        "path",
+        "model"
+      ]
+    },
+    "difficulty": {
+      "type": "string"
+    },
+    "legacy_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "property": {
+      "type": "string"
+    },
+    "pq_extension": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extension_schema": {
+          "const": 1
+        },
+        "program_contract": {
+          "type": "string"
+        },
+        "device_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+        },
+        "contract_ref": {
+          "type": "string"
+        },
+        "fixture_ref": {
+          "type": "string"
+        },
+        "ui_mode": {
+          "type": "string"
+        },
+        "recommended_tier": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        }
+      },
+      "required": [
+        "extension_schema"
+      ]
+    }
+  },
+  "description": "Stage09 additive content contract. Existing v1.4 mission keys remain legal; pq_extension is namespaced.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "script"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "expected_stdout"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "function"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "function_name",
+          "cases"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "object"
+          }
+        }
+      },
+      "then": {
+        "anyOf": [
+          {
+            "required": [
+              "class_name"
+            ]
+          },
+          {
+            "required": [
+              "contract"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

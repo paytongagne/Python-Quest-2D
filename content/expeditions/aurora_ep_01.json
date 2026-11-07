@@ -1,0 +1,59 @@
+{
+  "id": "aurora_ep_01",
+  "kind": "function",
+  "zone": "aurora_ep",
+  "sequence": 1,
+  "title": "Represent a Mapping Sample",
+  "story": "The observatory plots fictional measurements on a toy chamber.",
+  "lesson": "Keep geometry and scalar metadata together in a record. Dictionaries give each field an explicit meaning.",
+  "objective": "Return {'position': point, 'voltage': voltage, 'time_ms': time_ms}. point contains three coordinates in toy units.",
+  "sample": "point=[1,0,0], voltage=2, time=5 -> labeled sample record",
+  "function_name": "mapping_sample",
+  "starter_code": "def mapping_sample(point, voltage, time_ms):\n    pass\n",
+  "hint": "Copy the point into the position field and label the two scalars.",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          0,
+          0
+        ],
+        2,
+        5
+      ],
+      "expected": {
+        "position": [
+          1,
+          0,
+          0
+        ],
+        "voltage": 2,
+        "time_ms": 5
+      }
+    },
+    {
+      "args": [
+        [
+          0,
+          -1,
+          2
+        ],
+        0,
+        0
+      ],
+      "expected": {
+        "position": [
+          0,
+          -1,
+          2
+        ],
+        "voltage": 0,
+        "time_ms": 0
+      }
+    }
+  ],
+  "world_effect": "relay_aurora_ep_01",
+  "simulation": "expedition",
+  "output": "model"
+}

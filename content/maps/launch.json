@@ -1,0 +1,102 @@
+{
+  "id": "launch",
+  "tile_size": 32,
+  "width": 32,
+  "height": 18,
+  "tiles": [
+    "########################        ",
+    "#...........#..........#        ",
+    "#......#....#..........#########",
+    "#...........#..........#.......#",
+    "#......................#.......#",
+    "#...........#..................#",
+    "#...........#....#.....#.......#",
+    "#...........#..........#.......#",
+    "#...........#..........#########",
+    "##################.#####        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "#......................#        ",
+    "#...........#..........#        ",
+    "######.######..........#        ",
+    "#...........#..........#        ",
+    "#...........#..........#        ",
+    "########################        "
+  ],
+  "spawn": {
+    "x": 96,
+    "y": 96
+  },
+  "interactables": [
+    {
+      "id": "terminal_launch_01",
+      "type": "terminal",
+      "x": 176,
+      "y": 144,
+      "challenge_id": "launch_01"
+    },
+    {
+      "id": "terminal_launch_02",
+      "type": "terminal",
+      "x": 592,
+      "y": 144,
+      "challenge_id": "launch_02"
+    },
+    {
+      "id": "terminal_launch_03",
+      "type": "terminal",
+      "x": 592,
+      "y": 400,
+      "challenge_id": "launch_03"
+    },
+    {
+      "id": "terminal_launch_04",
+      "type": "terminal",
+      "x": 208,
+      "y": 400,
+      "challenge_id": "launch_04"
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate_launch_01",
+      "x": 384,
+      "y": 128,
+      "requires_challenge": "launch_01"
+    },
+    {
+      "id": "gate_launch_02",
+      "x": 576,
+      "y": 288,
+      "requires_challenge": "launch_02"
+    },
+    {
+      "id": "gate_launch_03",
+      "x": 384,
+      "y": 384,
+      "requires_challenge": "launch_03"
+    },
+    {
+      "id": "gate_launch_04",
+      "x": 192,
+      "y": 448,
+      "requires_challenge": "launch_04"
+    }
+  ],
+  "exit": {
+    "x": 208,
+    "y": 505,
+    "to_zone": "control",
+    "requires_challenge": "launch_04"
+  },
+  "ambience": "launch",
+  "alcove": "Launch telemetry",
+  "note": "Launch log: no hull breach. The alert began inside the dispatch scheduler.",
+  "sites": [
+    {
+      "type": "archive",
+      "x": 938,
+      "y": 180
+    }
+  ]
+}

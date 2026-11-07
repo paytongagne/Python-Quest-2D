@@ -1,0 +1,65 @@
+{
+  "id": "hydro_02",
+  "kind": "function",
+  "zone": "hydro",
+  "sequence": 2,
+  "title": "Feed the seed trays",
+  "story": "Dry roots need water. Overwatering the healthy trays would ruin the seed bank.",
+  "objective": "Return the indices of readings strictly below limit, in their original order.",
+  "lesson": "enumerate pairs each value with its position. Build a list of only the positions that pass your test.",
+  "sample": "dry_trays([12, 50, 10], 20) -> [0, 2]",
+  "function_name": "dry_trays",
+  "starter_code": "def dry_trays(readings, limit):\n    pass\n",
+  "hint": "Loop over enumerate(readings) and append the index when moisture < limit.",
+  "cases": [
+    {
+      "args": [
+        [
+          18,
+          54,
+          22,
+          61
+        ],
+        30
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "args": [
+        [],
+        20
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          20,
+          19,
+          20
+        ],
+        20
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          0
+        ],
+        1
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    }
+  ],
+  "world_effect": "relay_hydro_02"
+}

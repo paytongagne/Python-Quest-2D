@@ -1,0 +1,178 @@
+[
+  {
+    "risk_id": "R13-01",
+    "priority": "P0",
+    "category": "SAVE_DATA",
+    "risk": "Future schema versions silently load as mutable schema-4-like profiles",
+    "source_evidence": "core/progress.py load() migrates 2/3 but does not reject >4; save() is called by award",
+    "mitigation_ticket": "PQ11-003",
+    "acceptance": "Non-mutating version guard; future schema must not be replaced or downgraded; temp-profile tests including unknown keys",
+    "release_gate": "G2",
+    "residual_status": "Open until implemented"
+  },
+  {
+    "risk_id": "R13-02",
+    "priority": "P0",
+    "category": "UNTRUSTED_CODE",
+    "risk": "Learner Python runs as local user; worker is not a security sandbox",
+    "source_evidence": "core/grade.py and core/worker.py use subprocess; OS rights remain",
+    "mitigation_ticket": "PQ11-002",
+    "acceptance": "Keep isolated local process, strict timeouts/byte limits, data-only worker outputs; warning; do not ingest arbitrary remote code",
+    "release_gate": "G1",
+    "residual_status": "Accepted boundary; residual user-risk"
+  },
+  {
+    "risk_id": "R13-03",
+    "priority": "P0",
+    "category": "SAVE_IDEMPOTENCY",
+    "risk": "Rewards or effects can double after replay, retries or interrupted deployment",
+    "source_evidence": "core/progress.py award() and game/expedition.py persisted jobs",
+    "mitigation_ticket": "PQ11-005",
+    "acceptance": "Stable event IDs, atomic milestone, replay no award; crash-after-commit and restart tests",
+    "release_gate": "G2",
+    "residual_status": "Open until implemented"
+  },
+  {
+    "risk_id": "R13-04",
+    "priority": "P1",
+    "category": "MISSION_GATING",
+    "risk": "Normal expedition travel is blocked by unfinished chapter prerequisites",
+    "source_evidence": "game/expedition.py travel() and world map requirements; preview bypass",
+    "mitigation_ticket": "PQ11-010",
+    "acceptance": "Remove unreachable/cyclic prerequisites without changing existing completions; locked/preview/existing checkpoint tests",
+    "release_gate": "G1/G4",
+    "residual_status": "Open until implemented"
+  },
+  {
+    "risk_id": "R13-05",
+    "priority": "P1",
+    "category": "LEGACY_GRADE",
+    "risk": "One new uniform grading adapter could break multiple legacy worker return modes",
+    "source_evidence": "core/grade.py; core/worker.py; core/object_cases.py; core/engineering_cases.py",
+    "mitigation_ticket": "PQ11-002",
+    "acceptance": "Feature flag; parity tests for script,function,object,rover,expedition; legacy default path",
+    "release_gate": "G1",
+    "residual_status": "Open until implemented"
+  },
+  {
+    "risk_id": "R13-06",
+    "priority": "P1",
+    "category": "STATE_STALENESS",
+    "risk": "Robot plans may apply after map, robot, program or capability change",
+    "source_evidence": "game/nursery.py; game/expedition.py; Stage09 observation/action_plan",
+    "mitigation_ticket": "PQ11-004",
+    "acceptance": "Hash+revision+state revalidation, bounded action count, no partial mutation for invalid plan",
+    "release_gate": "G1/G2",
+    "residual_status": "Open until implemented"
+  },
+  {
+    "risk_id": "R13-07",
+    "priority": "P1",
+    "category": "MAP_UI",
+    "risk": "Visual additions may cover level or incorrectly transform mouse coordinates",
+    "source_evidence": "ui/hud.py; game/pixel_world.py; game/presentation.py",
+    "mitigation_ticket": "PQ11-008",
+    "acceptance": "Screenshot matrix, bounding box collision checks, 3 resolutions and input letterbox tests",
+    "release_gate": "G4",
+    "residual_status": "Open until implemented"
+  },
+  {
+    "risk_id": "R13-08",
+    "priority": "P1",
+    "category": "WINDOWS_GAP",
+    "risk": "Static ZIP checks do not prove Windows launcher works after code changes",
+    "source_evidence": "v1.4 release ZIP static audit; tools/native_smoke.py",
+    "mitigation_ticket": "PQ11-018",
+    "acceptance": "Actual Windows extraction in a path with spaces, runtime launch, play/save/reopen, screenshots",
+    "release_gate": "G3",
+    "residual_status": "Blocked pending Windows host"
+  },
+  {
+    "risk_id": "R13-09",
+    "priority": "P1",
+    "category": "PERFORMANCE",
+    "risk": "Large maps, overlays and replay queues may exceed frame and memory budgets",
+    "source_evidence": "game/app.py; game/pixel_world.py; Stage10 proposed budgets",
+    "mitigation_ticket": "PQ11-009",
+    "acceptance": "Measure actual frame percentiles, startup, memory and stress fixture on target hardware",
+    "release_gate": "G5",
+    "residual_status": "Not measured"
+  },
+  {
+    "risk_id": "R13-10",
+    "priority": "P1",
+    "category": "BIOMED_MATH",
+    "risk": "Synthetic signal and mapping pipelines can silently mis-handle units and missing readings",
+    "source_evidence": "engineering/08_BIOMED_CONTRACTS.json; biomed_24_contracts.csv",
+    "mitigation_ticket": "PQ11-121",
+    "acceptance": "Deterministic fixtures; explicit ms/mV, tie policy, NaN/Inf rejection; missing != zero; isolated mesh vertices",
+    "release_gate": "G1",
+    "residual_status": "Design resolved; implementation open"
+  },
+  {
+    "risk_id": "R13-11",
+    "priority": "P1",
+    "category": "PROGRESSION",
+    "risk": "Blueprint mission rows can be miscounted as executable gameplay",
+    "source_evidence": "missions/mission_blueprints.psv; Stage11 catalog",
+    "mitigation_ticket": "PQ11-017",
+    "acceptance": "Count only loaded runtime IDs with exercised executable grader and world effect, plus QA evidence",
+    "release_gate": "G0/G1",
+    "residual_status": "Policy resolved"
+  },
+  {
+    "risk_id": "R13-12",
+    "priority": "P2",
+    "category": "LEARNING",
+    "risk": "Hint/reveal scaffolding may reward copying over comprehension",
+    "source_evidence": "docs/07_CURRICULUM_AND_ASSESSMENT.md; core/progress.py award()",
+    "mitigation_ticket": "PQ11-015",
+    "acceptance": "Keep legacy 100/75/25 XP; optional transfer questions and independent retries, no extra XP for replay",
+    "release_gate": "G4/G6",
+    "residual_status": "Design resolved"
+  },
+  {
+    "risk_id": "R13-13",
+    "priority": "P1",
+    "category": "CHECKPOINT_LOSS",
+    "risk": "Work interruption or stale source overwrite could lose v1.4/newer progress",
+    "source_evidence": "handoff/12_RUNBOOK.md; tools/work_ticket.py",
+    "mitigation_ticket": "PQ11-001",
+    "acceptance": "Full source zip+SHA256 before edits; atomic CURRENT pointer after verified archive; resume from actual latest source",
+    "release_gate": "G0",
+    "residual_status": "Handoff policy resolved"
+  },
+  {
+    "risk_id": "R13-14",
+    "priority": "P2",
+    "category": "MEDICAL_MISUSE",
+    "risk": "Biomed world could appear clinical or leak real health data",
+    "source_evidence": "docs/08_BIOMEDICAL_ENDGAME.md; reference/fixtures",
+    "mitigation_ticket": "PQ11-149",
+    "acceptance": "Synthetic-only toy experiments, non-clinical labels, no proprietary code/patient samples",
+    "release_gate": "G6",
+    "residual_status": "Design resolved"
+  },
+  {
+    "risk_id": "R13-15",
+    "priority": "P1",
+    "category": "INCOMPLETE_ART",
+    "risk": "A second overlay-heavy UI pass could regress world readability",
+    "source_evidence": "docs/05_VISUAL_AUDIO_UI.md; screenshot evidence",
+    "mitigation_ticket": "PQ11-008",
+    "acceptance": "One Orion benchmark scene then per-world tiles and annotated before/after screenshot matrix",
+    "release_gate": "G4",
+    "residual_status": "Open until implemented"
+  },
+  {
+    "risk_id": "R13-16",
+    "priority": "P1",
+    "category": "TEST_EVIDENCE",
+    "risk": "Planning suites passing can be mistaken for playable implementation / release validation",
+    "source_evidence": "Stage08–12 test logs and Stage10 gates",
+    "mitigation_ticket": "PQ11-017",
+    "acceptance": "Always separate planning, headless game, native Windows, performance, human testing evidence",
+    "release_gate": "G0/G1/G3/G6",
+    "residual_status": "Reporting policy resolved"
+  }
+]

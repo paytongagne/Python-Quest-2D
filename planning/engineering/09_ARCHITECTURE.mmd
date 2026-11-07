@@ -1,0 +1,17 @@
+flowchart TD
+  U[Player input + coding editor] --> M[Legacy mission/content adapter]
+  M --> REQ[Execution request v1]
+  REQ --> G[core.grade.grade subprocess]
+  G --> W[worker.evaluate: isolated process]
+  W --> RES[Result normalizer + schema check]
+  RES --> Q{Contract type?}
+  Q -- Existing mission --> L[Existing Game.collect / Expeditions.accept]
+  Q -- New plan --> V[Parent revalidate snapshot, energy, capabilities, geometry]
+  V -->|Rejected| ERR[UI diagnostic / bounded trace]
+  V -->|Authorized| R[Fixed-tick Game-owned ProgramRuntime]
+  R --> RED[WorldEventReducer + event idempotency]
+  RED --> S[Atomic milestone + existing save]
+  RED --> SNAP[Read-only render snapshot]
+  SNAP --> DRAW[Pygame renderer]
+  S --> REC[Resume/replay]
+  style W fill:#eee,stroke:#333,color:#111

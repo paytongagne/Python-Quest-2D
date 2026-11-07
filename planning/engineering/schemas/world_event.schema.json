@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/world_event.schema.json",
+  "title": "world_event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "event_id",
+    "sequence",
+    "timestamp_tick",
+    "world_id",
+    "event_type",
+    "subject_id",
+    "payload",
+    "idempotency_key"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": 1
+    },
+    "event_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "timestamp_tick": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "event_type": {
+      "enum": [
+        "program.verified",
+        "program.rejected",
+        "robot.step",
+        "robot.docked",
+        "device.state_changed",
+        "world.unlock_applied",
+        "world.travel_started",
+        "world.travel_arrived",
+        "xp.awarded",
+        "diagnostic.updated",
+        "mission.completed",
+        "simulation.frame"
+      ]
+    },
+    "subject_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "payload": {
+      "type": "object",
+      "maxProperties": 64
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    }
+  }
+}

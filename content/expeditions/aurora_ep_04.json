@@ -1,0 +1,65 @@
+{
+  "id": "aurora_ep_04",
+  "kind": "function",
+  "zone": "aurora_ep",
+  "sequence": 4,
+  "title": "Reject Bad Mapping Points",
+  "story": "The display must distinguish reliable samples from bad contact.",
+  "lesson": "Filter records using explicit quality metadata. These thresholds are game rules, with no diagnostic meaning.",
+  "objective": "Return the IDs of samples with contact True and confidence >= 0.8. Missing fields fail. Preserve order.",
+  "sample": "[{'id':'a','contact':True,'confidence':.9}] -> ['a']",
+  "function_name": "accepted_samples",
+  "starter_code": "def accepted_samples(samples):\n    pass\n",
+  "hint": "Use get for optional fields. Require contact is True and a numeric confidence.",
+  "cases": [
+    {
+      "args": [
+        [
+          {
+            "id": "A",
+            "contact": true,
+            "confidence": 0.9
+          },
+          {
+            "id": "B",
+            "contact": false,
+            "confidence": 1
+          },
+          {
+            "id": "C",
+            "contact": true,
+            "confidence": 0.8
+          }
+        ]
+      ],
+      "expected": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          {
+            "id": "x"
+          },
+          {
+            "id": "y",
+            "contact": true,
+            "confidence": 0.79
+          }
+        ]
+      ],
+      "expected": []
+    }
+  ],
+  "world_effect": "relay_aurora_ep_04",
+  "simulation": "expedition",
+  "output": "model"
+}

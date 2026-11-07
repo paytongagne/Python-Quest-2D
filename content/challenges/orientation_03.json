@@ -1,0 +1,27 @@
+{
+  "kind": "script",
+  "zone": "orientation",
+  "sequence": 3,
+  "difficulty": "intro",
+  "id": "orientation_03",
+  "title": "Read the Pilot Badge",
+  "story": "Personalize the boarding announcement with the pilot name.",
+  "lesson": "An f-string inserts a variable into a string: f\"Hello, {name}\".",
+  "objective": "Set pilot = \"Alex\", then print exactly Pilot: Alex using an f-string.",
+  "sample": "Pilot: Alex",
+  "starter_code": "pilot = \"Alex\"\n# Print the pilot announcement with an f-string.\n",
+  "hint": "Use print(f\"Pilot: {pilot}\").",
+  "expected_stdout": "Pilot: Alex\n",
+  "expected_variables": {
+    "pilot": "Alex"
+  },
+  "world_effect": "gate_orientation_03",
+  "variants": [
+    {
+      "override": {
+        "pilot": "Sam"
+      },
+      "expected_stdout": "Pilot: Sam\n"
+    }
+  ]
+}

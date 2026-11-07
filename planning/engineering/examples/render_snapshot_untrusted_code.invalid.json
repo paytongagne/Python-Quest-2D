@@ -1,0 +1,36 @@
+{
+  "protocol_version": 1,
+  "frame_id": 51,
+  "world_id": "orion_moon",
+  "logical_tick": 11,
+  "camera": {
+    "x": 128,
+    "y": 64,
+    "zoom": 1
+  },
+  "entities": [
+    {
+      "id": "mica",
+      "sprite": "rover_mica",
+      "x": 64,
+      "y": 32,
+      "state": "idle",
+      "layer": 10
+    }
+  ],
+  "instruments": [],
+  "effects": [
+    {
+      "kind": "spark",
+      "x": 96,
+      "y": 32,
+      "duration_ticks": 4
+    }
+  ],
+  "ui": {
+    "objective": "Restore the relay",
+    "notice": "Mica docked",
+    "show_synthetic_banner": false
+  },
+  "code": "exec(...)"
+}

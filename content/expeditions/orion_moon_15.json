@@ -1,0 +1,69 @@
+{
+  "id": "orion_moon_15",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 15,
+  "title": "Benchmark Rover Strategies",
+  "story": "Convoy phase two. Compare deterministic work counts before choosing a search strategy.",
+  "lesson": "Count modeled operations instead of wall-clock time. A sparse BFS model touches V vertices and E edges; a repeated full scan costs V squared.",
+  "objective": "For each [vertices, edges] return {'bfs': V+E, 'scan': V*V, 'winner': 'bfs'/'scan'/'tie'}. Inputs are nonnegative.",
+  "sample": "[4,3] -> bfs=7, scan=16, winner='bfs'",
+  "function_name": "work_counts",
+  "starter_code": "def work_counts(sizes):\n    pass\n",
+  "hint": "Compute both counts and compare. These are stated workload models, not timing measurements.",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            4,
+            3
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        {
+          "bfs": 7,
+          "scan": 16,
+          "winner": "bfs"
+        },
+        {
+          "bfs": 1,
+          "scan": 1,
+          "winner": "tie"
+        },
+        {
+          "bfs": 0,
+          "scan": 0,
+          "winner": "tie"
+        },
+        {
+          "bfs": 7,
+          "scan": 4,
+          "winner": "scan"
+        }
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ],
+  "world_effect": "relay_orion_moon_15",
+  "simulation": "expedition",
+  "output": "model"
+}

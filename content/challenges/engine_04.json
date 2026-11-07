@@ -1,0 +1,49 @@
+{
+  "id": "engine_04",
+  "kind": "function",
+  "zone": "engine",
+  "sequence": 4,
+  "title": "Parse Live Telemetry",
+  "story": "The ground station needs the temperature from a comma-separated telemetry message.",
+  "lesson": "Use .split(',') to separate fields. A try/except can turn malformed numeric text into a safe None result.",
+  "objective": "Return the float value from a TEMP= field. Return None if TEMP is missing or invalid.",
+  "sample": "parse_temp('TEL,SEQ=3,TEMP=24.5')  ->  24.5",
+  "starter_code": "def parse_temp(packet):\n    # Example: 'TEL,SEQ=3,TEMP=24.5'\n    pass\n",
+  "hint": "Loop over packet.split(','). Check part.startswith('TEMP='). Convert part[5:] to float inside try/except ValueError.",
+  "function_name": "parse_temp",
+  "cases": [
+    {
+      "args": [
+        "TEL,SEQ=3,TEMP=24.5"
+      ],
+      "expected": 24.5
+    },
+    {
+      "args": [
+        "TEL,TEMP=-7.2,STATUS=NORMAL"
+      ],
+      "expected": -7.2
+    },
+    {
+      "args": [
+        "TEL,SEQ=4"
+      ],
+      "expected": null
+    },
+    {
+      "args": [
+        "TEL,TEMP=bad"
+      ],
+      "expected": null
+    },
+    {
+      "args": [
+        "TEMP=0"
+      ],
+      "expected": 0.0
+    }
+  ],
+  "difficulty": "intermediate",
+  "legacy_index": 15,
+  "world_effect": "gate_engine_04"
+}

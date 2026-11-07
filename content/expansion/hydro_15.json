@@ -1,0 +1,85 @@
+{
+  "id": "hydro_15",
+  "zone": "hydro",
+  "sequence": 15,
+  "kind": "function",
+  "title": "Rescue the canopy relay",
+  "story": "Recovery phase one. Mica has one final delivery through a branching rail maze. Find any path to the canopy dock.",
+  "lesson": "Breadth-first search explores adjacent cells with a queue. Store each candidate's path. Track visited coordinates so a cycle cannot trap the rover.",
+  "objective": "Return legal moves from start to goal through each reachable grid. A zero-length trip returns [].",
+  "sample": "Moves: UP, DOWN, LEFT, RIGHT. grid[y][x] == '#' blocks a cell.",
+  "function_name": "plan_route",
+  "starter_code": "def plan_route(grid, start, goal):\n    pass\n",
+  "hint": "Queue (position,path); for each valid unseen neighbor, append its direction to the path.",
+  "world_effect": "relay_hydro_15",
+  "simulation": "route",
+  "cases": [
+    {
+      "args": [
+        [
+          "..#..",
+          ".#...",
+          "...#.",
+          "##..."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          "....",
+          ".##.",
+          "...."
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          ".."
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          ".#.",
+          "...",
+          ".#."
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "aurora_ep_03",
+  "kind": "function",
+  "zone": "aurora_ep",
+  "sequence": 3,
+  "title": "Translate Reference Frames",
+  "story": "The chamber and cursor use different coordinate origins. Apply a documented transform.",
+  "lesson": "Multiply a point by the 3x3 rotation matrix, then add the translation. Each output component is a row dot product.",
+  "objective": "Return R*point + translation as a three-element list. All fixtures use a 3x3 matrix.",
+  "sample": "A quarter-turn about z maps [1,0,0] to [0,1,0].",
+  "function_name": "transform",
+  "starter_code": "def transform(point, rotation, translation):\n    pass\n",
+  "hint": "For each row sum rotation[i][j]*point[j], then add translation[i].",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          -1,
+          2,
+          0
+        ]
+      ],
+      "expected": [
+        -1,
+        2,
+        0
+      ]
+    }
+  ],
+  "world_effect": "relay_aurora_ep_03",
+  "simulation": "expedition",
+  "output": "model"
+}

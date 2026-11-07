@@ -1,0 +1,94 @@
+{
+  "id": "workshop_01",
+  "kind": "object",
+  "zone": "workshop",
+  "sequence": 1,
+  "title": "Restore the Drone Blueprint",
+  "story": "ION: The workshop assembly line is stalled. Repair this object model to restore the next machine.",
+  "lesson": "Attributes assigned through self belong to that instance. __init__ receives the newly created object as self.",
+  "objective": "Define Rover(id, power). Store id and power on each instance. Two drones must keep independent state; missing required constructor arguments must raise TypeError.",
+  "sample": "Rover(\"Mica\", 80).power -> 80",
+  "starter_code": "class Rover:\n    def __init__(self, id, power):\n        pass\n",
+  "hint": "Attributes assigned through self belong to that instance. __init__ receives the newly created object as self.",
+  "class_name": "Rover",
+  "attributes": [
+    "id",
+    "power"
+  ],
+  "cases": [
+    {
+      "construct": [
+        [
+          "Mica",
+          80
+        ],
+        [
+          "Echo",
+          40
+        ]
+      ],
+      "steps": [],
+      "expected": {
+        "state": [
+          {
+            "id": "Mica",
+            "power": 80
+          },
+          {
+            "id": "Echo",
+            "power": 40
+          }
+        ],
+        "returns": []
+      }
+    },
+    {
+      "construct": [
+        [
+          "A",
+          0
+        ],
+        [
+          "B",
+          100
+        ]
+      ],
+      "steps": [
+        {
+          "op": "set",
+          "object": 0,
+          "name": "power",
+          "value": 25
+        },
+        {
+          "op": "new",
+          "args": [],
+          "raises": "TypeError"
+        },
+        {
+          "op": "new",
+          "args": [
+            "A"
+          ],
+          "raises": "TypeError"
+        }
+      ],
+      "expected": {
+        "state": [
+          {
+            "id": "A",
+            "power": 25
+          },
+          {
+            "id": "B",
+            "power": 100
+          }
+        ],
+        "returns": []
+      }
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_1"
+}

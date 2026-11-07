@@ -1,0 +1,3 @@
+# Work prompt — RESOURCE-EFFICIENT EXTENDED SESSION
+
+Continue implementing eligible Stage11 tickets using `handoff/12_RUNBOOK.md`. Avoid long status narratives and repeated repository scans. Work one dependency-eligible ticket at a time, with targeted tests, periodic broader regression and immutable source checkpoints. Keep every four-mission batch playable rather than merely adding question text. Reuse validated worker, world and UI contracts. When the usage limit approaches, stop starting new features; export the current source plus tests, logs and task state. Do not assume you will run a full five hours, continue while idle, override platform approvals, or redeem banked resets. Do not purchase credits.

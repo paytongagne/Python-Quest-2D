@@ -1,0 +1,40 @@
+{
+  "id": "workshop_08",
+  "zone": "workshop",
+  "sequence": 8,
+  "kind": "object",
+  "contract": "log",
+  "title": "Read the Service Log",
+  "story": "ION: The second assembly wing needs production-grade Python. Restore the machine, then inspect its diagnostics with O.",
+  "objective": "Define count_errors(path). Open the supplied UTF-8 text file using a with statement. Strip each line and count those starting with the exact case-sensitive prefix ERROR:. Ignore blank lines and other levels. Return the count. Close the file and propagate FileNotFoundError for a missing path.",
+  "lesson": "A context manager closes a file even if work fails. Iterate over lines instead of assuming a newline format or loading an arbitrary fixed path.",
+  "sample": "INFO: boot\\nERROR: pump\\n ERROR: valve -> 2",
+  "starter_code": "def count_errors(path):\n    pass\n",
+  "hint": "A context manager closes a file even if work fails. Iterate over lines instead of assuming a newline format or loading an arbitrary fixed path.",
+  "cases": [
+    {
+      "text": "INFO: boot\nERROR: pump\n ERROR: valve\nWARN: heat\n",
+      "expected": 2
+    },
+    {
+      "text": "",
+      "expected": 0
+    },
+    {
+      "text": "ERROR: \u03b1\r\nerror: ignore\r\nERROR missing colon\r\nERROR: final",
+      "expected": 2
+    },
+    {
+      "text": "\n \nINFO: ok\n",
+      "expected": 0
+    },
+    {
+      "text": "",
+      "missing": true,
+      "expected": "missing"
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_8"
+}

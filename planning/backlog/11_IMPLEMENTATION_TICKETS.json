@@ -1,0 +1,933 @@
+{
+  "schema_version": 1,
+  "status": "DESIGN_ONLY",
+  "baseline": "v1.4 76 implemented; schema 4",
+  "new_missions": 76,
+  "plan_target": 152,
+  "stages": [
+    "stabilize",
+    "programmable worlds",
+    "visual and travel",
+    "mission infrastructure",
+    "workshop",
+    "titan",
+    "helix",
+    "algorithm tower",
+    "aurora",
+    "finale"
+  ],
+  "tickets": [
+    {
+      "ticket_id": "PQ11-001",
+      "phase": "0",
+      "task": "Establish protected source checkpoint and deterministic baseline",
+      "kind": "system",
+      "depends_on": [],
+      "source_anchors": "src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py;src/python_quest_2d/core/progress.py;tests/test_flight.py;tests/test_visual_revision.py",
+      "acceptance": "Record source hash, 76 IDs, reference solutions, seed/profile isolation, game tests; export rollback ZIP.",
+      "stage10_tests": "PQ10-LEG-001;PQ10-LEG-002;PQ10-LEG-003;PQ10-LEG-004",
+      "release_gates": "G0/G1/G2",
+      "risk": "medium",
+      "effort": "S",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-002",
+      "phase": "0",
+      "task": "Introduce contract registry validator behind opt-in feature flag",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-001"
+      ],
+      "source_anchors": "src/python_quest_2d/core/grade.py;src/python_quest_2d/core/worker.py;src/python_quest_2d/core/challenges.py;src/python_quest_2d/game/app.py",
+      "acceptance": "Versioned request/result adapters retain all legacy grading paths; invalid/oversized worker outputs fail closed.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-PRG-003;PQ10-PRG-004",
+      "release_gates": "G1",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-003",
+      "phase": "0",
+      "task": "Add additive schema-4 program library and future-schema rejection",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-001"
+      ],
+      "source_anchors": "src/python_quest_2d/core/progress.py;src/python_quest_2d/game/app.py",
+      "acceptance": "Old v2/v3/v4 fixtures preserve unknown fields; future version read-only; backup and atomic save tests.",
+      "stage10_tests": "PQ10-SAV-001;PQ10-SAV-002;PQ10-SAV-003;PQ10-SAV-004",
+      "release_gates": "G2",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-004",
+      "phase": "1",
+      "task": "Observation snapshots, hashing and action semantic validation",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-002",
+        "PQ11-003"
+      ],
+      "source_anchors": "src/python_quest_2d/core/grade.py;src/python_quest_2d/core/worker.py;src/python_quest_2d/core/challenges.py;src/python_quest_2d/game/app.py",
+      "acceptance": "One immutable observation produces deterministic hash; reject stale state, invalid actions, walls, energy, unsupported devices.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-PRG-003;PQ10-PRG-004",
+      "release_gates": "G1",
+      "risk": "high",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-005",
+      "phase": "1",
+      "task": "Bounded fixed-tick game-owned action runner and event reducer",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-004"
+      ],
+      "source_anchors": "src/python_quest_2d/game/world.py;src/python_quest_2d/game/expedition.py;src/python_quest_2d/game/app.py",
+      "acceptance": "No learner code in Pygame loop; trace and replay deterministic, atomic milestones, cancel/restart harmless.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-PRG-003;PQ10-PRG-004",
+      "release_gates": "G1/G2",
+      "risk": "high",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-006",
+      "phase": "1",
+      "task": "Mica equip, library, deploy, replay and comparison",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-005"
+      ],
+      "source_anchors": "src/python_quest_2d/game/nursery.py;src/python_quest_2d/game/expedition.py;src/python_quest_2d/core/route.py",
+      "acceptance": "Save/reopen a program, equip revision, deploy on 2 known maps, trace step, no repeated XP.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-PRG-003;PQ10-PRG-004",
+      "release_gates": "G1/G2",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-007",
+      "phase": "1",
+      "task": "In-game Mica flagship Orion quest and transfer puzzle",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-006"
+      ],
+      "source_anchors": "src/python_quest_2d/game/nursery.py;src/python_quest_2d/game/expedition.py;src/python_quest_2d/core/route.py",
+      "acceptance": "Player discovers relay, programs robot, watches repair, reuses program on altered fixture; save/quit works.",
+      "stage10_tests": "PQ10-TRV-001;PQ10-TRV-002;PQ10-TRV-003;PQ10-TRV-004",
+      "release_gates": "G1/G4",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-008",
+      "phase": "2",
+      "task": "Polished HUD/readouts without map occlusion",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-001"
+      ],
+      "source_anchors": "src/python_quest_2d/ui/hud.py;src/python_quest_2d/ui/code_editor.py;src/python_quest_2d/game/diagnostics.py",
+      "acceptance": "1280x720,1600x900,1920x1080 screenshots clear; world always primary, text/click targets visible, reduced motion.",
+      "stage10_tests": "PQ10-VIS-001;PQ10-VIS-002;PQ10-VIS-003;PQ10-VIS-004",
+      "release_gates": "G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-009",
+      "phase": "2",
+      "task": "Distinct original biome tile layers and consistent shadows",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-008"
+      ],
+      "source_anchors": "src/python_quest_2d/game/pixel_world.py;src/python_quest_2d/game/planet_art.py;src/python_quest_2d/game/presentation.py;src/python_quest_2d/game/workshop_art.py",
+      "acceptance": "Orion/Astra/Titan/Helix/Aurora have distinct reusable props and landmarks; depth sorts; no collisions regressed.",
+      "stage10_tests": "PQ10-VIS-001;PQ10-VIS-002;PQ10-VIS-003;PQ10-VIS-004",
+      "release_gates": "G4",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-010",
+      "phase": "2",
+      "task": "Travel and exploration narrative routing repair",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-008"
+      ],
+      "source_anchors": "src/python_quest_2d/game/world.py;src/python_quest_2d/game/expedition.py;src/python_quest_2d/game/app.py",
+      "acceptance": "Normal route no longer depends on unshipped Mission Control; preview still accessible; destination reveals objectives.",
+      "stage10_tests": "PQ10-TRV-001;PQ10-TRV-002;PQ10-TRV-003;PQ10-TRV-004",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-011",
+      "phase": "2",
+      "task": "Device interaction catalog and visual coding feedback",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-005",
+        "PQ11-008"
+      ],
+      "source_anchors": "src/python_quest_2d/game/world.py;src/python_quest_2d/game/expedition.py;src/python_quest_2d/game/app.py",
+      "acceptance": "Machines accept validated intents; failure traces show reason; animated world delta clear and replayable.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-PRG-003;PQ10-PRG-004",
+      "release_gates": "G1/G4",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-012",
+      "phase": "3",
+      "task": "Shared data-driven mission factory for new challenge types",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-002",
+        "PQ11-005"
+      ],
+      "source_anchors": "src/python_quest_2d/core/grade.py;src/python_quest_2d/core/worker.py;src/python_quest_2d/core/challenges.py;src/python_quest_2d/game/app.py",
+      "acceptance": "Four mission templates tested: function, object fixture, simulation, bounded plan; authoring round-trip.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-PRG-003;PQ10-PRG-004",
+      "release_gates": "G1",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-013",
+      "phase": "3",
+      "task": "Chapter maps, travel gating and landmark objective system",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-010",
+        "PQ11-012"
+      ],
+      "source_anchors": "src/python_quest_2d/game/world.py;src/python_quest_2d/game/expedition.py;src/python_quest_2d/game/app.py",
+      "acceptance": "Each world has arrival, return, discoverable next objective, walkable route and locked feedback.",
+      "stage10_tests": "PQ10-TRV-001;PQ10-TRV-002;PQ10-TRV-003;PQ10-TRV-004",
+      "release_gates": "G1/G4",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-014",
+      "phase": "3",
+      "task": "Deterministic toy signal and mesh rendering adapter",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-002",
+        "PQ11-011"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/helix_bio.json",
+      "acceptance": "Synthetic fixtures load, null unmeasured, no NaN, units labelled, geometry responds to test outputs.",
+      "stage10_tests": "PQ10-BIO-001;PQ10-BIO-002;PQ10-BIO-003;PQ10-BIO-004",
+      "release_gates": "G1/G4",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-015",
+      "phase": "4",
+      "task": "Visual debugging playback, code editor hint ladder and error precision",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-006",
+        "PQ11-008"
+      ],
+      "source_anchors": "src/python_quest_2d/ui/hud.py;src/python_quest_2d/ui/code_editor.py;src/python_quest_2d/game/diagnostics.py",
+      "acceptance": "Step-through trace with earliest failure; drafts preserved; review and comparison work; no unrelated editor regressions.",
+      "stage10_tests": "PQ10-WRK-001;PQ10-WRK-002;PQ10-WRK-003;PQ10-WRK-004",
+      "release_gates": "G1/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-016",
+      "phase": "9",
+      "task": "Windows release, native QA, test evidence and recovery exports",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-018",
+        "PQ11-105",
+        "PQ11-117",
+        "PQ11-129",
+        "PQ11-145",
+        "PQ11-157",
+        "PQ11-173"
+      ],
+      "source_anchors": "src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py;src/python_quest_2d/core/progress.py;tests/test_flight.py;tests/test_visual_revision.py",
+      "acceptance": "Archive/static and Windows native start/saves/path spaces/offline/3 viewport captures; source ZIP + changelog.",
+      "stage10_tests": "PQ10-WIN-001;PQ10-WIN-002;PQ10-WIN-003;PQ10-WIN-004",
+      "release_gates": "G0/G1/G2/G3/G4/G6",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-101",
+      "phase": "4",
+      "task": "Workshop District missions 09\u201312",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013"
+      ],
+      "source_anchors": "src/python_quest_2d/core/object_cases.py;src/python_quest_2d/game/workshop_art.py;content/planets/workshop.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement workshop_09, workshop_10, workshop_11, workshop_12 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible Astra workshop production line effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-WRK-001;PQ10-WRK-002;PQ10-SAV-001;PQ10-SAV-002;PQ10-VIS-001;PQ10-VIS-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "workshop_09",
+        "workshop_10",
+        "workshop_11",
+        "workshop_12"
+      ],
+      "checkpoint": "commit PQ11-101 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "OOP, fixtures, stateful systems; Astra workshop production line.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-105",
+      "phase": "4",
+      "task": "Workshop District missions 13\u201316",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-101"
+      ],
+      "source_anchors": "src/python_quest_2d/core/object_cases.py;src/python_quest_2d/game/workshop_art.py;content/planets/workshop.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement workshop_13, workshop_14, workshop_15, workshop_16 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible Astra workshop production line effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-WRK-001;PQ10-WRK-002;PQ10-SAV-001;PQ10-SAV-002;PQ10-VIS-001;PQ10-VIS-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "workshop_13",
+        "workshop_14",
+        "workshop_15",
+        "workshop_16"
+      ],
+      "checkpoint": "commit PQ11-105 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "OOP, fixtures, stateful systems; Astra workshop production line.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-109",
+      "phase": "5",
+      "task": "Titan Cloudworks missions 05\u201308",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-011",
+        "PQ11-012",
+        "PQ11-013"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/titan_cloud.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement titan_cloud_05, titan_cloud_06, titan_cloud_07, titan_cloud_08 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible pulsing packet network and relay devices effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "titan_cloud_05",
+        "titan_cloud_06",
+        "titan_cloud_07",
+        "titan_cloud_08"
+      ],
+      "checkpoint": "commit PQ11-109 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "event queues, topic routing, retries, deterministic async; pulsing packet network and relay devices.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-113",
+      "phase": "5",
+      "task": "Titan Cloudworks missions 09\u201312",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-011",
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-109"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/titan_cloud.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement titan_cloud_09, titan_cloud_10, titan_cloud_11, titan_cloud_12 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible pulsing packet network and relay devices effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "titan_cloud_09",
+        "titan_cloud_10",
+        "titan_cloud_11",
+        "titan_cloud_12"
+      ],
+      "checkpoint": "commit PQ11-113 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "event queues, topic routing, retries, deterministic async; pulsing packet network and relay devices.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-117",
+      "phase": "5",
+      "task": "Titan Cloudworks missions 13\u201316",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-011",
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-113"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/titan_cloud.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement titan_cloud_13, titan_cloud_14, titan_cloud_15, titan_cloud_16 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible pulsing packet network and relay devices effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "titan_cloud_13",
+        "titan_cloud_14",
+        "titan_cloud_15",
+        "titan_cloud_16"
+      ],
+      "checkpoint": "commit PQ11-117 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "event queues, topic routing, retries, deterministic async; pulsing packet network and relay devices.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-121",
+      "phase": "6",
+      "task": "Helix Biomedical missions 05\u201308",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-014"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/helix_bio.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement helix_bio_05, helix_bio_06, helix_bio_07, helix_bio_08 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible synthetic signal monitor and pump recovery effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-BIO-001;PQ10-BIO-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "helix_bio_05",
+        "helix_bio_06",
+        "helix_bio_07",
+        "helix_bio_08"
+      ],
+      "checkpoint": "commit PQ11-121 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "synthetic time series, filtering, timestamps; synthetic signal monitor and pump recovery.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-125",
+      "phase": "6",
+      "task": "Helix Biomedical missions 09\u201312",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-014",
+        "PQ11-121"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/helix_bio.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement helix_bio_09, helix_bio_10, helix_bio_11, helix_bio_12 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible synthetic signal monitor and pump recovery effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-BIO-001;PQ10-BIO-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "helix_bio_09",
+        "helix_bio_10",
+        "helix_bio_11",
+        "helix_bio_12"
+      ],
+      "checkpoint": "commit PQ11-125 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "synthetic time series, filtering, timestamps; synthetic signal monitor and pump recovery.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-129",
+      "phase": "6",
+      "task": "Helix Biomedical missions 13\u201316",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-014",
+        "PQ11-125"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/helix_bio.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement helix_bio_13, helix_bio_14, helix_bio_15, helix_bio_16 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible synthetic signal monitor and pump recovery effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-BIO-001;PQ10-BIO-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "helix_bio_13",
+        "helix_bio_14",
+        "helix_bio_15",
+        "helix_bio_16"
+      ],
+      "checkpoint": "commit PQ11-129 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "synthetic time series, filtering, timestamps; synthetic signal monitor and pump recovery.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-133",
+      "phase": "7",
+      "task": "Algorithm Tower missions 01\u201304",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/world.py;content/maps/algorithm.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement algorithm_tower_01, algorithm_tower_02, algorithm_tower_03, algorithm_tower_04 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible tower simulation boards and routing panels effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-WRK-001;PQ10-WRK-002;PQ10-PRG-001;PQ10-PRG-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "algorithm_tower_01",
+        "algorithm_tower_02",
+        "algorithm_tower_03",
+        "algorithm_tower_04"
+      ],
+      "checkpoint": "commit PQ11-133 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "data structures, graph algorithms and complexity; tower simulation boards and routing panels.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-137",
+      "phase": "7",
+      "task": "Algorithm Tower missions 05\u201308",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-133"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/world.py;content/maps/algorithm.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement algorithm_tower_05, algorithm_tower_06, algorithm_tower_07, algorithm_tower_08 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible tower simulation boards and routing panels effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-WRK-001;PQ10-WRK-002;PQ10-PRG-001;PQ10-PRG-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "algorithm_tower_05",
+        "algorithm_tower_06",
+        "algorithm_tower_07",
+        "algorithm_tower_08"
+      ],
+      "checkpoint": "commit PQ11-137 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "data structures, graph algorithms and complexity; tower simulation boards and routing panels.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-141",
+      "phase": "7",
+      "task": "Algorithm Tower missions 09\u201312",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-137"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/world.py;content/maps/algorithm.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement algorithm_tower_09, algorithm_tower_10, algorithm_tower_11, algorithm_tower_12 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible tower simulation boards and routing panels effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-WRK-001;PQ10-WRK-002;PQ10-PRG-001;PQ10-PRG-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "algorithm_tower_09",
+        "algorithm_tower_10",
+        "algorithm_tower_11",
+        "algorithm_tower_12"
+      ],
+      "checkpoint": "commit PQ11-141 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "data structures, graph algorithms and complexity; tower simulation boards and routing panels.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-145",
+      "phase": "7",
+      "task": "Algorithm Tower missions 13\u201316",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-141"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/world.py;content/maps/algorithm.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement algorithm_tower_13, algorithm_tower_14, algorithm_tower_15, algorithm_tower_16 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible tower simulation boards and routing panels effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-WRK-001;PQ10-WRK-002;PQ10-PRG-001;PQ10-PRG-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "M",
+      "mission_ids": [
+        "algorithm_tower_13",
+        "algorithm_tower_14",
+        "algorithm_tower_15",
+        "algorithm_tower_16"
+      ],
+      "checkpoint": "commit PQ11-145 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "data structures, graph algorithms and complexity; tower simulation boards and routing panels.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-149",
+      "phase": "8",
+      "task": "Aurora Observatory missions 05\u201308",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-014"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/aurora_ep.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement aurora_ep_05, aurora_ep_06, aurora_ep_07, aurora_ep_08 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible chamber mesh layers and mapping consoles effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-BIO-001;PQ10-BIO-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [
+        "aurora_ep_05",
+        "aurora_ep_06",
+        "aurora_ep_07",
+        "aurora_ep_08"
+      ],
+      "checkpoint": "commit PQ11-149 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "toy 3D mesh, interpolation, transforms, mapping; chamber mesh layers and mapping consoles.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-153",
+      "phase": "8",
+      "task": "Aurora Observatory missions 09\u201312",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-014",
+        "PQ11-149"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/aurora_ep.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement aurora_ep_09, aurora_ep_10, aurora_ep_11, aurora_ep_12 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible chamber mesh layers and mapping consoles effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-BIO-001;PQ10-BIO-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [
+        "aurora_ep_09",
+        "aurora_ep_10",
+        "aurora_ep_11",
+        "aurora_ep_12"
+      ],
+      "checkpoint": "commit PQ11-153 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "toy 3D mesh, interpolation, transforms, mapping; chamber mesh layers and mapping consoles.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-157",
+      "phase": "8",
+      "task": "Aurora Observatory missions 13\u201316",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-014",
+        "PQ11-153"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/instruments.py;content/planets/aurora_ep.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement aurora_ep_13, aurora_ep_14, aurora_ep_15, aurora_ep_16 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible chamber mesh layers and mapping consoles effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-BIO-001;PQ10-BIO-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-VIS-001;PQ10-VIS-002;PQ10-SAV-001;PQ10-SAV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [
+        "aurora_ep_13",
+        "aurora_ep_14",
+        "aurora_ep_15",
+        "aurora_ep_16"
+      ],
+      "checkpoint": "commit PQ11-157 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "toy 3D mesh, interpolation, transforms, mapping; chamber mesh layers and mapping consoles.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-161",
+      "phase": "9",
+      "task": "Mission Control Annex missions 01\u201304",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-011",
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-105",
+        "PQ11-117",
+        "PQ11-129",
+        "PQ11-145",
+        "PQ11-157"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/expedition.py;content/universe/destinations.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement mission_control_01, mission_control_02, mission_control_03, mission_control_04 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible multi-world systems and staged final boss effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-SAV-001;PQ10-SAV-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [
+        "mission_control_01",
+        "mission_control_02",
+        "mission_control_03",
+        "mission_control_04"
+      ],
+      "checkpoint": "commit PQ11-161 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "integration, concurrency models, fault recovery; multi-world systems and staged final boss.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-165",
+      "phase": "9",
+      "task": "Mission Control Annex missions 05\u201308",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-011",
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-161"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/expedition.py;content/universe/destinations.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement mission_control_05, mission_control_06, mission_control_07, mission_control_08 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible multi-world systems and staged final boss effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-SAV-001;PQ10-SAV-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [
+        "mission_control_05",
+        "mission_control_06",
+        "mission_control_07",
+        "mission_control_08"
+      ],
+      "checkpoint": "commit PQ11-165 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "integration, concurrency models, fault recovery; multi-world systems and staged final boss.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-169",
+      "phase": "9",
+      "task": "Mission Control Annex missions 09\u201312",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-011",
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-165"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/expedition.py;content/universe/destinations.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement mission_control_09, mission_control_10, mission_control_11, mission_control_12 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible multi-world systems and staged final boss effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-SAV-001;PQ10-SAV-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [
+        "mission_control_09",
+        "mission_control_10",
+        "mission_control_11",
+        "mission_control_12"
+      ],
+      "checkpoint": "commit PQ11-169 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "integration, concurrency models, fault recovery; multi-world systems and staged final boss.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-173",
+      "phase": "9",
+      "task": "Mission Control Annex missions 13\u201316",
+      "kind": "mission_batch",
+      "depends_on": [
+        "PQ11-011",
+        "PQ11-012",
+        "PQ11-013",
+        "PQ11-169"
+      ],
+      "source_anchors": "src/python_quest_2d/core/engineering_cases.py;src/python_quest_2d/game/expedition.py;content/universe/destinations.json;src/python_quest_2d/core/challenges.py;src/python_quest_2d/core/grade.py",
+      "acceptance": "Implement mission_control_13, mission_control_14, mission_control_15, mission_control_16 using blueprint APIs and edge cases, each with real worker evaluation, parent semantic checks, visible multi-world systems and staged final boss effect, sequential prerequisites, no duplicate XP, save/replay and error feedback. Four reference solutions and negative/edge fixtures pass.",
+      "stage10_tests": "PQ10-PRG-001;PQ10-PRG-002;PQ10-WRK-001;PQ10-WRK-002;PQ10-SAV-001;PQ10-SAV-002;PQ10-TRV-001;PQ10-TRV-002",
+      "release_gates": "G1/G2/G4",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [
+        "mission_control_13",
+        "mission_control_14",
+        "mission_control_15",
+        "mission_control_16"
+      ],
+      "checkpoint": "commit PQ11-173 + verified 4-mission results + source archive at chapter boundary",
+      "notes": "integration, concurrency models, fault recovery; multi-world systems and staged final boss.",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-017",
+      "phase": "9",
+      "task": "Unified multi-world postgame and mastery transfer challenges",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-105",
+        "PQ11-117",
+        "PQ11-129",
+        "PQ11-145",
+        "PQ11-157",
+        "PQ11-173"
+      ],
+      "source_anchors": "src/python_quest_2d/game/expedition.py;src/python_quest_2d/game/app.py",
+      "acceptance": "All chapters accessible in intended narrative order, preview travel safe, program library reusable in two more worlds, mastery review without XP farming.",
+      "stage10_tests": "PQ10-TRV-001;PQ10-TRV-002;PQ10-TRV-003;PQ10-TRV-004",
+      "release_gates": "G1/G2/G4",
+      "risk": "medium",
+      "effort": "L",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "ticket_id": "PQ11-018",
+      "phase": "9",
+      "task": "Human playtest triage, accessibility and final performance budget",
+      "kind": "system",
+      "depends_on": [
+        "PQ11-008",
+        "PQ11-009",
+        "PQ11-017"
+      ],
+      "source_anchors": "src/python_quest_2d/ui/hud.py;src/python_quest_2d/ui/code_editor.py;src/python_quest_2d/game/diagnostics.py",
+      "acceptance": "Record actual novice/returning-player observations; demonstrate no critical overlap, softlocks and unresolved P0; measured p95 FPS on stated hardware.",
+      "stage10_tests": "PQ10-HUM-001;PQ10-HUM-002;PQ10-HUM-003;PQ10-HUM-004;PQ10-PERF-001;PQ10-PERF-002;PQ10-PERF-003;PQ10-PERF-004",
+      "release_gates": "G4/G5",
+      "risk": "high",
+      "effort": "M",
+      "mission_ids": [],
+      "checkpoint": "source commit + disposable profile + test log",
+      "notes": "",
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    }
+  ],
+  "topological_order": [
+    "PQ11-001",
+    "PQ11-002",
+    "PQ11-003",
+    "PQ11-008",
+    "PQ11-004",
+    "PQ11-009",
+    "PQ11-010",
+    "PQ11-005",
+    "PQ11-006",
+    "PQ11-011",
+    "PQ11-012",
+    "PQ11-007",
+    "PQ11-013",
+    "PQ11-014",
+    "PQ11-015",
+    "PQ11-101",
+    "PQ11-109",
+    "PQ11-121",
+    "PQ11-133",
+    "PQ11-149",
+    "PQ11-105",
+    "PQ11-113",
+    "PQ11-125",
+    "PQ11-137",
+    "PQ11-153",
+    "PQ11-117",
+    "PQ11-129",
+    "PQ11-141",
+    "PQ11-157",
+    "PQ11-145",
+    "PQ11-161",
+    "PQ11-165",
+    "PQ11-169",
+    "PQ11-173",
+    "PQ11-017",
+    "PQ11-018",
+    "PQ11-016"
+  ],
+  "source_root": "Python Quest 2D/",
+  "authoritative_docs": [
+    "docs/03_PROGRAMMABLE_WORLD.md",
+    "docs/07_CURRICULUM_AND_ASSESSMENT.md",
+    "docs/09_ARCHITECTURE_AND_DATA_CONTRACTS.md",
+    "docs/10_TEST_AND_RELEASE_PLAN.md"
+  ],
+  "provenance": "planning, not implementation"
+}

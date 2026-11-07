@@ -1,0 +1,301 @@
+{
+  "events": [
+    {
+      "arrival_tick": 0,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 0,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 0.0,
+        "unit": "toy_u",
+        "value": -0.024
+      }
+    },
+    {
+      "arrival_tick": 0,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 1,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 4.0,
+        "unit": "toy_u",
+        "value": 0.079
+      }
+    },
+    {
+      "arrival_tick": 0,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 2,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 8.0,
+        "unit": "toy_u",
+        "value": -0.218
+      }
+    },
+    {
+      "arrival_tick": 1,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 3,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 12.0,
+        "unit": "toy_u",
+        "value": 0.985
+      }
+    },
+    {
+      "arrival_tick": 1,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 4,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 16.0,
+        "unit": "toy_u",
+        "value": -0.312
+      }
+    },
+    {
+      "arrival_tick": 3,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "MISSING",
+        "schema": "toy-biomed-v1",
+        "seq": 5,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 20.0,
+        "unit": "toy_u",
+        "value": null
+      }
+    },
+    {
+      "arrival_tick": 2,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 6,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 24.0,
+        "unit": "toy_u",
+        "value": 0.094
+      }
+    },
+    {
+      "arrival_tick": 2,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 7,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 28.0,
+        "unit": "toy_u",
+        "value": -0.003
+      }
+    },
+    {
+      "arrival_tick": 2,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 8,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 32.0,
+        "unit": "toy_u",
+        "value": 0.0
+      }
+    },
+    {
+      "arrival_tick": 2,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 16,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 64.0,
+        "unit": "toy_u",
+        "value": -0.024
+      }
+    },
+    {
+      "arrival_tick": 3,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 9,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 36.0,
+        "unit": "toy_u",
+        "value": 0.103
+      }
+    },
+    {
+      "arrival_tick": 3,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 10,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 40.0,
+        "unit": "toy_u",
+        "value": -0.194
+      }
+    },
+    {
+      "arrival_tick": 3,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 6,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 24.0,
+        "unit": "toy_u",
+        "value": 0.094
+      }
+    },
+    {
+      "arrival_tick": 3,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 11,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 44.0,
+        "unit": "toy_u",
+        "value": 1.009
+      }
+    },
+    {
+      "arrival_tick": 4,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 13,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 52.0,
+        "unit": "toy_u",
+        "value": 0.215
+      }
+    },
+    {
+      "arrival_tick": 4,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 14,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 56.0,
+        "unit": "toy_u",
+        "value": 0.118
+      }
+    },
+    {
+      "arrival_tick": 5,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 15,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 60.0,
+        "unit": "toy_u",
+        "value": 0.021
+      }
+    },
+    {
+      "arrival_tick": 5,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 16,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 64.0,
+        "unit": "toy_u",
+        "value": -0.024
+      }
+    },
+    {
+      "arrival_tick": 5,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 17,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 68.0,
+        "unit": "toy_u",
+        "value": 0.079
+      }
+    },
+    {
+      "arrival_tick": 6,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 18,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 72.0,
+        "unit": "toy_u",
+        "value": -0.218
+      }
+    },
+    {
+      "arrival_tick": 6,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 19,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 76.0,
+        "unit": "toy_u",
+        "value": 0.985
+      }
+    },
+    {
+      "arrival_tick": 7,
+      "frame": {
+        "channel": "SYN_A",
+        "quality": "OK",
+        "schema": "toy-biomed-v1",
+        "seq": 10,
+        "source": "SYNTHETIC_ONLY",
+        "time_ms": 40.0,
+        "unit": "toy_u",
+        "value": "not-a-number"
+      }
+    }
+  ],
+  "expected_flags": {
+    "absent_seq": 12,
+    "duplicate_seq": 6,
+    "explicit_missing_seq": 5,
+    "invalid_value_seq": 10,
+    "out_of_order_event_seq": 16
+  },
+  "fixture": "HELIX_FAULTS_V1",
+  "generator_version": 1,
+  "policy": "validate, dedupe by channel+seq, drop newest on queue overflow",
+  "source": "SYNTHETIC_ONLY"
+}

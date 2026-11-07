@@ -1,0 +1,58 @@
+{
+  "id": "helix_bio_02",
+  "kind": "function",
+  "zone": "helix_bio",
+  "sequence": 2,
+  "title": "Set the Sample Clock",
+  "story": "The toy waveform must scroll against an exact millisecond clock.",
+  "lesson": "A sample rate in Hz counts samples per second. Milliseconds per sample are 1000 / rate. Avoid repeated addition drift by multiplying the index.",
+  "objective": "Return n timestamps i*1000/rate_hz, starting at 0. Return [] when n<=0 or rate_hz<=0.",
+  "sample": "3 samples at 250 Hz -> [0,4,8]",
+  "function_name": "timestamps",
+  "starter_code": "def timestamps(n, rate_hz):\n    pass\n",
+  "hint": "Validate the rate before dividing. Compute each sample time from its index.",
+  "cases": [
+    {
+      "args": [
+        5,
+        250
+      ],
+      "expected": [
+        0,
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "args": [
+        0,
+        100
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        3,
+        0
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        4,
+        200
+      ],
+      "expected": [
+        0,
+        5,
+        10,
+        15
+      ]
+    }
+  ],
+  "world_effect": "relay_helix_bio_02",
+  "simulation": "expedition",
+  "output": "model"
+}

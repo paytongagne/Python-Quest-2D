@@ -1,0 +1,68 @@
+{
+  "id": "hydro_12",
+  "zone": "hydro",
+  "sequence": 12,
+  "kind": "function",
+  "title": "Latch the valve bank",
+  "story": "A valve chatters when temperature hovers near its threshold. Install a controller with memory.",
+  "lesson": "Hysteresis uses two thresholds. Readings between them preserve the previous state.",
+  "objective": "Starting closed, open at >=70, close at <=50. Return a list of booleans, one per reading.",
+  "sample": "[70,60,50] -> [True,True,False]",
+  "function_name": "valve_trace",
+  "starter_code": "def valve_trace(temps):\n    pass\n",
+  "hint": "Keep an opened variable between iterations; append it after handling both thresholds.",
+  "world_effect": "relay_hydro_12",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        [
+          40,
+          70,
+          60,
+          50,
+          65
+        ]
+      ],
+      "expected": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          60,
+          71,
+          69
+        ]
+      ],
+      "expected": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "args": [
+        [
+          70,
+          50
+        ]
+      ],
+      "expected": [
+        true,
+        false
+      ]
+    }
+  ]
+}

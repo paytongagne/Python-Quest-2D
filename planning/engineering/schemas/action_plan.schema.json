@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/action_plan.schema.json",
+  "title": "action_plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "snapshot_id",
+    "actions"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "program_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+    },
+    "actions": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/move"
+          },
+          {
+            "$ref": "#/$defs/scan"
+          },
+          {
+            "$ref": "#/$defs/interact"
+          },
+          {
+            "$ref": "#/$defs/wait"
+          },
+          {
+            "$ref": "#/$defs/report"
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "move": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "direction"
+      ],
+      "properties": {
+        "type": {
+          "const": "move"
+        },
+        "direction": {
+          "enum": [
+            "north",
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      }
+    },
+    "scan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "direction"
+      ],
+      "properties": {
+        "type": {
+          "const": "scan"
+        },
+        "direction": {
+          "enum": [
+            "north",
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      }
+    },
+    "interact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "target"
+      ],
+      "properties": {
+        "type": {
+          "const": "interact"
+        },
+        "target": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+        }
+      }
+    },
+    "wait": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "ticks"
+      ],
+      "properties": {
+        "type": {
+          "const": "wait"
+        },
+        "ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        }
+      }
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "label"
+      ],
+      "properties": {
+        "type": {
+          "const": "report"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        }
+      }
+    }
+  }
+}

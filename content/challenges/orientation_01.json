@@ -1,0 +1,16 @@
+{
+  "kind": "script",
+  "zone": "orientation",
+  "sequence": 1,
+  "difficulty": "intro",
+  "id": "orientation_01",
+  "title": "Wake the Console",
+  "story": "The control console is dark. Display the boot signal on its screen.",
+  "lesson": "print() displays text in the console. A string is text surrounded by quotes.",
+  "objective": "Print exactly: System online",
+  "sample": "System online",
+  "starter_code": "# Print the boot message below.\n",
+  "hint": "Call print with the exact message inside quotes.",
+  "expected_stdout": "System online\n",
+  "world_effect": "gate_orientation_01"
+}

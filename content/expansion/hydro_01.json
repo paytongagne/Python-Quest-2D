@@ -1,0 +1,63 @@
+{
+  "id": "hydro_01",
+  "kind": "function",
+  "zone": "hydro",
+  "sequence": 1,
+  "title": "Dispatch the courier",
+  "story": "MARA's courier, Mica, carries a fuse. Its rail runs east to the first airlock.",
+  "objective": "Return RIGHT once per column between start and goal. Coordinates are [x, y].",
+  "lesson": "A route is a list of step names. Multiplying a list repeats its elements. A zero-length trip needs an empty list.",
+  "sample": "['RIGHT'] * 2",
+  "function_name": "plan_route",
+  "starter_code": "def plan_route(grid, start, goal):\n    pass\n",
+  "hint": "Subtract start[0] from goal[0] to get the number of moves.",
+  "cases": [
+    {
+      "args": [
+        [
+          "....."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          "..."
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          ".."
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "world_effect": "relay_hydro_01",
+  "simulation": "route"
+}

@@ -1,0 +1,66 @@
+{
+  "id": "sensor_01",
+  "kind": "function",
+  "zone": "sensor",
+  "sequence": 1,
+  "title": "Find the Hot Sensors",
+  "story": "Some sensor readings are above the alarm threshold. Collect the ones that need attention.",
+  "lesson": "Create an empty list [], check each element in a loop, and use .append(value) to add matching items.",
+  "objective": "Return a list of readings STRICTLY greater than limit, in their original order.",
+  "sample": "hot_readings([18, 39, 40, 21], 35)  ->  [39, 40]",
+  "starter_code": "def hot_readings(readings, limit):\n    result = []\n    # Add hot values to result.\n    pass\n",
+  "hint": "Use 'for value in readings:' and an if statement containing '>'. Add matches with 'result.append(value)'.",
+  "function_name": "hot_readings",
+  "cases": [
+    {
+      "args": [
+        [
+          18,
+          39,
+          40,
+          21
+        ],
+        35
+      ],
+      "expected": [
+        39,
+        40
+      ]
+    },
+    {
+      "args": [
+        [
+          35,
+          36
+        ],
+        35
+      ],
+      "expected": [
+        36
+      ]
+    },
+    {
+      "args": [
+        [],
+        100
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          -1,
+          0,
+          1
+        ],
+        0
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 8,
+  "world_effect": "gate_sensor_01"
+}

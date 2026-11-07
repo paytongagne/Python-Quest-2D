@@ -1,0 +1,67 @@
+{
+  "id": "workshop_05",
+  "zone": "workshop",
+  "sequence": 5,
+  "kind": "object",
+  "contract": "family",
+  "title": "Build a Rover Family",
+  "story": "ION: The second assembly wing needs production-grade Python. Restore the machine, then inspect its diagnostics with O.",
+  "objective": "Define Rover(name), storing self.name. SurveyRover and CargoRover must inherit Rover. Each implements report() returning {\"name\": self.name, \"role\": \"survey\"} or role \"cargo\". Instances must keep independent names.",
+  "lesson": "Inheritance shares construction; polymorphism gives different implementations of the same report() method.",
+  "sample": "SurveyRover(\"Mica\").report() -> {\"name\": \"Mica\", \"role\": \"survey\"}",
+  "starter_code": "class Rover:\n    def __init__(self, name):\n        self.name = name\n\nclass SurveyRover(Rover):\n    def report(self):\n        pass\n\nclass CargoRover(Rover):\n    def report(self):\n        pass\n",
+  "hint": "Inheritance shares construction; polymorphism gives different implementations of the same report() method.",
+  "cases": [
+    {
+      "names": [
+        "Mica",
+        "Atlas"
+      ],
+      "expected": [
+        {
+          "name": "Mica",
+          "role": "survey"
+        },
+        {
+          "name": "Atlas",
+          "role": "cargo"
+        }
+      ]
+    },
+    {
+      "names": [
+        "Echo",
+        "Echo"
+      ],
+      "expected": [
+        {
+          "name": "Echo",
+          "role": "survey"
+        },
+        {
+          "name": "Echo",
+          "role": "cargo"
+        }
+      ]
+    },
+    {
+      "names": [
+        "",
+        "Long name"
+      ],
+      "expected": [
+        {
+          "name": "",
+          "role": "survey"
+        },
+        {
+          "name": "Long name",
+          "role": "cargo"
+        }
+      ]
+    }
+  ],
+  "simulation": "expedition",
+  "output": "model",
+  "world_effect": "workshop_machine_5"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "workshop_09",
+  "zone": "workshop",
+  "sequence": 9,
+  "kind": "script",
+  "title": "Repair the Assembly Queue",
+  "story": "The conveyor needs a scheduling plan.",
+  "lesson": "Use a deque.",
+  "objective": "Return FIFO processed job IDs.",
+  "sample": "[A,B] -> [A,B]",
+  "starter_code": "def process_jobs(jobs, capacity):\n    pass\n",
+  "hint": "Use collections.deque.",
+  "function_name": "process_jobs",
+  "cases": [
+    {
+      "args": [
+        [
+          "A",
+          "B"
+        ],
+        1
+      ],
+      "expected": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "world_effect": "workshop_machine_9",
+  "pq_extension": {
+    "extension_schema": 1,
+    "program_contract": "workshop.queue.v1",
+    "device_id": "assembly_line"
+  }
+}

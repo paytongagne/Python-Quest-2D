@@ -1,0 +1,19 @@
+{
+  "kind": "script",
+  "zone": "orientation",
+  "sequence": 2,
+  "difficulty": "intro",
+  "id": "orientation_02",
+  "title": "Load the Battery",
+  "story": "A replacement cell is ready. Store its charge in a variable and display it.",
+  "lesson": "A variable stores a value: charge = 25. A number without quotes is an integer.",
+  "objective": "Set the variable charge to 25, then print charge.",
+  "sample": "25",
+  "starter_code": "# Store the battery charge, then print it.\n",
+  "hint": "First write charge = 25, then pass charge to print().",
+  "expected_stdout": "25\n",
+  "expected_variables": {
+    "charge": 25
+  },
+  "world_effect": "gate_orientation_02"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "hydro_05",
+  "zone": "hydro",
+  "sequence": 5,
+  "kind": "function",
+  "title": "Clean the intake tags",
+  "story": "Water shipments arrived with mismatched labels. Standardize the labels on the intake reader.",
+  "lesson": "strip removes surrounding whitespace. upper changes letter case. Skip empty labels after cleaning.",
+  "objective": "Return nonempty tags in uppercase, preserving order and duplicates.",
+  "sample": "['  lo ', '', 'Hi'] -> ['LO', 'HI']",
+  "function_name": "clean_tags",
+  "starter_code": "def clean_tags(tags):\n    pass\n",
+  "hint": "Try a loop. Store tag.strip().upper() before checking whether to append it.",
+  "world_effect": "relay_hydro_05",
+  "simulation": "instrument",
+  "cases": [
+    {
+      "args": [
+        [
+          " ph ",
+          " saline",
+          "  ",
+          "ph"
+        ]
+      ],
+      "expected": [
+        "PH",
+        "SALINE",
+        "PH"
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          " ",
+          "\t",
+          " A b "
+        ]
+      ],
+      "expected": [
+        "A B"
+      ]
+    }
+  ]
+}

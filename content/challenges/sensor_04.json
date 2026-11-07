@@ -1,0 +1,57 @@
+{
+  "id": "sensor_04",
+  "kind": "function",
+  "zone": "sensor",
+  "sequence": 4,
+  "title": "Locate the Target",
+  "story": "The radar returns a list of objects. Find the first position of your target.",
+  "lesson": "enumerate(values) yields pairs of (index, value). Indexes start at zero.",
+  "objective": "Return the index of the FIRST target occurrence, or -1 if not found.",
+  "sample": "first_match([9, 4, 9], 9)  ->  0",
+  "starter_code": "def first_match(values, target):\n    pass\n",
+  "hint": "Use 'for i, value in enumerate(values):' and compare value with target. After the loop, return -1.",
+  "function_name": "first_match",
+  "cases": [
+    {
+      "args": [
+        [
+          9,
+          4,
+          9
+        ],
+        9
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        [
+          7,
+          8
+        ],
+        8
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          1,
+          2
+        ],
+        5
+      ],
+      "expected": -1
+    },
+    {
+      "args": [
+        [],
+        3
+      ],
+      "expected": -1
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 11,
+  "world_effect": "gate_sensor_04"
+}

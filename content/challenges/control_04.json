@@ -1,0 +1,53 @@
+{
+  "id": "control_04",
+  "kind": "function",
+  "zone": "control",
+  "sequence": 4,
+  "title": "Count the Battery Drain",
+  "story": "Each subsystem consumes some energy. The ship needs the total to plan its next move.",
+  "lesson": "A for loop visits each value in a list. An accumulator variable can store a running total.",
+  "objective": "Return the sum of all numbers in readings. Practice using a for loop.",
+  "sample": "total_drain([3, 5, 2])  ->  10",
+  "starter_code": "def total_drain(readings):\n    total = 0\n    # Loop through the readings here.\n    pass\n",
+  "hint": "Write 'for value in readings:' and add each value to total with 'total += value'. Return total after the loop.",
+  "function_name": "total_drain",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          5,
+          2
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        [
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          2,
+          -2,
+          7
+        ]
+      ],
+      "expected": 7
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 7,
+  "world_effect": "gate_control_04"
+}

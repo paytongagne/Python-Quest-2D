@@ -1,0 +1,33 @@
+{
+  "kind": "script",
+  "zone": "orientation",
+  "sequence": 4,
+  "difficulty": "intro",
+  "id": "orientation_04",
+  "title": "Open the Starter Gate",
+  "story": "The door controller uses a conditional to decide whether there is enough fuel.",
+  "lesson": "if runs a block only when its condition is true. >= means greater than or equal to.",
+  "objective": "With fuel = 12, use an if/else statement to print READY when fuel >= 10, otherwise WAIT.",
+  "sample": "READY",
+  "starter_code": "fuel = 12\n# Use if/else to print READY or WAIT.\n",
+  "hint": "Use if fuel >= 10: and an else: block; indent each print call.",
+  "expected_stdout": "READY\n",
+  "expected_variables": {
+    "fuel": 12
+  },
+  "world_effect": "gate_orientation_04",
+  "variants": [
+    {
+      "override": {
+        "fuel": 4
+      },
+      "expected_stdout": "WAIT\n"
+    },
+    {
+      "override": {
+        "fuel": 10
+      },
+      "expected_stdout": "READY\n"
+    }
+  ]
+}

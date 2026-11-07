@@ -1,0 +1,47 @@
+{
+  "id": "algorithm_02",
+  "kind": "function",
+  "zone": "algorithm",
+  "sequence": 2,
+  "title": "Check the Anagram Code",
+  "story": "The encryption system has two strings. They match if they contain exactly the same letters, in any order.",
+  "lesson": "sorted(text) creates an alphabetically ordered list of its characters. Equal sorted character lists mean anagrams.",
+  "objective": "Return True when s and t contain the same characters with the same counts. Case matters.",
+  "sample": "is_anagram('listen', 'silent')  ->  True",
+  "starter_code": "def is_anagram(s, t):\n    pass\n",
+  "hint": "Compare the sorted characters of s against the sorted characters of t.",
+  "function_name": "is_anagram",
+  "cases": [
+    {
+      "args": [
+        "listen",
+        "silent"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "rat",
+        "car"
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        "aab",
+        "aba"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "Ab",
+        "ba"
+      ],
+      "expected": false
+    }
+  ],
+  "difficulty": "intermediate",
+  "legacy_index": 17,
+  "world_effect": "gate_algorithm_02"
+}

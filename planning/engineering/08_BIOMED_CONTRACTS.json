@@ -1,0 +1,72 @@
+{
+  "$purpose": "Design-only fictional biomedical engineering contracts; not live game content",
+  "contract_version": "toy-biomed-v1",
+  "source": "SYNTHETIC_ONLY",
+  "clinical_use": false,
+  "patient_data": false,
+  "input_limits": {
+    "max_frames_per_worker_case": 2048,
+    "max_channels": 8,
+    "max_vertices": 512,
+    "max_faces": 1024,
+    "max_observations": 2048,
+    "max_plan_commands": 256,
+    "max_queue_capacity": 256,
+    "output_finite_only": true,
+    "max_text_bytes": 65536
+  },
+  "signal_frame": {
+    "required": ["schema", "source", "channel", "seq", "time_ms", "value", "unit", "quality"],
+    "schema": "toy-biomed-v1", "source": "SYNTHETIC_ONLY",
+    "allowed_channels": ["SYN_A", "SYN_B", "SYN_C"],
+    "unit": "toy_u",
+    "qualities": ["OK", "ARTIFACT", "MISSING"],
+    "missing_policy": "MISSING requires null value; OK and ARTIFACT require finite numeric value",
+    "numeric_type_policy": "reject bool, NaN, Infinity, negative timestamp, and negative seq",
+    "ordering": ["time_ms", "seq", "original_index"]
+  },
+  "mapping_observation": {
+    "required": ["id", "source", "position", "frame", "voltage", "time_ms", "contact", "confidence", "channel"],
+    "frame": "TOY_CHAMBER_V1", "position_dimensions": 3,
+    "confidence_range_inclusive": [0.0, 1.0],
+    "default_min_confidence": 0.8,
+    "scalar_units": "toy_u",
+    "ordering_nearest": ["distance_sq", "id"],
+    "no_clinical_reconstruction": true
+  },
+  "mesh": {
+    "faces_per_triangle": 3,
+    "indices": "zero-based distinct nonnegative integers, less than vertex_count",
+    "reject_degenerate_triangles": true,
+    "missing_surface_scalar": null,
+    "renderer_not_worker": true
+  },
+  "numeric_policy": {
+    "default_absolute_tolerance": 1e-08,
+    "idw_power_default": 2,
+    "idw_power_allowed_inclusive": [1, 4],
+    "exact_sample_distance_threshold": 1e-09,
+    "display_round_only": true,
+    "time_formula": "time_ms = sample_index * (1000 / sample_rate_hz)"
+  },
+  "worker_boundary": {
+    "learner_code_in_pygame_thread": false,
+    "transport": "bounded JSON-safe records",
+    "parent_revalidates_result": true,
+    "timeout_and_output_caps": true,
+    "not_a_secure_sandbox": true
+  },
+  "ui": {
+    "view_modes": ["raw", "processed", "synthetic_activation", "toy_voltage", "coverage"],
+    "state_labels_required": true,
+    "synthetic_educational_banner": true,
+    "keyboard_only": true,
+    "reduced_motion": true,
+    "missing_data_is_not_zero": true,
+    "replay_uses_saved_verified_trace": true
+  },
+  "intentional_blueprint_corrections": {
+    "aurora_ep_10": "mesh_neighbors(faces,vertex_count)->dict[int,list[int]]",
+    "aurora_ep_11": "color_vertices(vertices,samples,radius)->list[float|null]"
+  }
+}

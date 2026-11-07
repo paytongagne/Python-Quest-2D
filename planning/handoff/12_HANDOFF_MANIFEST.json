@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "stage": "12",
+  "status": "DESIGN_COMPLETE_ONCE_TESTS_PASS",
+  "baseline_source": "Python-Quest-2D-v1.4-Windows-x64.zip",
+  "stage11_catalog": "backlog/11_IMPLEMENTATION_TICKETS.json",
+  "stage10_tests": "qa/10_ACCEPTANCE_CATALOG.csv",
+  "stage10_gates": "release/10_RELEASE_GATES.json",
+  "stage09_schemas": "engineering/schemas/",
+  "models": "handoff/12_MODEL_ASSIGNMENTS.json",
+  "ticket_tool": "tools/work_ticket.py",
+  "ticket_count": 37,
+  "mission_batch_count": 19,
+  "remaining_missions": 76,
+  "runbook": "handoff/12_RUNBOOK.md",
+  "prompt_files": [
+    "prompts/12_BOUNDED_TICKET.md",
+    "prompts/12_INITIAL_WORK_SESSION.md",
+    "prompts/12_OVERNIGHT.md",
+    "prompts/12_RECOVERY.md",
+    "prompts/12_RELEASE.md"
+  ],
+  "native_windows_verified": false,
+  "game_source_modified": false
+}

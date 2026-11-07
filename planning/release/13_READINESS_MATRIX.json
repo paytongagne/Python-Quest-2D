@@ -1,0 +1,74 @@
+[
+  {
+    "check_id": "B01",
+    "check": "Baseline v1.4 contains 76 lessons and 12 maps",
+    "status": "GO",
+    "evidence": "Verified by loading challenges.py directly"
+  },
+  {
+    "check_id": "B02",
+    "check": "All 76 remaining mission IDs mapped into 19 four-mission tickets",
+    "status": "GO",
+    "evidence": "Stage11 catalog check; to be reconfirmed by Stage13 tests"
+  },
+  {
+    "check_id": "B03",
+    "check": "All 37 tickets selected under dependency DAG",
+    "status": "GO",
+    "evidence": "Stage12 selector starts at PQ11-001; no ticket implemented"
+  },
+  {
+    "check_id": "B04",
+    "check": "Worker result and parent validation architectural contract specified",
+    "status": "GO_DESIGN_ONLY",
+    "evidence": "Stage09 schema/reference only; runtime feature flag implementation pending"
+  },
+  {
+    "check_id": "B05",
+    "check": "Save v2/v3/v4/unknown future compatibility implementation",
+    "status": "CONDITIONAL",
+    "evidence": "Stage09 design complete; runtime future-version guard not yet shipped"
+  },
+  {
+    "check_id": "B06",
+    "check": "Native Windows build from post-expansion source",
+    "status": "NOT_RUN",
+    "evidence": "Must be executed in Work on actual Windows; ZIP static scan insufficient"
+  },
+  {
+    "check_id": "B07",
+    "check": "Graphics, navigation and accessibility actual visual review",
+    "status": "NOT_RUN",
+    "evidence": "Stage05 design; new screenshots/human review needed per release"
+  },
+  {
+    "check_id": "B08",
+    "check": "Performance target hardware metrics and stress soak",
+    "status": "NOT_RUN",
+    "evidence": "Stage10 targets only, no profiling measurements"
+  },
+  {
+    "check_id": "B09",
+    "check": "Human novice, accessibility and returning-player playtest",
+    "status": "NOT_RUN",
+    "evidence": "Stage10 human protocol; required for final public release"
+  },
+  {
+    "check_id": "B10",
+    "check": "Synthetic-only signal/mapping data contracts",
+    "status": "GO_DESIGN_ONLY",
+    "evidence": "Stage08 fixtures and design tests; runtime missions pending"
+  },
+  {
+    "check_id": "B11",
+    "check": "First Work ticket PQ11-001 dependencies and source anchors",
+    "status": "GO",
+    "evidence": "Selector verified; import of 76 lessons verified"
+  },
+  {
+    "check_id": "B12",
+    "check": "Packaged preproduction integrity and cross-stage tests",
+    "status": "GO",
+    "evidence": "All 81 planning/source-integration tests pass; final ZIP integrity verified separately"
+  }
+]

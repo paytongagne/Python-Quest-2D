@@ -1,0 +1,100 @@
+[
+  {
+    "decision_id": "D13-01",
+    "topic": "Baseline authority",
+    "resolution": "Shipped game source governs code and mission identities; Bible governs not-yet-implemented specifications",
+    "evidence": "76 actual LESSONS, 12 MAPS on v1.4",
+    "implementation_rule": "No planning-only content counts as shipped"
+  },
+  {
+    "decision_id": "D13-02",
+    "topic": "World ordering",
+    "resolution": "Stage04 is the canonical story route; Stage11 ticket DAG is the implementation order; they need not be identical",
+    "evidence": "Stage04 atlas vs Stage11 backlog phase order",
+    "implementation_rule": "Do not require player to follow ticket implementation chronology; maintain reachable travel"
+  },
+  {
+    "decision_id": "D13-03",
+    "topic": "Existing missions",
+    "resolution": "Preserve v1.4 76 mission IDs, grader modes, original XP rules and legacy completed flags",
+    "evidence": "progress.py award() 100/75/25; challenges.py dynamic content loader",
+    "implementation_rule": "Only 76 new runtime IDs can raise target to 152"
+  },
+  {
+    "decision_id": "D13-04",
+    "topic": "Worker security",
+    "resolution": "Keep learner Python outside rendering process, but do not represent subprocess isolation as hostile-code sandbox",
+    "evidence": "grade.py uses isolated subprocess but local user rights",
+    "implementation_rule": "Data-only result, bounds, parent validation; label residual risk"
+  },
+  {
+    "decision_id": "D13-05",
+    "topic": "Schema strategy",
+    "resolution": "Keep disk schema_version 4 for optional namespaces, reject future versions read-only; backup before destructive migrations",
+    "evidence": "Stage09 save_v4 + progress.py current loader gap",
+    "implementation_rule": "Do not bump schema to add optional Mica program library"
+  },
+  {
+    "decision_id": "D13-06",
+    "topic": "Blueprint vs loader",
+    "resolution": "Mission blueprints, CSV and contracts are design inputs, not drop-in runtime content",
+    "evidence": "Stage07 field design includes optional metadata; current loader expects valid JSON and grader types",
+    "implementation_rule": "Author runtime JSON adaptively with tests before counting"
+  },
+  {
+    "decision_id": "D13-07",
+    "topic": "Biomedical mesh semantics",
+    "resolution": "Aurora 10 must accept explicit vertex_count; Aurora 11 must distinguish missing null from measured zero",
+    "evidence": "Stage08 clarified contracts and fixtures",
+    "implementation_rule": "Use exact signature from biomed catalog; no interpolation outside defined support"
+  },
+  {
+    "decision_id": "D13-08",
+    "topic": "UI scope",
+    "resolution": "Native game uses Pygame; Qt/QML are optional engineering concepts, not runtime dependency",
+    "evidence": "Stage05 visuals + Stage08 architecture",
+    "implementation_rule": "No UI framework migration during game expansion"
+  },
+  {
+    "decision_id": "D13-09",
+    "topic": "Artifact status",
+    "resolution": "Stage10 86 cases and Stage08 96 cases are planned acceptance, not passed game tests",
+    "evidence": "Stage10 QA catalog; Stage08 CSV",
+    "implementation_rule": "Release requires actual run logs, dates, environment and screenshots"
+  },
+  {
+    "decision_id": "D13-10",
+    "topic": "Work source selection",
+    "resolution": "If Work has verified newer source than v1.4, inventory and reconcile instead of overwriting with the archive",
+    "evidence": "Stage12 startup instructions",
+    "implementation_rule": "Snapshot source and compare mission IDs before PQ11-001"
+  },
+  {
+    "decision_id": "D13-11",
+    "topic": "Scoping",
+    "resolution": "A meaningful programmable encounter with replay comes before bulk new mission generation",
+    "evidence": "Stage03 and Stage11 phase gates",
+    "implementation_rule": "Only transition to 4-mission batches after feature gates"
+  },
+  {
+    "decision_id": "D13-12",
+    "topic": "Gates",
+    "resolution": "Actual Stage10 G0–G6 IDs govern packaging; P0 save failures block release regardless of mission count",
+    "evidence": "release/10_RELEASE_GATES.json",
+    "implementation_rule": "When host unavailable mark BLOCKED / NOT RUN, never PASS"
+  },
+  {
+    "decision_id": "D13-13",
+    "topic": "Master index accuracy",
+    "resolution": "Do not erase historical contradictory notes; add superseding final authority section, fix stale README heading",
+    "evidence": "Old index contains legacy Stage09 warning even though Stage09 complete",
+    "implementation_rule": "Use latest Stage13 conclusions over historical stage-running commentary"
+  },
+  {
+    "decision_id": "D13-14",
+    "topic": "Source paths",
+    "resolution": "Source anchors in backlog relative to project root with src/ layout; copied Bible stays read-only design package",
+    "evidence": "Stage11 source ownership and v1.4 zip",
+    "implementation_rule": "Apply patches only in separate editable game checkout"
+  }
+]

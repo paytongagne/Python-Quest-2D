@@ -1,0 +1,70 @@
+{
+  "id": "orion_moon_11",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 11,
+  "title": "Reroute After a Landslide",
+  "story": "A boulder now blocks yesterday's corridor. The displayed map includes the new obstruction.",
+  "lesson": "Route planning must use the current obstacle map. An earlier valid path may now hit a wall.",
+  "objective": "Return a shortest path on the updated grid, including endpoints. '#' includes newly fallen rocks. All goals are reachable.",
+  "sample": "A blocked top aisle may require a lower detour.",
+  "function_name": "reroute",
+  "starter_code": "def reroute(grid, start, goal):\n    pass\n",
+  "hint": "Run a fresh BFS on the supplied grid. Avoid caching a path across changed maps.",
+  "cases": [
+    {
+      "args": [
+        [
+          ".#...",
+          "...#.",
+          "....."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "cost": 6
+    },
+    {
+      "args": [
+        [
+          "..#",
+          "..."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "cost": 3
+    },
+    {
+      "args": [
+        [
+          "."
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "cost": 0
+    }
+  ],
+  "world_effect": "relay_orion_moon_11",
+  "simulation": "expedition",
+  "output": "path"
+}

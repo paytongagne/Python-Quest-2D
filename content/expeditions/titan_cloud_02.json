@@ -1,0 +1,66 @@
+{
+  "id": "titan_cloud_02",
+  "kind": "function",
+  "zone": "titan_cloud",
+  "sequence": 2,
+  "title": "Reject Broken Telemetry",
+  "story": "Bad capsules must be quarantined before the exchange accepts them.",
+  "lesson": "Validate types before values. bool is an int subclass, so use type(value) is int when the contract excludes booleans.",
+  "objective": "Return sorted error names for missing or invalid fields: 'id' must be a nonempty str; 'seq' an int >=0 excluding bool; 'value' int/float excluding bool. Ignore extras.",
+  "sample": "{'id':'x','seq':True,'value':2} -> ['seq']",
+  "function_name": "validate_frame",
+  "starter_code": "def validate_frame(frame):\n    pass\n",
+  "hint": "Use type() checks and combine missing and invalid cases into one error per field.",
+  "cases": [
+    {
+      "args": [
+        {
+          "id": "A",
+          "seq": 0,
+          "value": 2
+        }
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        {}
+      ],
+      "expected": [
+        "id",
+        "seq",
+        "value"
+      ]
+    },
+    {
+      "args": [
+        {
+          "id": "",
+          "seq": true,
+          "value": false
+        }
+      ],
+      "expected": [
+        "id",
+        "seq",
+        "value"
+      ]
+    },
+    {
+      "args": [
+        {
+          "id": "A",
+          "seq": -1,
+          "value": 3.5,
+          "extra": 0
+        }
+      ],
+      "expected": [
+        "seq"
+      ]
+    }
+  ],
+  "world_effect": "relay_titan_cloud_02",
+  "simulation": "expedition",
+  "output": "model"
+}

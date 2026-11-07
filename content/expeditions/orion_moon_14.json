@@ -1,0 +1,72 @@
+{
+  "id": "orion_moon_14",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 14,
+  "title": "Restore Relay Dependencies",
+  "story": "Convoy phase one. Power, radio and launch services must start in dependency order.",
+  "lesson": "Topological sorting repeatedly chooses a node with no remaining prerequisites. A cycle leaves no eligible node.",
+  "objective": "Input maps each service to its prerequisite list. Return lexicographically smallest available service at each step, or [] if cyclic. All prerequisites are named services.",
+  "sample": "{'radio':['power'],'power':[]} -> ['power','radio']",
+  "function_name": "repair_order",
+  "starter_code": "def repair_order(dependencies):\n    pass\n",
+  "hint": "Keep a completed set. Sort the services whose prerequisites are all completed.",
+  "cases": [
+    {
+      "args": [
+        {
+          "radio": [
+            "power"
+          ],
+          "power": [],
+          "launch": [
+            "radio"
+          ],
+          "scan": [
+            "power"
+          ]
+        }
+      ],
+      "expected": [
+        "power",
+        "radio",
+        "launch",
+        "scan"
+      ]
+    },
+    {
+      "args": [
+        {
+          "A": [
+            "B"
+          ],
+          "B": [
+            "A"
+          ]
+        }
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        {}
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        {
+          "Z": [],
+          "A": []
+        }
+      ],
+      "expected": [
+        "A",
+        "Z"
+      ]
+    }
+  ],
+  "world_effect": "relay_orion_moon_14",
+  "simulation": "expedition",
+  "output": "model"
+}

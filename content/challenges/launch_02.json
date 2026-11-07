@@ -1,0 +1,43 @@
+{
+  "id": "launch_02",
+  "kind": "function",
+  "zone": "launch",
+  "sequence": 2,
+  "title": "Pilot Identification",
+  "story": "The onboard computer needs a personalized welcome for each new pilot.",
+  "lesson": "An f-string inserts variables into text with curly braces: f'Hello, {name}'. The 'f' matters.",
+  "objective": "Make greet_pilot(name) return exactly 'Welcome aboard, NAME!' with NAME replaced by the input.",
+  "sample": "greet_pilot('Alex')  ->  'Welcome aboard, Alex!'",
+  "starter_code": "def greet_pilot(name):\n    # Use an f-string.\n    pass\n",
+  "hint": "Start your return value with f before the quote, then put {name} inside the message.",
+  "function_name": "greet_pilot",
+  "cases": [
+    {
+      "args": [
+        "Alex"
+      ],
+      "expected": "Welcome aboard, Alex!"
+    },
+    {
+      "args": [
+        "Sam"
+      ],
+      "expected": "Welcome aboard, Sam!"
+    },
+    {
+      "args": [
+        ""
+      ],
+      "expected": "Welcome aboard, !"
+    },
+    {
+      "args": [
+        "Dr. Lee"
+      ],
+      "expected": "Welcome aboard, Dr. Lee!"
+    }
+  ],
+  "difficulty": "beginner",
+  "legacy_index": 1,
+  "world_effect": "gate_launch_02"
+}

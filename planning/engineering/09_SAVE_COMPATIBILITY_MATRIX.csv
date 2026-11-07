@@ -1,0 +1,11 @@
+input_state,proposed_state,source,backup,behavior,protected_data,test_gate
+v2,v3 then v4,progress.py load(),backup .pre-greenline.json and .pre-expedition.json,migration unchanged,keep all legacy known/unknown fields,verify first-start restored old profiles
+v3,v4,progress.py load(),backup .pre-expedition.json,migration unchanged,keep all legacy known/unknown fields,verify rover replay and XP
+v4,v4 plus additive keys,stage09 design,no migration needed for optional namespaced fields,"program_library/runtime_v1 absent -> default view only, not automatic overwrite","preserve programs, deployments, checkpoints, visited worlds",old v4 profile test + unknown field round-trip
+future v5,explicit v4->v5 only when needed,implementation deferred,backup .pre-architecture.json before write,never assume existing loader handles version safely,reject >supported schema for writes; preserve original bytes,forced corrupt/unsupported case must not replace original
+damaged JSON,quarantine + safe new profile,current progress.py load(),timestamp damaged backup,current behavior returns fresh,never award XP to corrupted body,copy of bad JSON preserved
+unknown keys,preserve,current progress.py save(),same serialized keys on roundtrip,merge defaults only; never rebuild profile with fresh(),retain extensions unrelated to architecture,sentinel nested unknown key survives
+idempotent XP,no re-award,current progress.py award(),none,check completed first,never rewrite completed IDs or unique world_effect,award same mission twice -> second returns 0
+mid-deployment,last safe point,planned runtime_v1,atomic commit on safe milestone only,"recover as paused, revalidate before resume",legacy expedition_job/deployment unchanged,quit after each step + resume no duplicate effects
+source revision changed,invalidate verification,planned program_library,original draft retained,source sha256 and fixture version mismatch -> unverified,do not edit previous equipped revision in place,edited code cannot use prior verification
+unreachable legacy checkpoint,safe nearest accessible spawn,planned travel adapter,preserve old checkpoint values,feature-gated recovery only on entering world,never teleport on load silently without diagnostics,loading player trapped in new prop can move out

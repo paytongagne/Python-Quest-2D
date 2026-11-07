@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "initial": [
+    "docs/PROJECT_STATE.md",
+    "handoff/12_REPOSITORY_CONTEXT.md",
+    "handoff/12_TASK_STATE.json",
+    "backlog/11_IMPLEMENTATION_TICKETS.json (selected entry only)",
+    "release/10_RELEASE_GATES.json (applicable gates only)"
+  ],
+  "per_ticket": [
+    "source_anchors in chosen ticket",
+    "callers or interfaces directly required",
+    "Stage09 schema and example if boundary change",
+    "Stage10 QA cases listed for chosen ticket",
+    "existing tests near source anchors"
+  ],
+  "do_not": [
+    "dump whole game/app.py when a symbol range suffices",
+    "read entire Bible on every prompt",
+    "regenerate source from old ZIP if newer source exists"
+  ]
+}

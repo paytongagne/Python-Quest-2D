@@ -1,0 +1,67 @@
+{
+  "id": "orion_moon_12",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 12,
+  "title": "Keep Heuristics Honest",
+  "story": "ION found a heuristic that promises a short route through a solid crater.",
+  "lesson": "An admissible heuristic never exceeds the true remaining cost and never goes negative. Supplied distances are trusted fixtures.",
+  "objective": "Return sorted node IDs whose heuristic is negative, greater than its true distance, or missing. Ignore heuristic entries outside distances.",
+  "sample": "h={'A':4}, distances={'A':3,'B':0} -> ['A','B']",
+  "function_name": "bad_heuristics",
+  "starter_code": "def bad_heuristics(heuristic, distances):\n    pass\n",
+  "hint": "Iterate the distance dictionary and test each estimate against [0, distance].",
+  "cases": [
+    {
+      "args": [
+        {
+          "A": 4
+        },
+        {
+          "A": 3,
+          "B": 0
+        }
+      ],
+      "expected": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "args": [
+        {
+          "A": 0,
+          "B": 2
+        },
+        {
+          "A": 0,
+          "B": 3
+        }
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        {
+          "A": -1
+        },
+        {
+          "A": 4
+        }
+      ],
+      "expected": [
+        "A"
+      ]
+    },
+    {
+      "args": [
+        {},
+        {}
+      ],
+      "expected": []
+    }
+  ],
+  "world_effect": "relay_orion_moon_12",
+  "simulation": "expedition",
+  "output": "model"
+}

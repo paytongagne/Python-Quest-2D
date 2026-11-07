@@ -1,0 +1,111 @@
+{
+  "id": "orion_moon_10",
+  "kind": "function",
+  "zone": "orion_moon",
+  "sequence": 10,
+  "title": "Prevent Rover Collision",
+  "story": "Two rovers share a single service lane. Check their schedules before launch.",
+  "lesson": "A conflict is a shared cell at a tick or an edge swap between ticks. After its final step, a rover stays at its last cell.",
+  "objective": "Return the first conflict tick, or -1. Both paths are nonempty. Include tick 0. Compare through the longer path.",
+  "sample": "[[0,0],[1,0]] and [[1,0],[0,0]] -> 1 (swap)",
+  "function_name": "conflict_tick",
+  "starter_code": "def conflict_tick(a, b):\n    pass\n",
+  "hint": "Extend each path by holding its final cell. Check equal positions and swapped previous positions.",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": -1
+    }
+  ],
+  "world_effect": "relay_orion_moon_10",
+  "simulation": "expedition",
+  "output": "model"
+}

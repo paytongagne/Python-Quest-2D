@@ -1,0 +1,8 @@
+{
+  "protocol_version": 1,
+  "request_id": "travel-01",
+  "from_zone": "orientation",
+  "to_zone": "orion_moon",
+  "source": "starmap",
+  "preview": false
+}

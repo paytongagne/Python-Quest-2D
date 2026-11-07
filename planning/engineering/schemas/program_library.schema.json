@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pythonquest.local/contracts/v1/program_library.schema.json",
+  "title": "program_library",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "slots",
+    "revisions",
+    "traces"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "slots": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+      },
+      "maxProperties": 16
+    },
+    "revisions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "name",
+          "source",
+          "contract",
+          "verified",
+          "created_at"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 65536
+          },
+          "contract": {
+            "const": "mica.plan.v1"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "hash": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "verified_worlds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_.-]{0,63}$"
+            },
+            "maxItems": 32
+          },
+          "fixture_version": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "last_verified_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 32
+          }
+        }
+      },
+      "maxProperties": 128
+    },
+    "traces": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "maxProperties": 32
+      }
+    }
+  }
+}

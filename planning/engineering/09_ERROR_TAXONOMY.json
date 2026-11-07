@@ -1,0 +1,25 @@
+{
+  "stage":9,
+  "status":"DESIGN_ONLY",
+  "rules":{"errors_have_no_side_effects":true,"no_raw_os_tracebacks_in_ui":true,"first_invalid_step_reported":true},
+  "errors":[
+    {"code":"SYNTAX_ERROR","source":"worker","retry":"edit_code","world_mutation":false},
+    {"code":"RUNTIME_ERROR","source":"worker","retry":"edit_code","world_mutation":false},
+    {"code":"TEST_FAILED","source":"worker","retry":"inspect_test","world_mutation":false},
+    {"code":"TIMEOUT","source":"subprocess","retry":"optimize_program","world_mutation":false},
+    {"code":"WORKER_CRASH","source":"subprocess","retry":"retry_or_report","world_mutation":false},
+    {"code":"INVALID_INPUT","source":"schema_or_validator","retry":"correct_inputs","world_mutation":false},
+    {"code":"INVALID_OUTPUT","source":"result_adapter","retry":"correct_program_output","world_mutation":false},
+    {"code":"SCHEMA_MISMATCH","source":"boundary","retry":"retest_new_version","world_mutation":false},
+    {"code":"STALE_SNAPSHOT","source":"parent_validator","retry":"refresh_snapshot","world_mutation":false},
+    {"code":"INVALID_ACTION","source":"plan_validator","retry":"edit_action","world_mutation":false},
+    {"code":"COLLISION","source":"world","retry":"reroute","world_mutation":false},
+    {"code":"ENERGY_EXHAUSTED","source":"world","retry":"shorten_route","world_mutation":false},
+    {"code":"MISSING_CAPABILITY","source":"world","retry":"unlock_ability","world_mutation":false},
+    {"code":"DEVICE_NOT_ADJACENT","source":"world","retry":"move_closer","world_mutation":false},
+    {"code":"ROUTE_LOCKED","source":"travel","retry":"complete_prerequisite","world_mutation":false},
+    {"code":"DUPLICATE_EVENT","source":"event_reducer","retry":"none","world_mutation":false},
+    {"code":"UNSUPPORTED_SAVE","source":"profile","retry":"update_client","world_mutation":false},
+    {"code":"CORRUPT_PROFILE","source":"profile","retry":"restore_backup","world_mutation":false}
+  ]
+}

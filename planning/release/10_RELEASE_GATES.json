@@ -1,0 +1,105 @@
+{
+  "status": "PROPOSED_RELEASE_POLICY_NOT_EXECUTED",
+  "baseline": "v1.4 source archive 76 missions; release candidate must report its actual mission count",
+  "gates": [
+    {
+      "id": "G0",
+      "name": "source and reproducibility",
+      "hard": true,
+      "checks": [
+        "Record source archive SHA256",
+        "Clean checkout or unmodified extracted source",
+        "Dependency lock/version pygame-ce==2.5.8",
+        "No unreconciled changes to missions and save schema"
+      ]
+    },
+    {
+      "id": "G1",
+      "name": "contracts and tests",
+      "hard": true,
+      "checks": [
+        "All Stage 08-10 planning tests pass",
+        "All applicable existing game tests pass",
+        "All newly added adapter/action tests pass",
+        "No flaky test without ticket and quarantine note"
+      ]
+    },
+    {
+      "id": "G2",
+      "name": "progress compatibility",
+      "hard": true,
+      "checks": [
+        "Schema-2, schema-3, schema-4 disposable fixture load and backups",
+        "Unknown field roundtrip",
+        "Missing/future schema safe handling",
+        "XP replay idempotent"
+      ]
+    },
+    {
+      "id": "G3",
+      "name": "Windows native integration",
+      "hard": true,
+      "checks": [
+        "Extracted launcher starts on actual Windows x64",
+        "Offline clean launch with bundled runtime",
+        "Path with spaces",
+        "Mission save/restart smoke",
+        "Capture native screenshots at 3 resolutions"
+      ]
+    },
+    {
+      "id": "G4",
+      "name": "UX and performance",
+      "hard": true,
+      "checks": [
+        "No P0 overlap or stuck player/door",
+        "No infinite blank screen",
+        "Frame p95 budget on reference hardware or documented waiver approved before release",
+        "Reduced motion retains essential cues"
+      ]
+    },
+    {
+      "id": "G5",
+      "name": "human exploration",
+      "hard": false,
+      "checks": [
+        "Novice 20m session report",
+        "Return player resume test",
+        "Manual world discovery/Workshop checks",
+        "Report any untested claims explicitly"
+      ]
+    },
+    {
+      "id": "G6",
+      "name": "artifact integrity",
+      "hard": true,
+      "checks": [
+        "Source ZIP and Windows ZIP version/commit match",
+        "SHA256 manifests",
+        "File listing/security audit",
+        "Extract and launch from clean folder",
+        "Full test report includes exceptions and hardware"
+      ]
+    }
+  ],
+  "release_notes_required": [
+    "built_version",
+    "source_commit_or_digest",
+    "implemented_missions",
+    "passed_failed_skipped_tests",
+    "native_windows_verification",
+    "system_spec",
+    "known_issues",
+    "save_schema",
+    "checksums"
+  ],
+  "stop_ship": [
+    "live save modified by tests",
+    "data loss or unbacked save migration",
+    "XP double award",
+    "unhandled false pass from untrusted worker output",
+    "launcher not startable on clean Windows",
+    "player trapped by map regression",
+    "required medical content implied to be clinical"
+  ]
+}

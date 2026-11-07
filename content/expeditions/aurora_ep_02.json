@@ -1,0 +1,99 @@
+{
+  "id": "aurora_ep_02",
+  "kind": "function",
+  "zone": "aurora_ep",
+  "sequence": 2,
+  "title": "Smooth the Catheter Path",
+  "story": "Move the simulated catheter marker between two recorded positions.",
+  "lesson": "Linear interpolation is a + (b-a)*t for each coordinate. Clamp t when the simulation is outside its interval.",
+  "objective": "Return three interpolated coordinates between a and b. Clamp t to [0,1]. All geometry is fictional.",
+  "sample": "a=[0,0,0], b=[2,4,6], t=.5 -> [1,2,3]",
+  "function_name": "cursor_position",
+  "starter_code": "def cursor_position(a, b, t):\n    pass\n",
+  "hint": "Clamp the fraction, then zip the coordinates and interpolate each axis.",
+  "cases": [
+    {
+      "args": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          4,
+          6
+        ],
+        0.5
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        -1
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        0.3
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "world_effect": "relay_aurora_ep_02",
+  "simulation": "expedition",
+  "output": "model"
+}
